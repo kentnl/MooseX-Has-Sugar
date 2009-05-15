@@ -7,7 +7,6 @@ license  'perl';
 
 build_requires 'Test::More';
 
-auto_install;
 
 WriteAll;
 
