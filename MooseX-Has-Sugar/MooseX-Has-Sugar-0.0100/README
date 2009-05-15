@@ -1,0 +1,203 @@
+NAME
+    MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields.
+
+VERSION
+    Version 0.0100
+
+SYNOPSIS
+    Moose c<has> syntax is generally fine, but sometimes one gets bothered
+    with the constant typing of string quotes for things. MooseX::Types
+    exists and in many ways reduces the need for constant string creation.
+
+    Strings are a bit problematic though, due to whitespace etc, and you're
+    not likely to get compile time warnings if you do them wrong.
+
+    The constant need to type => and '' is fine for one-off cases, but the
+    instant you have more than about 4 attributes it starts to get annoying.
+
+    The only problem I see with the approach given by this module is the
+    potential of an extra level of indirection. But its a far lesser evil in
+    my mind than the alternative.
+
+  Before this Module.
+   Classical Moose
+        has foo => (
+                isa => 'Str',
+                is  => 'ro',
+                required => 1,
+        );
+
+        has bar => (
+                isa => 'Str',
+                is => 'rw'
+                lazy_build => 1,
+        );
+
+   Lazy Evil way to do it:
+    PLEASE DONT DO THIS
+
+        has qw( foo isa Str is ro required 1 );
+        has qw( bar isa Str is rw lazy_build 1 );
+
+  With this module
+    ( and with MooseX::Types )
+
+   Basic "is" Expansion
+        use MooseX::Types::Moose qw( Str );
+        use MooseX::Has::Sugar qw( :is );
+
+        has foo => (
+                isa => Str,
+                is  => ro,
+                required => 1,
+        );
+        has bar => (
+                isa => Str,
+                is => rw,
+                lazy_build => 1,
+        );
+
+   Attribute Expansions
+        use MooseX::Types::Moose qw( Str );
+        use MooseX::Has::Sugar qw( :is :attrs );
+
+        has foo => (
+                isa => Str,
+                is  => ro,
+                required,
+        );
+        has bar => (
+                isa => Str,
+                is => rw,
+                lazy_build,
+        );
+
+   Full Attribute Expansion
+        use MooseX::Types::Moose qw( Str );
+        use MooseX::Has::Sugar qw(  :allattrs );
+
+        has foo => (
+                isa => Str,
+                ro,
+                required,
+        );
+        has bar => (
+                isa => Str,
+                rw,
+                lazy_build,
+        );
+
+EXPORT
+    Most of these exports just return either 1 string, or 2 strings, and
+    should fold in at compile time. Make sure to see "EXPORT_GROUPS" for
+    more.
+
+    rw  What this will be depends on your export requirements.
+
+    ro  What this will be depends on your export requirements.
+
+    lazy
+    lazy_build
+    required
+
+EXPORT GROUPS
+    :default
+        This exports 'ro' and 'rw' as basic constant-folded subs. That is
+        all. Same as c<:is>
+
+    :is This exports 'ro' and 'rw' as basic constant folded subs.
+
+            has foo => (
+                    isa => 'Str',
+                    is => ro,
+                    required => 1,
+            );
+
+    :attrs
+        This exports "lazy" , "lazy_build" and "required" as subs that
+        assume positive.
+
+            has foo => (
+                    required,
+                    isa => 'Str',
+            );
+
+    :isattrs
+        This exports "ro" and "rw" differently, so they behave as
+        stand-alone attrs like 'lazy' does.
+
+            has foo => (
+                    required,
+                    isa => 'Str',
+                    ro,
+            );
+
+        NOTE: This option is incompatible with :is as they export the same
+        symbols in different ways
+
+    :allattrs
+        This is a shorthand for qw( :isattrs :attrs )
+
+FUNCTIONS
+    These you probably don't care about, they're all managed by
+    Sub::Exporter and its stuff anyway.
+
+    rw  returns 'rw'
+
+    attr_rw
+        returns "('is','rw')"
+
+    ro  returns 'ro'
+
+    attr_ro
+        returns "('is','ro')"
+
+    lazy
+        returns "('lazy',1)"
+
+    required
+        returns "('required',1)"
+
+    lazy_build
+        returns "('lazy_build',1)"
+
+AUTHOR
+    Kent Fredric, "<kentnl at cpan.org>"
+
+BUGS
+    Please report any bugs or feature requests to "bug-moosex-has-extras at
+    rt.cpan.org", or through the web interface at
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MooseX-Has-Sugar>. I
+    will be notified, and then you'll automatically be notified of progress
+    on your bug as I make changes.
+
+SUPPORT
+    You can find documentation for this module with the perldoc command.
+
+        perldoc MooseX::Has::Sugar
+
+    You can also look for information at:
+
+    *   RT: CPAN's request tracker
+
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=MooseX-Has-Sugar>
+
+    *   AnnoCPAN: Annotated CPAN documentation
+
+        <http://annocpan.org/dist/MooseX-Has-Sugar>
+
+    *   CPAN Ratings
+
+        <http://cpanratings.perl.org/d/MooseX-Has-Sugar>
+
+    *   Search CPAN
+
+        <http://search.cpan.org/dist/MooseX-Has-Sugar/>
+
+ACKNOWLEDGEMENTS
+COPYRIGHT & LICENSE
+    Copyright 2009 Kent Fredric, all rights reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
