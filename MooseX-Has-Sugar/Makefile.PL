@@ -6,7 +6,7 @@ author   'Kent Fredric <kentnl@cpan.org>';
 license  'perl';
 version  '0.0100';
 
-repository 'git://github.com/kentfredric/MooseX-Has-Sugar.git'
+repository 'git://github.com/kentfredric/MooseX-Has-Sugar.git';
 
 test_requires 'Test::More';
 
