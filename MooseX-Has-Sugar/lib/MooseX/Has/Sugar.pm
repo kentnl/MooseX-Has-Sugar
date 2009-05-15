@@ -6,14 +6,21 @@ use strict;
 our $VERSION = '0.0100';
 
 use Sub::Exporter -setup => {
-    exports => [ qw( ro attr_ro rw attr_rw required lazy lazy_build ) ],
-    groups  => {
+    exports => [
+        qw(
+          ro attr_ro
+          rw attr_rw
+          required lazy lazy_build
+          coerce weak_ref auto_deref
+          )
+    ],
+    groups => {
         is      => [qw( ro rw )],
         isattrs => [
             attr_ro => { -as => 'ro' },
             attr_rw => { -as => 'rw' },
         ],
-        attrs    => [qw( required lazy lazy_build )],
+        attrs    => [qw( required lazy lazy_build coerce weak_ref auto_deref)],
         allattrs => [qw( -attrs -isattrs )],
         defaults => [qw( -is )],
     }
@@ -47,6 +54,17 @@ sub lazy_build() {
     return ( 'lazy_build', 1 );
 }
 
+sub weak_ref() {
+    return ( 'weak_ref', 1 );
+}
+
+sub coerce() {
+    return ( 'coerce', 1 );
+}
+
+sub auto_deref() {
+    return ( 'auto_deref', 1 );
+}
 1;
 
 __END__
