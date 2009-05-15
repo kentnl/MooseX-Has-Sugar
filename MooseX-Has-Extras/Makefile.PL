@@ -1,7 +1,7 @@
 use inc::Module::Install;
 
-name     'MooseX-Has-Extras';
-all_from 'lib/MooseX/Has/Extras.pm';
+name     'MooseX-Has-Sugar';
+all_from 'lib/MooseX/Has/Sugar.pm';
 author   'Kent Fredric <kentnl@cpan.org>';
 license  'perl';
 
