@@ -3,50 +3,218 @@ package MooseX::Has::Extras;
 use warnings;
 use strict;
 
+our $VERSION = '0.0100';
+
+use Sub::Exporter -setup => {
+    exports =>[
+        qw( ro attr_ro rw attr_rw required lazy lazy_build )
+    ],
+    groups => {
+        is => [qw( ro rw )],
+        isattrs => [
+            attr_ro => { -as => 'ro' },
+            attr_rw => { -as => 'rw' },
+        ],
+        attrs =>[qw( required lazy lazy_build )],
+        allattrs =>[qw( -attrs -isattrs )],
+        defaults => [qw( -is )],
+    }
+};
+
+sub ro() {
+    'ro';
+}
+
+sub attr_ro() {
+    return ('is','ro');
+}
+
+sub rw() {
+    'rw';
+}
+
+sub attr_rw(){
+    return ( 'is','rw');
+}
+
+sub required(){
+    return ('required',1);
+}
+
+sub lazy(){
+    return ('lazy',1);
+}
+
+sub lazy_build(){
+    return ('lazy_build',1);
+}
+
+1;
+
+__END__
+
 =head1 NAME
 
-MooseX::Has::Extras - The great new MooseX::Has::Extras!
+MooseX::Has::Extras - Sugar Syntax for moose 'has' fields.
 
 =head1 VERSION
 
-Version 0.01
-
-=cut
-
-our $VERSION = '0.01';
-
+Version 0.0100
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
+Moose c<has> syntax is generally fine, but sometimes one gets bothered with the constant
+typing of string quotes for things. L<MooseX::Types> exists and in many ways reduces the need
+for constant string creation. 
 
-Perhaps a little code snippet.
+Strings are a bit problematic though, due to whitespace etc, and you're not likely to get compile time warnings if you do them wrong. 
 
-    use MooseX::Has::Extras;
+The constant need to type => and '' is fine for one-off cases, but the instant you have more than about 4 attributes it starts to get annoying.
 
-    my $foo = MooseX::Has::Extras->new();
-    ...
+The only problem I see with the approach given by this module is the potential of an extra level of indirection. But its a far lesser evil in my mind than the alternative.
+
+=head2 Before this Module.
+
+=head3 Classical Moose
+
+    has foo => (
+            isa => 'Str',
+            is  => 'ro',
+            required => 1,
+    );
+
+    has bar => (
+            isa => 'Str',
+            is => 'rw'
+            lazy_build => 1,
+    );
+
+=head3 Lazy Evil way to do it: 
+
+B<PLEASE DONT DO THIS>
+
+    has qw( foo isa Str is ro required 1 );  
+    has qw( bar isa Str is rw lazy_build 1 );
+
+
+=head2 With this module
+
+( and with MooseX::Types )
+
+=head3 Basic C<is> Expansion
+
+    use MooseX::Types::Moose qw( Str );
+    use MooseX::Has::Extras qw( :is );
+
+    has foo => (
+            isa => Str,
+            is  => ro,
+            required => 1,
+    );
+    has bar => (
+            isa => Str,
+            is => rw,
+            lazy_build => 1,
+    );
+
+=head3 Attribute Expansions
+
+    use MooseX::Types::Moose qw( Str );
+    use MooseX::Has::Extras qw( :is :attrs );
+
+    has foo => (
+            isa => Str,
+            is  => ro,
+            required,
+    );
+    has bar => (
+            isa => Str,
+            is => rw,
+            lazy_build,
+    );
+
+=head3 Full Attribute Expansion
+
+    use MooseX::Types::Moose qw( Str );
+    use MooseX::Has::Extras qw(  :allattrs );
+
+    has foo => (
+            isa => Str,
+            ro,
+            required,
+    );
+    has bar => (
+            isa => Str,
+            rw,
+            lazy_build,
+    );
 
 =head1 EXPORT
 
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+Most of these exports just return either 1 string, or 2 strings, and should fold in at compile time. Make sure to see L</EXPORT_GROUPS> for more.
+ 
+=over 4
 
-=head1 FUNCTIONS
+=item rw 
 
-=head2 function1
+What this will be depends on your export requirements.
 
-=cut
+=item ro
 
-sub function1 {
-}
+What this will be depends on your export requirements.
 
-=head2 function2
+=item lazy
 
-=cut
+=item lazy_build
 
-sub function2 {
-}
+=item required
+
+=back
+
+=head1 EXPORT GROUPS
+
+=over 4
+
+=item :default
+
+This exports 'ro' and 'rw' as basic constant-folded subs. That is all. Same as c<:is>
+
+=item :is
+
+This exports 'ro' and 'rw' as basic constant folded subs. 
+
+    has foo => (
+            isa => 'Str',
+            is => ro,
+            required => 1,
+    );
+
+=item :attrs
+
+This exports C<lazy> , C<lazy_build> and C<required> as subs that assume positive. 
+
+    has foo => (
+            required,
+            isa => 'Str',
+    );
+
+=item :isattrs
+
+This exports C<ro> and C<rw> differently, so they behave as stand-alone attrs like 'lazy' does.
+
+    has foo => (
+            required,
+            isa => 'Str',
+            ro,
+    );
+
+B<NOTE: This option is incompatible with :is as they export the same symbols in different ways>
+
+=item :allattrs 
+
+This is  a shorthand for  qw( :isattrs :attrs ) 
+
+=back
 
 =head1 AUTHOR
 
@@ -57,9 +225,6 @@ Kent Fredric, C<< <kentnl at cpan.org> >>
 Please report any bugs or feature requests to C<bug-moosex-has-extras at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MooseX-Has-Extras>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
-
-
-
 
 =head1 SUPPORT
 
@@ -104,4 +269,4 @@ under the same terms as Perl itself.
 
 =cut
 
-1; # End of MooseX::Has::Extras
+# End of MooseX::Has::Extras
