@@ -1,4 +1,4 @@
-package MooseX::Has::Extras;
+package MooseX::Has::Sugar;
 
 use warnings;
 use strict;
@@ -55,7 +55,7 @@ __END__
 
 =head1 NAME
 
-MooseX::Has::Extras - Sugar Syntax for moose 'has' fields.
+MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields.
 
 =head1 VERSION
 
@@ -104,7 +104,7 @@ B<PLEASE DONT DO THIS>
 =head3 Basic C<is> Expansion
 
     use MooseX::Types::Moose qw( Str );
-    use MooseX::Has::Extras qw( :is );
+    use MooseX::Has::Sugar qw( :is );
 
     has foo => (
             isa => Str,
@@ -120,7 +120,7 @@ B<PLEASE DONT DO THIS>
 =head3 Attribute Expansions
 
     use MooseX::Types::Moose qw( Str );
-    use MooseX::Has::Extras qw( :is :attrs );
+    use MooseX::Has::Sugar qw( :is :attrs );
 
     has foo => (
             isa => Str,
@@ -136,7 +136,7 @@ B<PLEASE DONT DO THIS>
 =head3 Full Attribute Expansion
 
     use MooseX::Types::Moose qw( Str );
-    use MooseX::Has::Extras qw(  :allattrs );
+    use MooseX::Has::Sugar qw(  :allattrs );
 
     has foo => (
             isa => Str,
@@ -223,14 +223,14 @@ Kent Fredric, C<< <kentnl at cpan.org> >>
 =head1 BUGS
 
 Please report any bugs or feature requests to C<bug-moosex-has-extras at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MooseX-Has-Extras>.  I will be notified, and then you'll
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MooseX-Has-Sugar>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc MooseX::Has::Extras
+    perldoc MooseX::Has::Sugar
 
 
 You can also look for information at:
@@ -239,19 +239,19 @@ You can also look for information at:
 
 =item * RT: CPAN's request tracker
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=MooseX-Has-Extras>
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=MooseX-Has-Sugar>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
-L<http://annocpan.org/dist/MooseX-Has-Extras>
+L<http://annocpan.org/dist/MooseX-Has-Sugar>
 
 =item * CPAN Ratings
 
-L<http://cpanratings.perl.org/d/MooseX-Has-Extras>
+L<http://cpanratings.perl.org/d/MooseX-Has-Sugar>
 
 =item * Search CPAN
 
-L<http://search.cpan.org/dist/MooseX-Has-Extras/>
+L<http://search.cpan.org/dist/MooseX-Has-Sugar/>
 
 =back
 
@@ -269,4 +269,4 @@ under the same terms as Perl itself.
 
 =cut
 
-# End of MooseX::Has::Extras
+# End of MooseX::Has::Sugar
