@@ -216,6 +216,42 @@ This is  a shorthand for  qw( :isattrs :attrs )
 
 =back
 
+=head1 FUNCTIONS 
+
+These you probably don't care about, they're all managed by L<Sub::Exporter> and its stuff anyway.
+
+=over 4
+
+=item rw
+
+returns C<'rw'>
+
+=item attr_rw
+
+returns C<('is','rw')>
+
+=item ro
+
+returns C<'ro'>
+
+=item attr_ro
+
+returns C<('is','ro')>
+
+=item lazy
+
+returns C<('lazy',1)>
+
+=item required
+
+returns C<('required',1)>
+
+=item lazy_build
+
+returns C<('lazy_build',1)>
+
+=back
+
 =head1 AUTHOR
 
 Kent Fredric, C<< <kentnl at cpan.org> >>
