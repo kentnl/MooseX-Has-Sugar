@@ -6,17 +6,15 @@ use strict;
 our $VERSION = '0.0100';
 
 use Sub::Exporter -setup => {
-    exports =>[
-        qw( ro attr_ro rw attr_rw required lazy lazy_build )
-    ],
-    groups => {
-        is => [qw( ro rw )],
+    exports => [ qw( ro attr_ro rw attr_rw required lazy lazy_build ) ],
+    groups  => {
+        is      => [qw( ro rw )],
         isattrs => [
             attr_ro => { -as => 'ro' },
             attr_rw => { -as => 'rw' },
         ],
-        attrs =>[qw( required lazy lazy_build )],
-        allattrs =>[qw( -attrs -isattrs )],
+        attrs    => [qw( required lazy lazy_build )],
+        allattrs => [qw( -attrs -isattrs )],
         defaults => [qw( -is )],
     }
 };
@@ -26,27 +24,27 @@ sub ro() {
 }
 
 sub attr_ro() {
-    return ('is','ro');
+    return ( 'is', 'ro' );
 }
 
 sub rw() {
     'rw';
 }
 
-sub attr_rw(){
-    return ( 'is','rw');
+sub attr_rw() {
+    return ( 'is', 'rw' );
 }
 
-sub required(){
-    return ('required',1);
+sub required() {
+    return ( 'required', 1 );
 }
 
-sub lazy(){
-    return ('lazy',1);
+sub lazy() {
+    return ( 'lazy', 1 );
 }
 
-sub lazy_build(){
-    return ('lazy_build',1);
+sub lazy_build() {
+    return ( 'lazy_build', 1 );
 }
 
 1;
@@ -65,9 +63,9 @@ Version 0.0100
 
 Moose c<has> syntax is generally fine, but sometimes one gets bothered with the constant
 typing of string quotes for things. L<MooseX::Types> exists and in many ways reduces the need
-for constant string creation. 
+for constant string creation.
 
-Strings are a bit problematic though, due to whitespace etc, and you're not likely to get compile time warnings if you do them wrong. 
+Strings are a bit problematic though, due to whitespace etc, and you're not likely to get compile time warnings if you do them wrong.
 
 The constant need to type => and '' is fine for one-off cases, but the instant you have more than about 4 attributes it starts to get annoying.
 
@@ -89,11 +87,11 @@ The only problem I see with the approach given by this module is the potential o
             lazy_build => 1,
     );
 
-=head3 Lazy Evil way to do it: 
+=head3 Lazy Evil way to do it:
 
 B<PLEASE DONT DO THIS>
 
-    has qw( foo isa Str is ro required 1 );  
+    has qw( foo isa Str is ro required 1 );
     has qw( bar isa Str is rw lazy_build 1 );
 
 
@@ -152,10 +150,10 @@ B<PLEASE DONT DO THIS>
 =head1 EXPORT
 
 Most of these exports just return either 1 string, or 2 strings, and should fold in at compile time. Make sure to see L</EXPORT_GROUPS> for more.
- 
+
 =over 4
 
-=item rw 
+=item rw
 
 What this will be depends on your export requirements.
 
@@ -181,7 +179,7 @@ This exports 'ro' and 'rw' as basic constant-folded subs. That is all. Same as c
 
 =item :is
 
-This exports 'ro' and 'rw' as basic constant folded subs. 
+This exports 'ro' and 'rw' as basic constant folded subs.
 
     has foo => (
             isa => 'Str',
@@ -191,7 +189,7 @@ This exports 'ro' and 'rw' as basic constant folded subs.
 
 =item :attrs
 
-This exports C<lazy> , C<lazy_build> and C<required> as subs that assume positive. 
+This exports C<lazy> , C<lazy_build> and C<required> as subs that assume positive.
 
     has foo => (
             required,
@@ -210,13 +208,13 @@ This exports C<ro> and C<rw> differently, so they behave as stand-alone attrs li
 
 B<NOTE: This option is incompatible with :is as they export the same symbols in different ways>
 
-=item :allattrs 
+=item :allattrs
 
-This is  a shorthand for  qw( :isattrs :attrs ) 
+This is  a shorthand for  qw( :isattrs :attrs )
 
 =back
 
-=head1 FUNCTIONS 
+=head1 FUNCTIONS
 
 These you probably don't care about, they're all managed by L<Sub::Exporter> and its stuff anyway.
 
