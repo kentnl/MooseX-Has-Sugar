@@ -8,6 +8,7 @@ our $VERSION = '0.0100';
 use Carp            ();
 use List::MoreUtils ();
 use Sub::Exporter   ();
+use Set::Object     ();
 
 Sub::Exporter::setup_exporter(
     {
@@ -33,80 +34,20 @@ Sub::Exporter::setup_exporter(
     }
 );
 
-my %conflictTable;
-my %conflictMap;
-
-if (1) {
-
-    my $_add_conflict = sub {
-        my $x = shift;
-        for (@_) {
-            $conflictMap{ $conflictTable{$x} | $conflictTable{$_} } =
-              " $x and $_ ";
-        }
-    };
-
-    my $i = 1;
-    for (
-        qw( ro rw -is attr_ro attr_rw required lazy lazy_build coerce weak_ref auto_deref
-        -isattrs -allattrs
-        )
-      )
-    {
-        $conflictTable{$_} = $i;
-        $i *= 2;
-    }
-    &$_add_conflict(qw( ro attr_ro -isattrs -allattrs ));
-    &$_add_conflict(qw( rw attr_rw -isattrs -allattrs ));
-    &$_add_conflict(qw( -is -isattrs -allattrs attr_ro attr_rw ));
-
-    #    require Data::Dumper;
-    #    print Data::Dumper::Dumper(
-    #        { table => \%conflictTable, map => \%conflictMap } );
-}
-else {
-
-    # Static Compiled Conflict Table
-    %conflictMap = (
-        '4098' => ' rw and -allattrs ',
-        '9'    => ' ro and attr_ro ',
-        '12'   => ' -is and attr_ro ',
-        '20'   => ' -is and attr_rw ',
-        '18'   => ' rw and attr_rw ',
-        '2050' => ' rw and -isattrs ',
-        '4100' => ' -is and -allattrs ',
-        '4097' => ' ro and -allattrs ',
-        '2049' => ' ro and -isattrs ',
-        '2052' => ' -is and -isattrs '
-    );
-    %conflictTable = (
-        'weak_ref'   => 512,
-        'attr_rw'    => 16,
-        '-allattrs'  => 4096,
-        'lazy_build' => 128,
-        'lazy'       => 64,
-        'coerce'     => 256,
-        '-is'        => 4,
-        'ro'         => 1,
-        'required'   => 32,
-        '-isattrs'   => 2048,
-        'attr_ro'    => 8,
-        'auto_deref' => 1024,
-        'rw'         => 2
-    );
-
-}
+my @conflicts = (
+    [ 'ro',  'attr_ro' ], [ 'ro',  '-isattrs' ], [ 'ro',  '-allattrs' ],
+    [ 'rw',  'attr_rw' ], [ 'rw',  '-isattrs' ], [ 'rw',  '-allattrs' ],
+    [ '-is', 'attr_rw' ], [ '-is', '-isattrs' ], [ '-is', '-allattrs' ],
+    [ '-is', 'attr_ro' ],
+);
 
 sub import {
-    my $pattern = 0;
-    for ( List::MoreUtils::apply { $_ =~ s/^:/-/ } @_[ 1 .. $#_ ] ) {
-        next unless exists $conflictTable{$_};
-        $pattern |= $conflictTable{$_};
-    }
-    for ( keys %conflictMap ) {
-        if ( ( $_ & $pattern ) == $_ ) {
-            Carp::croak("Conflicting Parameters ${conflictMap{$_}}");
-        }
+    my $s =
+      Set::Object->new( List::MoreUtils::apply { $_ =~ s/^:/-/ }
+        @_[ 1 .. $#_ ] );
+    for (@conflicts) {
+        next unless $s->contains( @{$_} );
+        Carp::croak("Conflicting Parameters @{$_}");
     }
     goto &MooseX::Has::Sugar::do_import;
 }
