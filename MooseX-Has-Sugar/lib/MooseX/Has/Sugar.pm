@@ -111,7 +111,7 @@ Version 0.0200
 
 =head1 SYNOPSIS
 
-Moose c<has> syntax is generally fine, but sometimes one gets bothered with the constant
+Moose C<has> syntax is generally fine, but sometimes one gets bothered with the constant
 typing of string quotes for things. L<MooseX::Types> exists and in many ways reduces the need
 for constant string creation.
 
