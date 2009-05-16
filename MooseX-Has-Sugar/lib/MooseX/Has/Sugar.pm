@@ -3,7 +3,7 @@ package MooseX::Has::Sugar;
 use warnings;
 use strict;
 
-our $VERSION = '0.0100';
+our $VERSION = '0.0200';
 
 use Carp            ();
 use List::MoreUtils ();
@@ -35,9 +35,15 @@ Sub::Exporter::setup_exporter(
 );
 
 my @conflicts = (
-    [ 'ro',  'attr_ro' ], [ 'ro',  '-isattrs' ], [ 'ro',  '-allattrs' ],
-    [ 'rw',  'attr_rw' ], [ 'rw',  '-isattrs' ], [ 'rw',  '-allattrs' ],
-    [ '-is', 'attr_rw' ], [ '-is', '-isattrs' ], [ '-is', '-allattrs' ],
+    [ 'ro',  'attr_ro' ],
+    [ 'ro',  '-isattrs' ],
+    [ 'ro',  '-allattrs' ],
+    [ 'rw',  'attr_rw' ],
+    [ 'rw',  '-isattrs' ],
+    [ 'rw',  '-allattrs' ],
+    [ '-is', 'attr_rw' ],
+    [ '-is', '-isattrs' ],
+    [ '-is', '-allattrs' ],
     [ '-is', 'attr_ro' ],
 );
 
@@ -101,7 +107,7 @@ MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields.
 
 =head1 VERSION
 
-Version 0.0100
+Version 0.0200
 
 =head1 SYNOPSIS
 
@@ -237,7 +243,7 @@ This exports 'ro' and 'rw' as-is.
             required => 1,
     );
 
-B<Previously> this exported it as a string, now it exports it as a list containing one item to 
+B<Previously> this exported it as a string, now it exports it as a list containing one item to
 disable constant folding which did spooky things which I presently have no way to silence.
 
 =item :attrs
