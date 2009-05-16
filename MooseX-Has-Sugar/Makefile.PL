@@ -12,7 +12,13 @@ test_requires 'Test::More';
 test_requires 'Test::Exception';
 test_requires 'Moose';
 
+# Exporting Symbols, most of the work
 requires 'Sub::Exporter';
+
+# Symbol Collision, this feels dirty atm
+requires 'List::MoreUtils';
+requires 'Carp';
+requires 'Set::Object';
 
 WriteAll;
 
