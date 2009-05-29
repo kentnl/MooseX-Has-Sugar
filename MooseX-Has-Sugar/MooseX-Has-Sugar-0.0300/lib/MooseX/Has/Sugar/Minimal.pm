@@ -5,15 +5,14 @@ use strict;
 
 our $VERSION = '0.0300';
 
-use Carp          ();
 use Sub::Exporter ();
 
 Sub::Exporter::setup_exporter(
     {
         exports => [ 'ro', 'rw', ],
         groups  => {
-            is       => [ 'ro', 'rw', ],
-            default  => ['-is'],
+            is      => [ 'ro', 'rw', ],
+            default => ['-is'],
         }
     }
 );
