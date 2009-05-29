@@ -2,24 +2,24 @@
 use strict;
 use warnings;
 
-use Test::More tests=>8;    # last test to print
+use Test::More tests => 8;    # last test to print
 use Test::Exception;
 
 {
 
     package TestPackage;
     use Moose;
-    use MooseX::Has::Sugar qw( :attrs );
+    use MooseX::Has::Sugar;
 
     has roattr => (
-        isa      => 'Str',
-        is       => 'ro',
+        isa => 'Str',
+        is  => 'ro',
         required,
     );
 
     has rwattr => (
-        isa      => 'Str',
-        is       => 'rw',
+        isa => 'Str',
+        is  => 'rw',
         required,
     );
     __PACKAGE__->meta->make_immutable;

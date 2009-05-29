@@ -6,7 +6,7 @@ use Test::More tests => 6;    # last test to print
 {
 
     package A;
-    use MooseX::Has::Sugar qw( :is );
+    use MooseX::Has::Sugar::Minimal;
 
     ::is_deeply(
         {
@@ -36,7 +36,7 @@ use Test::More tests => 6;    # last test to print
 {
 
     package B;
-    use MooseX::Has::Sugar qw( :attrs );
+    use MooseX::Has::Sugar;
     ::is_deeply(
         {
             isa => 'Str',
@@ -61,7 +61,7 @@ use Test::More tests => 6;    # last test to print
 {
 
     package C;
-    use MooseX::Has::Sugar qw( :isattrs );
+    use MooseX::Has::Sugar;
     ::is_deeply(
         {
             isa => 'Str',
@@ -79,7 +79,7 @@ use Test::More tests => 6;    # last test to print
 {
 
     package D;
-    use MooseX::Has::Sugar qw( :allattrs );
+    use MooseX::Has::Sugar;
     ::is_deeply(
         {
             isa => 'Str',
@@ -100,17 +100,29 @@ use Test::More tests => 6;    # last test to print
     no MooseX::Has::Sugar;
 }
 
-if (
-    eval qq{
-    package E;
-    use MooseX::Has::Sugar qw( :is :allattrs );
-
-    1;
-}
-  )
 {
-    fail("Conflicting Parameters must not be permitted");
+
+    package E;
+    use MooseX::Has::Sugar::Minimal;
+    use MooseX::Has::Sugar qw( :attrs );
+    ::is_deeply(
+        {
+            isa => 'Str',
+            is  => ro,
+            required, lazy, lazy_build, coerce, weak_ref, auto_deref
+        },
+        {
+            isa        => 'Str',
+            is         => 'ro',
+            required   => 1,
+            lazy       => 1,
+            lazy_build => 1,
+            coerce     => 1,
+            weak_ref   => 1,
+            auto_deref => 1,
+        },
+        "All Attr Expansion"
+    );
+    no MooseX::Has::Sugar;
 }
-else {
-    pass("Conflicting Parameters are not permitted");
-}
+
