@@ -5,9 +5,8 @@ use strict;
 
 our $VERSION = '0.0300';
 
-use Carp            ();
-use List::MoreUtils ();
-use Sub::Exporter   ();
+use Carp          ();
+use Sub::Exporter ();
 
 Sub::Exporter::setup_exporter(
     {
@@ -23,7 +22,7 @@ Sub::Exporter::setup_exporter(
                 'weak_ref', 'auto_deref',
             ],
             allattrs => [ '-attrs', '-isattrs' ],
-            default => [ '-attrs', '-isattrs' ],
+            default  => [ '-attrs', '-isattrs' ],
         }
     }
 );
