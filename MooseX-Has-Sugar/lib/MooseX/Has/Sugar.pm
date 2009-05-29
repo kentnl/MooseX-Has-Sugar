@@ -3,24 +3,63 @@ package MooseX::Has::Sugar;
 use warnings;
 use strict;
 
-our $VERSION = '0.0100';
+our $VERSION = '0.0200';
 
-use Sub::Exporter -setup => {
-    exports => [ qw( ro attr_ro rw attr_rw required lazy lazy_build ) ],
-    groups  => {
-        is      => [qw( ro rw )],
-        isattrs => [
-            attr_ro => { -as => 'ro' },
-            attr_rw => { -as => 'rw' },
+use Carp            ();
+use List::MoreUtils ();
+use Sub::Exporter   ();
+use Set::Object     ();
+
+Sub::Exporter::setup_exporter(
+    {
+        as      => 'do_import',
+        exports => [
+            qw(
+              ro attr_ro
+              rw attr_rw
+              required lazy lazy_build
+              coerce weak_ref auto_deref
+              )
         ],
-        attrs    => [qw( required lazy lazy_build )],
-        allattrs => [qw( -attrs -isattrs )],
-        defaults => [qw( -is )],
+        groups => {
+            is      => [qw( ro rw )],
+            isattrs => [
+                attr_ro => { -as => 'ro' },
+                attr_rw => { -as => 'rw' },
+            ],
+            attrs => [qw( required lazy lazy_build coerce weak_ref auto_deref)],
+            allattrs => [qw( -attrs -isattrs )],
+            defaults => [qw( -is )],
+        }
     }
-};
+);
+
+my @conflicts = (
+    [ 'ro',  'attr_ro' ],
+    [ 'ro',  '-isattrs' ],
+    [ 'ro',  '-allattrs' ],
+    [ 'rw',  'attr_rw' ],
+    [ 'rw',  '-isattrs' ],
+    [ 'rw',  '-allattrs' ],
+    [ '-is', 'attr_rw' ],
+    [ '-is', '-isattrs' ],
+    [ '-is', '-allattrs' ],
+    [ '-is', 'attr_ro' ],
+);
+
+sub import {
+    my $s =
+      Set::Object->new( List::MoreUtils::apply { $_ =~ s/^:/-/ }
+        @_[ 1 .. $#_ ] );
+    for (@conflicts) {
+        next unless $s->contains( @{$_} );
+        Carp::croak("Conflicting Parameters @{$_}");
+    }
+    goto &MooseX::Has::Sugar::do_import;
+}
 
 sub ro() {
-    'ro';
+    return ('ro');
 }
 
 sub attr_ro() {
@@ -28,7 +67,7 @@ sub attr_ro() {
 }
 
 sub rw() {
-    'rw';
+    return ('rw');
 }
 
 sub attr_rw() {
@@ -47,6 +86,17 @@ sub lazy_build() {
     return ( 'lazy_build', 1 );
 }
 
+sub weak_ref() {
+    return ( 'weak_ref', 1 );
+}
+
+sub coerce() {
+    return ( 'coerce', 1 );
+}
+
+sub auto_deref() {
+    return ( 'auto_deref', 1 );
+}
 1;
 
 __END__
@@ -57,11 +107,11 @@ MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields.
 
 =head1 VERSION
 
-Version 0.0100
+Version 0.0200
 
 =head1 SYNOPSIS
 
-Moose c<has> syntax is generally fine, but sometimes one gets bothered with the constant
+Moose C<has> syntax is generally fine, but sometimes one gets bothered with the constant
 typing of string quotes for things. L<MooseX::Types> exists and in many ways reduces the need
 for constant string creation.
 
@@ -167,6 +217,12 @@ What this will be depends on your export requirements.
 
 =item required
 
+=item coerce
+
+=item weak_ref
+
+=item auto_deref
+
 =back
 
 =head1 EXPORT GROUPS
@@ -175,11 +231,11 @@ What this will be depends on your export requirements.
 
 =item :default
 
-This exports 'ro' and 'rw' as basic constant-folded subs. That is all. Same as c<:is>
+This exports 'ro' and 'rw' as-is. That is all. Same as c<:is>
 
 =item :is
 
-This exports 'ro' and 'rw' as basic constant folded subs.
+This exports 'ro' and 'rw' as-is.
 
     has foo => (
             isa => 'Str',
@@ -187,9 +243,12 @@ This exports 'ro' and 'rw' as basic constant folded subs.
             required => 1,
     );
 
+B<Previously> this exported it as a string, now it exports it as a list containing one item to
+disable constant folding which did spooky things which I presently have no way to silence.
+
 =item :attrs
 
-This exports C<lazy> , C<lazy_build> and C<required> as subs that assume positive.
+This exports C<lazy> , C<lazy_build> and C<required>, C<coerce>, C<weak_ref> and C<auto_deref> as subs that assume positive.
 
     has foo => (
             required,
@@ -222,7 +281,7 @@ These you probably don't care about, they're all managed by L<Sub::Exporter> and
 
 =item rw
 
-returns C<'rw'>
+returns C<('rw')>
 
 =item attr_rw
 
@@ -230,7 +289,7 @@ returns C<('is','rw')>
 
 =item ro
 
-returns C<'ro'>
+returns C<('ro')>
 
 =item attr_ro
 
@@ -247,6 +306,18 @@ returns C<('required',1)>
 =item lazy_build
 
 returns C<('lazy_build',1)>
+
+=item coerce
+
+returns C<('coerce',1)>
+
+=item weak_ref
+
+returns C<('weak_ref',1)>
+
+=item auto_deref
+
+returns C<('auto_deref',1)>
 
 =back
 
