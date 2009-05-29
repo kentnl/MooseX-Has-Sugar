@@ -3,74 +3,46 @@ package MooseX::Has::Sugar;
 use warnings;
 use strict;
 
-our $VERSION = '0.0200';
+our $VERSION = '0.0300';
 
 use Carp            ();
 use List::MoreUtils ();
 use Sub::Exporter   ();
-use Set::Object     ();
 
 Sub::Exporter::setup_exporter(
     {
         as      => 'do_import',
         exports => [
-            qw(
-              ro attr_ro
-              rw attr_rw
-              required lazy lazy_build
-              coerce weak_ref auto_deref
-              )
+            'ro',         'rw',     'required', 'lazy',
+            'lazy_build', 'coerce', 'weak_ref', 'auto_deref',
         ],
         groups => {
-            is      => [qw( ro rw )],
-            isattrs => [
-                attr_ro => { -as => 'ro' },
-                attr_rw => { -as => 'rw' },
+            isattrs => [ 'ro', 'rw', ],
+            attrs   => [
+                'required', 'lazy', 'lazy_build', 'coerce',
+                'weak_ref', 'auto_deref',
             ],
-            attrs => [qw( required lazy lazy_build coerce weak_ref auto_deref)],
-            allattrs => [qw( -attrs -isattrs )],
-            defaults => [qw( -is )],
+            allattrs => [ '-attrs', '-isattrs' ],
+            default => [ '-attrs', '-isattrs' ],
         }
     }
 );
 
-my @conflicts = (
-    [ 'ro',  'attr_ro' ],
-    [ 'ro',  '-isattrs' ],
-    [ 'ro',  '-allattrs' ],
-    [ 'rw',  'attr_rw' ],
-    [ 'rw',  '-isattrs' ],
-    [ 'rw',  '-allattrs' ],
-    [ '-is', 'attr_rw' ],
-    [ '-is', '-isattrs' ],
-    [ '-is', '-allattrs' ],
-    [ '-is', 'attr_ro' ],
-);
-
 sub import {
-    my $s =
-      Set::Object->new( List::MoreUtils::apply { $_ =~ s/^:/-/ }
-        @_[ 1 .. $#_ ] );
-    for (@conflicts) {
-        next unless $s->contains( @{$_} );
-        Carp::croak("Conflicting Parameters @{$_}");
+    for (@_) {
+        if ( $_ =~ qr/^[:-]is$/ ) {
+            Carp::croak( "Trivial ro/rw with :is dropped as of 0.0300.\n"
+                  . " See MooseX::Has::Sugar::Minimal for those. " );
+        }
     }
     goto &MooseX::Has::Sugar::do_import;
 }
 
 sub ro() {
-    return ('ro');
-}
-
-sub attr_ro() {
     return ( 'is', 'ro' );
 }
 
 sub rw() {
-    return ('rw');
-}
-
-sub attr_rw() {
     return ( 'is', 'rw' );
 }
 
@@ -107,7 +79,7 @@ MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields.
 
 =head1 VERSION
 
-Version 0.0200
+Version 0.0300
 
 =head1 SYNOPSIS
 
@@ -149,42 +121,8 @@ B<PLEASE DONT DO THIS>
 
 ( and with MooseX::Types )
 
-=head3 Basic C<is> Expansion
-
     use MooseX::Types::Moose qw( Str );
-    use MooseX::Has::Sugar qw( :is );
-
-    has foo => (
-            isa => Str,
-            is  => ro,
-            required => 1,
-    );
-    has bar => (
-            isa => Str,
-            is => rw,
-            lazy_build => 1,
-    );
-
-=head3 Attribute Expansions
-
-    use MooseX::Types::Moose qw( Str );
-    use MooseX::Has::Sugar qw( :is :attrs );
-
-    has foo => (
-            isa => Str,
-            is  => ro,
-            required,
-    );
-    has bar => (
-            isa => Str,
-            is => rw,
-            lazy_build,
-    );
-
-=head3 Full Attribute Expansion
-
-    use MooseX::Types::Moose qw( Str );
-    use MooseX::Has::Sugar qw(  :allattrs );
+    use MooseX::Has::Sugar;
 
     has foo => (
             isa => Str,
@@ -197,19 +135,57 @@ B<PLEASE DONT DO THIS>
             lazy_build,
     );
 
-=head1 EXPORT
+Or even
 
-Most of these exports just return either 1 string, or 2 strings, and should fold in at compile time. Make sure to see L</EXPORT_GROUPS> for more.
+    use MooseX::Types::Moose qw( Str );
+    use MooseX::Has::Sugar;
+
+    has foo => ( isa => Str, ro,  required, );
+    has bar => ( isa => Str, rw,  lazy_build, );
+
+=head2 Alternative Forms
+
+=head3 Basic C<is> Expansion Only
+
+    use MooseX::Types::Moose qw( Str );
+    use MooseX::Has::Sugar::Minimal;
+
+    has foo => (
+            isa => Str,
+            is  => ro,
+            required => 1,
+    );
+    has bar => (
+            isa => Str,
+            is => rw,
+            lazy_build => 1,
+    );
+
+=head3 Attribute Expansions with Basic Expansions
+
+    use MooseX::Types::Moose qw( Str );
+    use MooseX::Has::Sugar::Minimal;
+    use MooseX::Has::Sugar qw( :attrs );
+
+    has foo => (
+            isa => Str,
+            is  => ro,
+            required,
+    );
+    has bar => (
+            isa => Str,
+            is => rw,
+            lazy_build,
+    );
+
+
+=head1 EXPORT
 
 =over 4
 
 =item rw
 
-What this will be depends on your export requirements.
-
 =item ro
-
-What this will be depends on your export requirements.
 
 =item lazy
 
@@ -231,20 +207,13 @@ What this will be depends on your export requirements.
 
 =item :default
 
-This exports 'ro' and 'rw' as-is. That is all. Same as c<:is>
+Since 0.0300, this exports all our syntax, the same as C<:attrs :isattrs>. 
+Primarily because I found you generally want all the sugar, not just part of it.
+This also gets rid of that nasty exclusion logic.
 
 =item :is
 
-This exports 'ro' and 'rw' as-is.
-
-    has foo => (
-            isa => 'Str',
-            is => ro,
-            required => 1,
-    );
-
-B<Previously> this exported it as a string, now it exports it as a list containing one item to
-disable constant folding which did spooky things which I presently have no way to silence.
+B<DEPRECATED>. See L<MooseX::Has::Sugar::Minimal> for the same functionality
 
 =item :attrs
 
@@ -257,7 +226,7 @@ This exports C<lazy> , C<lazy_build> and C<required>, C<coerce>, C<weak_ref> and
 
 =item :isattrs
 
-This exports C<ro> and C<rw> differently, so they behave as stand-alone attrs like 'lazy' does.
+This exports C<ro> and C<rw> as lists, so they behave as stand-alone attrs like 'lazy' does.
 
     has foo => (
             required,
@@ -265,7 +234,7 @@ This exports C<ro> and C<rw> differently, so they behave as stand-alone attrs li
             ro,
     );
 
-B<NOTE: This option is incompatible with :is as they export the same symbols in different ways>
+B<NOTE: This option is incompatible with L<MooseX::Has::Sugar::Minimal>>
 
 =item :allattrs
 
@@ -281,17 +250,9 @@ These you probably don't care about, they're all managed by L<Sub::Exporter> and
 
 =item rw
 
-returns C<('rw')>
-
-=item attr_rw
-
 returns C<('is','rw')>
 
 =item ro
-
-returns C<('ro')>
-
-=item attr_ro
 
 returns C<('is','ro')>
 

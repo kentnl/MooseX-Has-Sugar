@@ -9,7 +9,7 @@ use Test::Exception;
 
     package TestPackage;
     use Moose;
-    use MooseX::Has::Sugar qw( :is );
+    use MooseX::Has::Sugar::Minimal;
 
     has roattr => (
         isa      => 'Str',
