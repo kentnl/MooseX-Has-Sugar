@@ -32,7 +32,8 @@ __END__
 
 =head1 NAME
 
-MooseX::Has::Sugar::Minimal - Less Sugary Syntax for moose 'has' fields than L<MooseX::Has::Sugar>
+MooseX::Has::Sugar::Minimal - Less Sugary Syntax for moose 'has' fields
+ than L<MooseX::Has::Sugar>
 
 =head1 VERSION
 
@@ -40,8 +41,8 @@ Version 0.0300
 
 =head1 SYNOPSIS
 
-This is a legacy variant of L<MooseX::Has::Sugar> which only exports 'ro' and 'rw' functions,
-     the way L<MooseX::Has::Sugar> used to with C<:is>;
+This is a legacy variant of L<MooseX::Has::Sugar> which only exports C<ro>
+and C<rw> functions, the way L<MooseX::Has::Sugar> used to with C<:is>;
 
     use MooseX::Types::Moose qw( Str );
     use MooseX::Has::Sugar::Minimal;
@@ -84,12 +85,14 @@ Exports C<ro> and C<rw>
 
 =head1 CONFLICTS
 
-This module is not intended to be used in conjunction with L<MooseX::Has::Sugar>.
+This module is not intended to be used in conjunction with
+ L<MooseX::Has::Sugar>.
 
 We both export C<ro> and C<rw> in different ways.
 
-If you do however want to use them in conjuction, specific imports must be done on L<MooseX::Has::Sugar>'s side to 
-stop it exporting different ro/rw. Any of the below should be fine.
+If you do however want to use them in conjuction, specific imports must
+ be done on L<MooseX::Has::Sugar>'s side to stop it exporting different
+ ro/rw. Any of the below should be fine.
 
     use MooseX::Has::Sugar::Minimal;
     use MooseX::Has::Sugar qw( :attrs );
@@ -103,7 +106,8 @@ stop it exporting different ro/rw. Any of the below should be fine.
 
 =head1 FUNCTIONS
 
-These you probably don't care about, they're all managed by L<Sub::Exporter> and its stuff anyway.
+These you probably don't care about, they're all managed by L<Sub::Exporter>
+ and its stuff anyway.
 
 =over 4
 
@@ -123,15 +127,19 @@ Kent Fredric, C<< <kentnl at cpan.org> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-moosex-has-extras at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MooseX-Has-Sugar>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Please report any bugs or feature requests to
+C<bug-moosex-has-extras at rt.cpan.org>
+or through the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MooseX-Has-Sugar>.
+
+I will be notified, and then you'll automatically be notified of progress
+ on your bug as I make changes.
 
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc MooseX::Has::Sugar
+    perldoc MooseX::Has::Sugar::Minimal
 
 
 You can also look for information at:
@@ -170,4 +178,4 @@ under the same terms as Perl itself.
 
 =cut
 
-# End of MooseX::Has::Sugar
+# End of MooseX::Has::Sugar::Minimal

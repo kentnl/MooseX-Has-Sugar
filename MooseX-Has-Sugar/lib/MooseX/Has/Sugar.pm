@@ -83,15 +83,19 @@ Version 0.0300
 
 =head1 SYNOPSIS
 
-Moose C<has> syntax is generally fine, but sometimes one gets bothered with the constant
-typing of string quotes for things. L<MooseX::Types> exists and in many ways reduces the need
-for constant string creation.
+L<Moose> C<has> syntax is generally fine, but sometimes one gets bothered with
+the constant typing of string quotes for things. L<MooseX::Types> exists and in
+many ways reduces the need for constant string creation.
 
-Strings are a bit problematic though, due to whitespace etc, and you're not likely to get compile time warnings if you do them wrong.
+Strings are a bit problematic though, due to whitespace etc, and you're not
+likely to get compile time warnings if you do them wrong.
 
-The constant need to type => and '' is fine for one-off cases, but the instant you have more than about 4 attributes it starts to get annoying.
+The constant need to type C<=E<gt>> and C<''> is fine for one-off cases, but
+the instant you have more than about 4 attributes it starts to get annoying.
 
-The only problem I see with the approach given by this module is the potential of an extra level of indirection. But its a far lesser evil in my mind than the alternative.
+The only problem I see with the approach given by this module is the potential
+of an extra level of indirection. But its a far lesser evil in my mind than
+the alternative.
 
 =head2 Before this Module.
 
@@ -115,7 +119,6 @@ B<PLEASE DONT DO THIS>
 
     has qw( foo isa Str is ro required 1 );
     has qw( bar isa Str is rw lazy_build 1 );
-
 
 =head2 With this module
 
@@ -147,6 +150,8 @@ Or even
 
 =head3 Basic C<is> Expansion Only
 
+( using L<MooseX::Has::Sugar::Minimal> instead )
+
     use MooseX::Types::Moose qw( Str );
     use MooseX::Has::Sugar::Minimal;
 
@@ -162,6 +167,8 @@ Or even
     );
 
 =head3 Attribute Expansions with Basic Expansions
+
+( Combining parts of this and L<MooseX::Has::Sugar::Minimal> )
 
     use MooseX::Types::Moose qw( Str );
     use MooseX::Has::Sugar::Minimal;
@@ -207,7 +214,7 @@ Or even
 
 =item :default
 
-Since 0.0300, this exports all our syntax, the same as C<:attrs :isattrs>. 
+Since 0.0300, this exports all our syntax, the same as C<:attrs :isattrs>.
 Primarily because I found you generally want all the sugar, not just part of it.
 This also gets rid of that nasty exclusion logic.
 
@@ -217,7 +224,8 @@ B<DEPRECATED>. See L<MooseX::Has::Sugar::Minimal> for the same functionality
 
 =item :attrs
 
-This exports C<lazy> , C<lazy_build> and C<required>, C<coerce>, C<weak_ref> and C<auto_deref> as subs that assume positive.
+This exports C<lazy> , C<lazy_build> and C<required>, C<coerce>, C<weak_ref>
+and C<auto_deref> as subs that assume positive.
 
     has foo => (
             required,
@@ -226,7 +234,8 @@ This exports C<lazy> , C<lazy_build> and C<required>, C<coerce>, C<weak_ref> and
 
 =item :isattrs
 
-This exports C<ro> and C<rw> as lists, so they behave as stand-alone attrs like 'lazy' does.
+This exports C<ro> and C<rw> as lists, so they behave as stand-alone attrs like
+C<lazy> does.
 
     has foo => (
             required,
@@ -244,7 +253,8 @@ This is  a shorthand for  qw( :isattrs :attrs )
 
 =head1 FUNCTIONS
 
-These you probably don't care about, they're all managed by L<Sub::Exporter> and its stuff anyway.
+These you probably don't care about, they're all managed by L<Sub::Exporter>
+and its stuff anyway.
 
 =over 4
 
@@ -288,9 +298,12 @@ Kent Fredric, C<< <kentnl at cpan.org> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-moosex-has-extras at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MooseX-Has-Sugar>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Please report any bugs or feature requests to
+C<bug-moosex-has-extras at rt.cpan.org>, or through
+the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MooseX-Has-Sugar>.  I will be
+notified, and then you'll automatically be notified of progress on your bug
+as I make changes.
 
 =head1 SUPPORT
 
