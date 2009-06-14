@@ -4,62 +4,26 @@ use warnings;
 
 use Test::More tests => 7;    # last test to print
 use Test::Exception;
+use Find::Lib './07_attr_lazy_build';
 
-{
+use TestPackage;
 
-    package TestPackage;
-    use Moose;
-    use MooseX::Has::Sugar;
-
-    has roattr => (
-        isa => 'Str',
-        is  => 'ro',
-        lazy_build,
-    );
-
-    has rwattr => (
-        isa => 'Str',
-        is  => 'rw',
-        lazy_build,
-    );
-
-    sub _build_rwattr {
-        return 'y';
-    }
-
-    sub _build_roattr {
-        return 'y';
-    }
-    __PACKAGE__->meta->make_immutable;
+sub cr {
+  return TestPackage->new();
 }
 
 pass("Syntax Compiles");
 
-lives_ok(
-    sub {
-        my $i = TestPackage->new();
-    },
-    'Construction still works'
-);
+lives_ok( sub { cr() }, 'Construction still works' );
 
-my $i = TestPackage->new();
+my $i = cr();
 
 is( $i->roattr, 'y', 'Builders Still Trigger 1' );
 is( $i->rwattr, 'y', 'Builders Still Trigger 2' );
 
-dies_ok(
-    sub {
-        $i->roattr('x');
-    },
-    "RO works still"
-);
+dies_ok( sub { $i->roattr('x') }, "RO works still" );
 
-lives_ok(
-    sub {
-        $i->rwattr('x');
-    },
-    'RW works still'
-);
+lives_ok( sub { $i->rwattr('x') }, 'RW works still' );
 
 is( $i->rwattr(), 'x', "RW Works as expected" );
 
