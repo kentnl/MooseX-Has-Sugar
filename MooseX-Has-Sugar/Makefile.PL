@@ -11,6 +11,8 @@ repository 'git://github.com/kentfredric/MooseX-Has-Sugar.git';
 test_requires 'Test::More';
 test_requires 'Test::Exception';
 test_requires 'Moose';
+test_requires 'Sub::Exporter';
+test_requires 'Find::Lib';
 
 requires 'Sub::Exporter';
 
