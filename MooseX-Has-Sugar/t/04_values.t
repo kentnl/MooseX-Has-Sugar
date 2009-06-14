@@ -1,128 +1,38 @@
 use strict;
 use warnings;
 
-use Test::More tests => 6;    # last test to print
+use Test::More tests => 11;    # last test to print
+use Find::Lib './04_values';
+use TestCant;
 
-{
+use AMinimal;
 
-    package A;
-    use MooseX::Has::Sugar::Minimal;
+is_deeply( AMinimal->ro_generated, AMinimal->ro_manual, 'Simple Expansion ro' );
+is_deeply( AMinimal->rw_generated, AMinimal->rw_manual, 'Simple Expansion rw' );
 
-    ::is_deeply(
-        {
-            isa => 'Str',
-            is  => ro,
-        },
-        {
-            isa => 'Str',
-            is  => 'ro'
-        },
-        "Simple Expansion ro"
-    );
+can_unok( 'AMinimal', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 
-    ::is_deeply(
-        {
-            isa => 'Str',
-            is  => rw,
-        },
-        {
-            isa => 'Str',
-            is  => 'rw'
-        },
-        "Simple Expansion rw"
-    );
-    no MooseX::Has::Sugar;
-}
-{
+use BDeclare;
 
-    package B;
-    use MooseX::Has::Sugar;
-    ::is_deeply(
-        {
-            isa => 'Str',
-            is  => 'ro',
-            required, lazy, lazy_build, coerce, weak_ref, auto_deref
-        },
-        {
-            isa        => 'Str',
-            is         => 'ro',
-            required   => 1,
-            lazy       => 1,
-            lazy_build => 1,
-            coerce     => 1,
-            weak_ref   => 1,
-            auto_deref => 1,
-        },
-        "Attr Expansion"
-    );
-    no MooseX::Has::Sugar;
-}
+is_deeply( BDeclare->generated, BDeclare->manual, 'Attr Expansion' );
 
-{
+can_unok( 'BDeclare', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 
-    package C;
-    use MooseX::Has::Sugar;
-    ::is_deeply(
-        {
-            isa => 'Str',
-            ro,
-        },
-        {
-            isa => 'Str',
-            is  => 'ro',
-        },
-        "is Attr Expansion"
-    );
-    no MooseX::Has::Sugar;
-}
+use CDeclareRo;
 
-{
+is_deeply( CDeclareRo->generated, CDeclareRo->manual, 'is Attr Expansion' );
 
-    package D;
-    use MooseX::Has::Sugar;
-    ::is_deeply(
-        {
-            isa => 'Str',
-            ro, required, lazy, lazy_build, coerce, weak_ref, auto_deref
-        },
-        {
-            isa        => 'Str',
-            is         => 'ro',
-            required   => 1,
-            lazy       => 1,
-            lazy_build => 1,
-            coerce     => 1,
-            weak_ref   => 1,
-            auto_deref => 1,
-        },
-        "All Attr Expansion"
-    );
-    no MooseX::Has::Sugar;
-}
+can_unok( 'CDeclareRo', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 
-{
+use DEverything;
 
-    package E;
-    use MooseX::Has::Sugar::Minimal;
-    use MooseX::Has::Sugar qw( :attrs );
-    ::is_deeply(
-        {
-            isa => 'Str',
-            is  => ro,
-            required, lazy, lazy_build, coerce, weak_ref, auto_deref
-        },
-        {
-            isa        => 'Str',
-            is         => 'ro',
-            required   => 1,
-            lazy       => 1,
-            lazy_build => 1,
-            coerce     => 1,
-            weak_ref   => 1,
-            auto_deref => 1,
-        },
-        "All Attr Expansion"
-    );
-    no MooseX::Has::Sugar;
-}
+is_deeply( DEverything->generated, DEverything->manual, 'All Attr Expansion' );
+
+can_unok( 'DEverything', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
+
+use EMixed;
+
+is_deeply( EMixed->generated, EMixed->manual, 'Mixed Attr Expansion' );
+
+can_unok( 'EMixed', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 
