@@ -12,6 +12,8 @@ has roattr => ( isa => 'Str', is => 'ro', required, );
 
 has rwattr => ( isa => 'Str', is => 'rw', required, );
 
+has bareattr => ( isa => 'Str', is => 'bare', required, );
+
 __PACKAGE__->meta->make_immutable;
 
 1;

@@ -16,6 +16,10 @@ sub rw_generated { { isa => 'Str', is => rw, } }
 
 sub rw_manual { { isa => 'Str', is => 'rw', } }
 
+sub bare_generated { { isa => 'Str', is => bare, } }
+
+sub bare_manual { { isa => 'Str', is => 'bare', } }
+
 __PACKAGE__->meta->make_immutable;
 1;
 
