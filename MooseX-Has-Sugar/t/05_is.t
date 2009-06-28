@@ -9,13 +9,13 @@ use Find::Lib './05_is';
 use TestPackage;
 
 sub cr {
-  return TestPackage->new(@_);
+    return TestPackage->new(@_);
 }
 
 pass("Syntax Compiles");
 
 for ( {}, { roattr => "v" }, { rwattr => "v" } ) {
-  dies_ok( sub { cr( %{$_} ) }, 'Constraints on requirements still work' );
+    dies_ok( sub { cr( %{$_} ) }, 'Constraints on requirements still work' );
 }
 
 lives_ok( sub { cr( rwattr => 'v', roattr => 'v' ) }, 'Construction still works' );
