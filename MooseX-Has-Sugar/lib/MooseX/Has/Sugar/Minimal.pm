@@ -3,19 +3,23 @@ package MooseX::Has::Sugar::Minimal;
 use warnings;
 use strict;
 
-our $VERSION = '0.0300';
+our $VERSION = '0.0400';
 
 use Sub::Exporter ();
 
 Sub::Exporter::setup_exporter(
     {
-        exports => [ 'ro', 'rw', ],
+        exports => [ 'ro', 'rw', 'bare', ],
         groups  => {
-            is      => [ 'ro', 'rw', ],
+            is      => [ 'ro', 'rw', 'bare', ],
             default => ['-is'],
         }
     }
 );
+
+sub bare() {
+    return ('bare');
+}
 
 sub ro() {
     return ('ro');
@@ -36,7 +40,7 @@ MooseX::Has::Sugar::Minimal - Less Sugary Syntax for moose 'has' fields
 
 =head1 VERSION
 
-Version 0.0300
+Version 0.0400
 
 =head1 SYNOPSIS
 
@@ -66,6 +70,8 @@ and C<rw> functions, the way L<MooseX::Has::Sugar> used to with C<:is>;
 
 =item ro
 
+=item bare
+
 =back
 
 =head1 EXPORT GROUPS
@@ -78,7 +84,7 @@ Exports C<:is>
 
 =item :is
 
-Exports C<ro> and C<rw>
+Exports C<ro> and C<rw> and C<bare>
 
 =back
 
@@ -117,6 +123,10 @@ returns C<('rw')>
 =item ro
 
 returns C<('ro')>
+
+=item bare
+
+returns C<('bare')>
 
 =back
 

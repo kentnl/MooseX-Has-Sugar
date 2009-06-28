@@ -3,7 +3,7 @@ package MooseX::Has::Sugar;
 use warnings;
 use strict;
 
-our $VERSION = '0.0300';
+our $VERSION = '0.0400';
 
 use Carp          ();
 use Sub::Exporter ();
@@ -11,16 +11,10 @@ use Sub::Exporter ();
 Sub::Exporter::setup_exporter(
     {
         as      => 'do_import',
-        exports => [
-            'ro',         'rw',     'required', 'lazy',
-            'lazy_build', 'coerce', 'weak_ref', 'auto_deref',
-        ],
-        groups => {
-            isattrs => [ 'ro', 'rw', ],
-            attrs   => [
-                'required', 'lazy', 'lazy_build', 'coerce',
-                'weak_ref', 'auto_deref',
-            ],
+        exports => [ 'ro', 'rw', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', 'bare', ],
+        groups  => {
+            isattrs => [ 'ro',       'rw',   'bare', ],
+            attrs   => [ 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
             allattrs => [ '-attrs', '-isattrs' ],
             default  => [ '-attrs', '-isattrs' ],
         }
@@ -30,11 +24,14 @@ Sub::Exporter::setup_exporter(
 sub import {
     for (@_) {
         if ( $_ =~ qr/^[:-]is$/ ) {
-            Carp::croak( "Trivial ro/rw with :is dropped as of 0.0300.\n"
-                  . " See MooseX::Has::Sugar::Minimal for those. " );
+            Carp::croak( "Trivial ro/rw with :is dropped as of 0.0300.\n" . " See MooseX::Has::Sugar::Minimal for those. " );
         }
     }
     goto &MooseX::Has::Sugar::do_import;
+}
+
+sub bare() {
+    return ( 'is', 'bare' );
 }
 
 sub ro() {
@@ -193,6 +190,8 @@ Or even
 
 =item ro
 
+=item bare
+
 =item lazy
 
 =item lazy_build
@@ -233,7 +232,7 @@ and C<auto_deref> as subs that assume positive.
 
 =item :isattrs
 
-This exports C<ro> and C<rw> as lists, so they behave as stand-alone attrs like
+This exports C<ro>, C<rw> and C<bare> as lists, so they behave as stand-alone attrs like
 C<lazy> does.
 
     has foo => (
@@ -264,6 +263,10 @@ returns C<('is','rw')>
 =item ro
 
 returns C<('is','ro')>
+
+=item bare
+
+returns C<('is','bare')>
 
 =item lazy
 
