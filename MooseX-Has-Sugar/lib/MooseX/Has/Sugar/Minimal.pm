@@ -1,9 +1,9 @@
 package MooseX::Has::Sugar::Minimal;
 
+# ABSTRACT: Less Sugary Syntax for moose 'has' fields
+
 use warnings;
 use strict;
-
-our $VERSION = '0.0400';
 
 use Sub::Exporter ();
 
@@ -32,15 +32,6 @@ sub rw() {
 1;
 
 __END__
-
-=head1 NAME
-
-MooseX::Has::Sugar::Minimal - Less Sugary Syntax for moose 'has' fields
- than L<MooseX::Has::Sugar>
-
-=head1 VERSION
-
-Version 0.0400
 
 =head1 SYNOPSIS
 
@@ -130,10 +121,6 @@ returns C<('bare')>
 
 =back
 
-=head1 AUTHOR
-
-Kent Fredric, C<< <kentnl at cpan.org> >>
-
 =head1 BUGS
 
 Please report any bugs or feature requests to
@@ -176,15 +163,4 @@ L<http://search.cpan.org/dist/MooseX-Has-Sugar/>
 
 =head1 ACKNOWLEDGEMENTS
 
-
-=head1 COPYRIGHT & LICENSE
-
-Copyright 2009 Kent Fredric, all rights reserved.
-
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
-
-
 =cut
-
-# End of MooseX::Has::Sugar::Minimal

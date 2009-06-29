@@ -1,9 +1,9 @@
 package MooseX::Has::Sugar;
 
+# ABSTRACT: Sugar Syntax for moose 'has' fields
+
 use warnings;
 use strict;
-
-our $VERSION = '0.0400';
 
 use Carp          ();
 use Sub::Exporter ();
@@ -66,16 +66,6 @@ sub auto_deref() {
     return ( 'auto_deref', 1 );
 }
 1;
-
-__END__
-
-=head1 NAME
-
-MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields.
-
-=head1 VERSION
-
-Version 0.0300
 
 =head1 SYNOPSIS
 
@@ -294,10 +284,6 @@ returns C<('auto_deref',1)>
 
 =back
 
-=head1 AUTHOR
-
-Kent Fredric, C<< <kentnl at cpan.org> >>
-
 =head1 BUGS
 
 Please report any bugs or feature requests to
@@ -339,15 +325,4 @@ L<http://search.cpan.org/dist/MooseX-Has-Sugar/>
 
 =head1 ACKNOWLEDGEMENTS
 
-
-=head1 COPYRIGHT & LICENSE
-
-Copyright 2009 Kent Fredric, all rights reserved.
-
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
-
-
 =cut
-
-# End of MooseX::Has::Sugar
