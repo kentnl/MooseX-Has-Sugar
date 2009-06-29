@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Fixed missing META.yml in Dzil build
+
+0.0401    2009-06-29 18:16:51 UTC
           Fixed Dep on Moose Test.
           Moved to Dist::Zilla.
           Loads of edits for change
