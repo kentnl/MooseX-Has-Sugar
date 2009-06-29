@@ -2,7 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
           Fixed Dep on Moose Test.
-          Moved to Dist::Zilla
+          Moved to Dist::Zilla.
+          Loads of edits for change
 
 0.0400    Sun Jun 28 12:53:52 NZST 2009
           Improved Test cases
