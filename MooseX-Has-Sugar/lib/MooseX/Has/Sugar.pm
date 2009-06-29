@@ -73,15 +73,23 @@ L<Moose> C<has> syntax is generally fine, but sometimes one gets bothered with
 the constant typing of string quotes for things. L<MooseX::Types> exists and in
 many ways reduces the need for constant string creation.
 
-Strings are a bit problematic though, due to whitespace etc, and you're not
-likely to get compile time warnings if you do them wrong.
+=head2 Primary Benefits at a Glance
+
+=head3 Reduced Typing in C<has> declarations.
 
 The constant need to type C<=E<gt>> and C<''> is fine for one-off cases, but
 the instant you have more than about 4 attributes it starts to get annoying.
 
-The only problem I see with the approach given by this module is the potential
-of an extra level of indirection. But its a far lesser evil in my mind than
-the alternative.
+=head3 More compact declarations.
+
+Reduces much of the redundant typing in most cases, which makes your life easier,
+and makes it take up less visual space, which makes it faster to read.
+
+=head3 No String Worries
+
+Strings are often problematic, due to whitespace etc. Noted that if you do
+happen to mess them up, Moose should at I<least> warn you that you've done
+something daft. Using this alleviates that worry.
 
 =head2 Before this Module.
 

@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Revised Docmentation a little to be more correct
+
+0.0402    2009-06-29 19:43:05 UTC
           Fixed missing META.yml in Dzil build
 
 0.0401    2009-06-29 18:16:51 UTC
