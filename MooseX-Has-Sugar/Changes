@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Using Dist::Zilla's handy author-tests feature
           Revised Docmentation a little to be more correct
 
 0.0402    2009-06-29 19:43:05 UTC
