@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Added Saccharin, experimental sugars.
+
+0.0403    2009-06-30 13:56:07 UTC
           Using Dist::Zilla's handy author-tests feature
           Revised Docmentation a little to be more correct
 
