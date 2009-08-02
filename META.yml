@@ -1,0 +1,23 @@
+---
+abstract: "Sugar Syntax for moose 'has' fields"
+author:
+  - 'Kent Fredric <kentnl at cpan.org>'
+generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.091610'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MooseX-Has-Sugar
+requires:
+  Carp: 0
+  Find::Lib: 0
+  Moose: 0.84
+  MooseX::Types::Moose: 0
+  Sub::Exporter: 0
+  Test::Exception: 0
+  Test::More: 0
+  Test::use::ok: 0
+  namespace::autoclean: 0
+resources:
+  repository: git://github.com/kentfredric/MooseX-Has-Sugar.git
+version: 0.0404

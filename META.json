@@ -1,0 +1,28 @@
+{
+   "resources" : {
+      "repository" : "git://github.com/kentfredric/MooseX-Has-Sugar.git"
+   },
+   "meta-spec" : {
+      "version" : 1.4,
+      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
+   },
+   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.091610",
+   "version" : "0.0404",
+   "name" : "MooseX-Has-Sugar",
+   "author" : [
+      "Kent Fredric <kentnl at cpan.org>"
+   ],
+   "license" : "perl",
+   "requires" : {
+      "MooseX::Types::Moose" : "0",
+      "namespace::autoclean" : "0",
+      "Test::Exception" : "0",
+      "Sub::Exporter" : "0",
+      "Carp" : "0",
+      "Test::More" : "0",
+      "Find::Lib" : "0",
+      "Test::use::ok" : "0",
+      "Moose" : "0.84"
+   },
+   "abstract" : "Sugar Syntax for moose 'has' fields"
+}

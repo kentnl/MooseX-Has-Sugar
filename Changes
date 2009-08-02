@@ -1,0 +1,39 @@
+Revision history for MooseX-Has-Sugar
+
+0.0404    2009-07-06 03:34:10 UTC
+          Added Saccharin, experimental sugars.
+
+0.0403    2009-06-30 13:56:07 UTC
+          Using Dist::Zilla's handy author-tests feature
+          Revised Docmentation a little to be more correct
+
+0.0402    2009-06-29 19:43:05 UTC
+          Fixed missing META.yml in Dzil build
+
+0.0401    2009-06-29 18:16:51 UTC
+          Fixed Dep on Moose Test.
+          Moved to Dist::Zilla.
+          Loads of edits for change
+
+0.0400    Sun Jun 28 12:53:52 NZST 2009
+          Improved Test cases
+          Improved meta dependency advertising
+          added 'bare' keyword.
+
+0.0300    Sat May 30 04:22:57 NZST 2009
+          export group :is/-is moved to ::Minimal.
+          MX::H::S::Minimal exports by default
+          MX::H::Sugar exports all list-flavours by default.
+          MX::H::Sugar croaks if group :is is requested.
+          Test/Documentation updated.
+
+0.0200    Sun May 17 09:38:31 NZST 2009
+          Fixed META.yml
+          Added weak_ref, coerce and auto_deref to -attrs
+          Added collision detection to complain if you use it wrong.
+          Removed Constant Folding based subs, too pesky at present.
+          Added A bunch of tests.
+
+0.0100    Fri May 15 21:18:30 NZST 2009
+          First version.
+
