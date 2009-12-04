@@ -8,10 +8,9 @@ use TestCant;
 
 use AMinimal;
 
-is_deeply( AMinimal->ro_generated, AMinimal->ro_manual, 'Simple Expansion ro' );
-is_deeply( AMinimal->rw_generated, AMinimal->rw_manual, 'Simple Expansion rw' );
+is_deeply( AMinimal->ro_generated,   AMinimal->ro_manual,   'Simple Expansion ro' );
+is_deeply( AMinimal->rw_generated,   AMinimal->rw_manual,   'Simple Expansion rw' );
 is_deeply( AMinimal->bare_generated, AMinimal->bare_manual, 'Simple Expansion bare' );
-
 
 can_unok( 'AMinimal', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 

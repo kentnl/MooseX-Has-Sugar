@@ -10,7 +10,7 @@ use lib "$FindBin::Bin/08_saccharin";
 use TestPackage;
 
 sub cr {
-    return TestPackage->new();
+  return TestPackage->new();
 }
 
 pass("Syntax Compiles");

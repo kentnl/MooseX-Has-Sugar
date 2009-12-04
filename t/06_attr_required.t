@@ -14,7 +14,7 @@ pass("Syntax Compiles");
 sub cr { return TestPackage->new(@_) }
 
 for ( {}, { roattr => "v" }, { rwattr => "v" }, { bareattr => 'v' } ) {
-    dies_ok( sub { cr( %{$_} ) }, 'Constraints on requirements still work' );
+  dies_ok( sub { cr( %{$_} ) }, 'Constraints on requirements still work' );
 }
 
 lives_ok( sub { cr( rwattr => 'v', roattr => 'v', bareattr => 'v', ) }, 'Construction still works' );
