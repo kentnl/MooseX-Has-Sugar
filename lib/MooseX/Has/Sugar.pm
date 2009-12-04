@@ -5,7 +5,6 @@ package MooseX::Has::Sugar;
 
 # ABSTRACT: Sugar Syntax for moose 'has' fields
 
-
 =head1 SYNOPSIS
 
 L<Moose> C<has> syntax is generally fine, but sometimes one gets bothered with
@@ -123,6 +122,16 @@ Or even
 use Carp          ();
 use Sub::Exporter ();
 
+=export_group :default
+
+exports L</:attrs> and L</:isattrs>
+
+=export_group :isattrs
+
+=export_group :attrs
+
+=cut
+
 Sub::Exporter::setup_exporter(
     {
         as      => 'do_import',
@@ -130,7 +139,6 @@ Sub::Exporter::setup_exporter(
         groups  => {
             isattrs => [ 'ro',       'rw',   'bare', ],
             attrs   => [ 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
-            allattrs => [ '-attrs', '-isattrs' ],
             default  => [ '-attrs', '-isattrs' ],
         }
     }
@@ -138,8 +146,12 @@ Sub::Exporter::setup_exporter(
 
 sub import {
     for (@_) {
-        if ( $_ =~ qr/^[:-]is$/ ) {
-            Carp::croak( "Trivial ro/rw with :is dropped as of 0.0300.\n" . " See MooseX::Has::Sugar::Minimal for those. " );
+        if ( $_ =~ qr/^[:-]is\$/ ) {
+            Carp::croak( qq{Trivial ro/rw with :is dropped as of 0.0300.\n} . q{ See MooseX::Has::Sugar::Minimal for those. } );
+        }
+        if ( $_ =~ qr/^[:-]allattrs\$/ ){
+            Carp::carp( q{MooseX::Has::Sugar->import(:allattrs) is deprecated. just do 'use MooseX::Has::Sugar;' instead.});
+            $_ =~ s/^[:-]allattrs\$/:default/;
         }
     }
     goto &MooseX::Has::Sugar::do_import;
@@ -295,6 +307,31 @@ returns C<('auto_deref',1)>
 
 =back
 
-=head1 ACKNOWLEDGEMENTS
+
+=head1 CONFLICTS
+
+=head2 MooseX::Has::Sugar::Minimal
+
+=head2 MooseX::Has::Sugar::Saccharin
+
+This module is not intended to be used in conjunction with
+ L<MooseX::Has::Sugar::Minimal> or L<MooseX::Has::Sugar::Saccharin>
+
+We export many of the same symbols and its just not very sensible.
+
+=head2 MooseX::Types
+
+=head2 Moose::Util::TypeConstraints
+
+due to exporting the L</coerce> symbol, using us in the same scope as a call to
+
+    use MooseX::Types ....
+
+or
+    use Moose::Util::TypeConstraints
+
+will result in a symbol collision.
+
+We recommend using and creating proper type libraries instead, ( which will absolve you entirely of the ned to use MooseX::Types and MooseX::Has::Sugar(::*)? in the same scope )
 
 =cut

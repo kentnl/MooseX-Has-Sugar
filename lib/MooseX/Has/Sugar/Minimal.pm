@@ -82,14 +82,17 @@ sub rw() {
 
 1;
 
-__END__
 
 =head1 CONFLICTS
 
-This module is not intended to be used in conjunction with
- L<MooseX::Has::Sugar>.
+=head2 MooseX::Has::Sugar
 
-We both export L</ro> and L</rw> in different ways.
+=head2 MooseX::Has::Sugar::Saccharin
+
+This module is not intended to be used in conjunction with
+ L<MooseX::Has::Sugar> or L<MooseX::Has::Sugar::Saccharin>.
+
+We all export L</ro> and L</rw> in different ways.
 
 If you do however want to use them in conjuction, specific imports must
  be done on L<MooseX::Has::Sugar>'s side to stop it exporting different

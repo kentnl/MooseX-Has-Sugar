@@ -20,6 +20,13 @@ Your choice.
 use Carp          ();
 use Sub::Exporter ();
 
+=export_group :default
+
+exports  L</ro>, L</rw>, L</required>, L</lazy>, L</lazy_build>, L</coerce>, L</weak_ref>, L</auto_deref>,
+      L</bare>, L</default>, L</init_arg>, L</predicate>, L</clearer>, L</builder>, L</trigger>,
+
+=cut
+
 Sub::Exporter::setup_exporter(
   {
     exports => [
@@ -30,9 +37,9 @@ Sub::Exporter::setup_exporter(
   }
 );
 
-=head1 FUNCTIONS
+=export_function bare
 
-=head2 bare $Type
+=export_function bare $Type
 
     bare Str
 
@@ -46,7 +53,9 @@ sub bare($) {
   return ( 'is', 'bare', 'isa', shift, );
 }
 
-=head2 ro $Type
+=export_function ro
+
+=export_function ro $Type
 
     ro Str
 
@@ -60,7 +69,9 @@ sub ro($) {
   return ( 'is', 'ro', 'isa', shift, );
 }
 
-=head2 rw $Type
+=export_function rw
+
+=export_function rw $Type
 
     rw Str
 
@@ -74,7 +85,9 @@ sub rw($) {
   return ( 'is', 'rw', 'isa', shift, );
 }
 
-=head2 required @rest
+=export_function required
+
+=export_function required @rest
 
 this
 
@@ -99,9 +112,11 @@ sub required(@) {
   return ( 'required', 1, @_ );
 }
 
-=head2 lazy @rest
+=export_function lazy
 
-like C<( lazy => 1 , @rest )>
+=export_function lazy @rest
+
+like C<< ( lazy => 1 , @rest ) >>
 
 =cut
 
@@ -109,9 +124,11 @@ sub lazy(@) {
   return ( 'lazy', 1, @_ );
 }
 
-=head2 lazy_build @rest
+=export_function lazy_build
 
-like C<( lazy_build => 1, @rest )>
+=export_function lazy_build @rest
+
+like C<< ( lazy_build => 1, @rest ) >>
 
 =cut
 
@@ -119,9 +136,11 @@ sub lazy_build(@) {
   return ( 'lazy_build', 1, @_ );
 }
 
-=head2 weak_ref @rest
+=export_function weak_ref
 
-like C<( weak_ref => 1, @rest )>
+=export_function weak_ref @rest
+
+like C<< ( weak_ref => 1, @rest ) >>
 
 =cut
 
@@ -129,9 +148,15 @@ sub weak_ref(@) {
   return ( 'weak_ref', 1, @_ );
 }
 
-=head2 coerce @rest
+=export_function coerce
 
-like C<( coerce => 1, @rest )>
+=export_function @rest
+
+like C<< ( coerce => 1, @rest ) >>
+
+=head3 WARNING:
+
+Conflicts with L</MooseX::Types>
 
 =cut
 
@@ -139,9 +164,11 @@ sub coerce(@) {
   return ( 'coerce', 1, @_ );
 }
 
-=head2 auto_deref @rest
+=export_function auto_deref
 
-like C<( auto_deref => 1, @rest )>
+=export_function auto_deref @rest
+
+like C<< ( auto_deref => 1, @rest ) >>
 
 =cut
 
@@ -149,7 +176,9 @@ sub auto_deref(@) {
   return ( 'auto_deref', 1, @_ );
 }
 
-=head2 builder $buildername
+=export_function builder
+
+=export_function builder $buildername
 
 ie:
 
@@ -165,9 +194,11 @@ sub builder($) {
   return ( 'builder', shift );
 }
 
-=head2 predicate $predicatename
+=export_function predicate
 
-see builder
+=export_function predicate $predicatename
+
+see L</builder>
 
 =cut
 
@@ -175,9 +206,11 @@ sub predicate($) {
   return ( 'predicate', shift );
 }
 
-=head2 clearer $clearername
+=export_function clearer
 
-see builder
+=export_function clearer $clearername
+
+see L</builder>
 
 =cut
 
@@ -185,9 +218,11 @@ sub clearer($) {
   return ( 'clearer', shift );
 }
 
-=head2 init_arg $argname
+=export_function init_arg
 
-see builder
+=export_function init_arg $argname
+
+see L</builder>
 
 =cut
 
@@ -195,7 +230,9 @@ sub init_arg($) {
   return ( 'init_arg', shift );
 }
 
-=head2 default { $code }
+=export_function default
+
+=export_function default { $code }
 
 Examples:
 
@@ -220,7 +257,9 @@ sub default(&) {
   );
 }
 
-=head2 trigger { $code }
+=export_function trigger
+
+=export_function trigger { $code }
 
 Works exactly like default.
 
@@ -239,6 +278,30 @@ sub trigger(&) {
 }
 1;
 
-=head1 ACKNOWLEDGEMENTS
+=head1 CONFLICTS
+
+=head2 MooseX::Has::Sugar
+
+=head2 MooseX::Has::Sugar::Minimal
+
+This module is not intended to be used in conjunction with
+ L<MooseX::Has::Sugar> or L<MooseX::Has::Sugar::Minimal>
+
+We export many of the same symbols and its just not very sensible.
+
+=head2 MooseX::Types
+
+=head2 Moose::Util::TypeConstraints
+
+due to exporting the L</coerce> symbol, using us in the same scope as a call to
+
+    use MooseX::Types ....
+
+or
+    use Moose::Util::TypeConstraints
+
+will result in a symbol collision.
+
+We recommend using and creating proper type libraries instead, ( which will absolve you entirely of the ned to use MooseX::Types and MooseX::Has::Sugar(::*)? in the same scope )
 
 =cut

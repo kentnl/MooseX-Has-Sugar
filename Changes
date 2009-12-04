@@ -3,6 +3,8 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
           Toolkit upgrade & rebuild.
           Testsuite cleanup.
+          Documentation overhaul with ::Weaver
+          Dropped :allattrs from MXHS as its identical to :default
 
 0.0404    2009-07-06 03:34:10 UTC
           Added Saccharin, experimental sugars.
