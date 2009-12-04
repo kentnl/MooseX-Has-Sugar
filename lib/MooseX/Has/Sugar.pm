@@ -25,7 +25,7 @@ and makes it take up less visual space, which makes it faster to read.
 
 =head3 No String Worries
 
-Strings are often problematic, due to whitespace etc. Noted that if you do
+Strings are often problematic, due to white-space etc. Noted that if you do
 happen to mess them up, Moose should at I<least> warn you that you've done
 something daft. Using this alleviates that worry.
 
@@ -47,7 +47,7 @@ something daft. Using this alleviates that worry.
 
 =head3 Lazy Evil way to do it:
 
-B<PLEASE DONT DO THIS>
+B<PLEASE DO NOT DO THIS>
 
     has qw( foo isa Str is ro required 1 );
     has qw( bar isa Str is rw lazy_build 1 );
@@ -307,6 +307,6 @@ or
 
 will result in a symbol collision.
 
-We recommend using and creating proper type libraries instead, ( which will absolve you entirely of the ned to use MooseX::Types and MooseX::Has::Sugar(::*)? in the same scope )
+We recommend using and creating proper type libraries instead, ( which will absolve you entirely of the need to use MooseX::Types and MooseX::Has::Sugar(::*)? in the same scope )
 
 =cut

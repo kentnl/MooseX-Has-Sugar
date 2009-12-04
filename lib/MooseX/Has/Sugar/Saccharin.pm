@@ -178,9 +178,7 @@ sub auto_deref(@) {
 
 =export_function builder
 
-=export_function builder $buildername
-
-ie:
+=export_function builder $buildername:
 
     required rw Str, builder '_build_foo'
 
@@ -245,6 +243,7 @@ $_ is localised as the same value as $_[0] for convenience ( usually $self )
 
 =cut
 
+## no critic (ProhibitBuiltinHomonyms)
 sub default(&) {
   my $code = shift;
   return (
@@ -302,6 +301,15 @@ or
 
 will result in a symbol collision.
 
-We recommend using and creating proper type libraries instead, ( which will absolve you entirely of the ned to use MooseX::Types and MooseX::Has::Sugar(::*)? in the same scope )
+We recommend using and creating proper type libraries instead, ( which will absolve you entirely of the need to use MooseX::Types and MooseX::Has::Sugar(::*)? in the same scope )
+
+=head2 Perl 5.010 feature 'switch'
+
+the keyword 'default' becomes part of Perl in both these cases:
+
+    use 5.010;
+    use feature qw( :switch );
+
+As such, we can't have that keyword in that scenario.
 
 =cut

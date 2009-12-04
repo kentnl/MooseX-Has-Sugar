@@ -10,5 +10,4 @@ allow_includes = 1
 [CodeLayout::ProhibitTrailingWhitespace]
 
 [Documentation::PodSpelling]
-stop_words = metadata KiokuDB versioning plugin tuneables cldr CLDR cultin cultin
-
+stop_words = attrs ro rw

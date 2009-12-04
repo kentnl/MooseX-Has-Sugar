@@ -93,7 +93,7 @@ This module is not intended to be used in conjunction with
 
 We all export L</ro> and L</rw> in different ways.
 
-If you do however want to use them in conjuction, specific imports must
+If you do however want to use them in conjunction, specific imports must
  be done on L<MooseX::Has::Sugar>'s side to stop it exporting different
  ro/rw. Any of the below should be fine.
 
