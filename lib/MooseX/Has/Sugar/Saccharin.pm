@@ -1,15 +1,17 @@
+use warnings;
+use strict;
+
 package MooseX::Has::Sugar::Saccharin;
-our $VERSION = '0.0404';
+our $VERSION = '0.0405';
+
 
 
 # ABSTRACT: Experimental sweetness
 
-use warnings;
-use strict;
-
 
 use Carp          ();
 use Sub::Exporter ();
+
 
 Sub::Exporter::setup_exporter(
   {
@@ -87,6 +89,7 @@ sub init_arg($) {
 }
 
 
+## no critic (ProhibitBuiltinHomonyms)
 sub default(&) {
   my $code = shift;
   return (
@@ -115,7 +118,6 @@ sub trigger(&) {
 
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -124,7 +126,7 @@ MooseX::Has::Sugar::Saccharin - Experimental sweetness
 
 =head1 VERSION
 
-version 0.0404
+version 0.0405
 
 =head1 SYNOPSIS
 
@@ -136,7 +138,16 @@ This is a highly experimental sugaring module. No Guarantees of stability.
 
 Your choice.
 
-=head1 FUNCTIONS
+=head1 EXPORT GROUPS
+
+=head2 :default
+
+exports  L</ro>, L</rw>, L</required>, L</lazy>, L</lazy_build>, L</coerce>, L</weak_ref>, L</auto_deref>,
+      L</bare>, L</default>, L</init_arg>, L</predicate>, L</clearer>, L</builder>, L</trigger>,
+
+=head1 EXPORTED FUNCTIONS
+
+=head2 bare
 
 =head2 bare $Type
 
@@ -146,6 +157,8 @@ equivalent to this
 
     is => 'bare', isa => Str
 
+=head2 ro
+
 =head2 ro $Type
 
     ro Str
@@ -154,6 +167,8 @@ equivalent to this
 
     is => 'ro', isa => Str,
 
+=head2 rw
+
 =head2 rw $Type
 
     rw Str
@@ -161,6 +176,8 @@ equivalent to this
 equivalent to this
 
     is => 'rw', isa => Str
+
+=head2 required
 
 =head2 required @rest
 
@@ -180,29 +197,43 @@ is equivalent to this
 
     is => 'rw', isa => Str , required => 1
 
+=head2 lazy
+
 =head2 lazy @rest
 
-like C<( lazy => 1 , @rest )>
+like C<< ( lazy => 1 , @rest ) >>
+
+=head2 lazy_build
 
 =head2 lazy_build @rest
 
-like C<( lazy_build => 1, @rest )>
+like C<< ( lazy_build => 1, @rest ) >>
+
+=head2 weak_ref
 
 =head2 weak_ref @rest
 
-like C<( weak_ref => 1, @rest )>
+like C<< ( weak_ref => 1, @rest ) >>
 
-=head2 coerce @rest
+=head2 coerce
 
-like C<( coerce => 1, @rest )>
+=head2 @rest
+
+like C<< ( coerce => 1, @rest ) >>
+
+=head3 WARNING:
+
+Conflicts with L</MooseX::Types>
+
+=head2 auto_deref
 
 =head2 auto_deref @rest
 
-like C<( auto_deref => 1, @rest )>
+like C<< ( auto_deref => 1, @rest ) >>
 
-=head2 builder $buildername
+=head2 builder
 
-ie:
+=head2 builder $buildername:
 
     required rw Str, builder '_build_foo'
 
@@ -210,17 +241,25 @@ is like
 
     builder => '_build_foo'
 
+=head2 predicate
+
 =head2 predicate $predicatename
 
-see builder
+see L</builder>
+
+=head2 clearer
 
 =head2 clearer $clearername
 
-see builder
+see L</builder>
+
+=head2 init_arg
 
 =head2 init_arg $argname
 
-see builder
+see L</builder>
+
+=head2 default
 
 =head2 default { $code }
 
@@ -233,11 +272,46 @@ Examples:
 
 $_ is localised as the same value as $_[0] for convenience ( usually $self )
 
+=head2 trigger
+
 =head2 trigger { $code }
 
 Works exactly like default.
 
-=head1 ACKNOWLEDGEMENTS
+=head1 CONFLICTS
+
+=head2 MooseX::Has::Sugar
+
+=head2 MooseX::Has::Sugar::Minimal
+
+This module is not intended to be used in conjunction with
+ L<MooseX::Has::Sugar> or L<MooseX::Has::Sugar::Minimal>
+
+We export many of the same symbols and its just not very sensible.
+
+=head2 MooseX::Types
+
+=head2 Moose::Util::TypeConstraints
+
+due to exporting the L</coerce> symbol, using us in the same scope as a call to
+
+    use MooseX::Types ....
+
+or
+    use Moose::Util::TypeConstraints
+
+will result in a symbol collision.
+
+We recommend using and creating proper type libraries instead, ( which will absolve you entirely of the need to use MooseX::Types and MooseX::Has::Sugar(::*)? in the same scope )
+
+=head2 Perl 5.010 feature 'switch'
+
+the keyword 'default' becomes part of Perl in both these cases:
+
+    use 5.010;
+    use feature qw( :switch );
+
+As such, we can't have that keyword in that scenario.
 
 =head1 AUTHOR
 
@@ -251,5 +325,4 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
 

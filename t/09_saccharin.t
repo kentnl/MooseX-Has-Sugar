@@ -2,7 +2,9 @@ use strict;
 use warnings;
 
 use Test::More tests => 3;    # last test to print
-use Find::Lib './09_saccharin';
+use FindBin;
+use lib "$FindBin::Bin/09_saccharin";
+
 use TestPackage;
 
 is_deeply( TestPackage->Alpha->{orig},                TestPackage->Alpha->{mx},                'Basic Use Case', );

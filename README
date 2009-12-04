@@ -2,7 +2,7 @@ NAME
     MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
 
 VERSION
-    version 0.0404
+    version 0.0405
 
 SYNOPSIS
     Moose "has" syntax is generally fine, but sometimes one gets bothered
@@ -20,7 +20,7 @@ SYNOPSIS
     faster to read.
 
    No String Worries
-    Strings are often problematic, due to whitespace etc. Noted that if you
+    Strings are often problematic, due to white-space etc. Noted that if you
     do happen to mess them up, Moose should at *least* warn you that you've
     done something daft. Using this alleviates that worry.
 
@@ -39,7 +39,7 @@ SYNOPSIS
         );
 
    Lazy Evil way to do it:
-    PLEASE DONT DO THIS
+    PLEASE DO NOT DO THIS
 
         has qw( foo isa Str is ro required 1 );
         has qw( bar isa Str is rw lazy_build 1 );
@@ -105,111 +105,99 @@ SYNOPSIS
                 lazy_build,
         );
 
-EXPORT
-    rw
-    ro
-    bare
-    lazy
-    lazy_build
-    required
-    coerce
-    weak_ref
-    auto_deref
-
 EXPORT GROUPS
-    :default
-        Since 0.0300, this exports all our syntax, the same as ":attrs
-        :isattrs". Primarily because I found you generally want all the
-        sugar, not just part of it. This also gets rid of that nasty
-        exclusion logic.
+  :default
+    Since 0.0300, this exports all our syntax, the same as ":attrs
+    :isattrs". Primarily because I found you generally want all the sugar,
+    not just part of it. This also gets rid of that nasty exclusion logic.
 
-    :is DEPRECATED. See MooseX::Has::Sugar::Minimal for the same
-        functionality
+  :isattrs
+    This exports "ro", "rw" and "bare" as lists, so they behave as
+    stand-alone attrs like "lazy" does.
 
-    :attrs
-        This exports "lazy" , "lazy_build" and "required", "coerce",
-        "weak_ref" and "auto_deref" as subs that assume positive.
+        has foo => (
+                required,
+                isa => 'Str',
+                ro,
+        );
 
-            has foo => (
-                    required,
-                    isa => 'Str',
-            );
+    NOTE: This option is incompatible with MooseX::Has::Sugar::Minimal :
+    "CONFLICTS"
 
-    :isattrs
-        This exports "ro", "rw" and "bare" as lists, so they behave as
-        stand-alone attrs like "lazy" does.
+  :attrs
+    This exports "lazy" , "lazy_build" and "required", "coerce", "weak_ref"
+    and "auto_deref" as subs that assume positive.
 
-            has foo => (
-                    required,
-                    isa => 'Str',
-                    ro,
-            );
+        has foo => (
+                required,
+                isa => 'Str',
+        );
 
-        NOTE: This option is incompatible with MooseX::Has::Sugar::Minimal
+    NOTE: This option is incompatible with MooseX::Types and
+    Moose::Util::TypeConstraints : "CONFLICTS"
 
-    :allattrs
-        This is a shorthand for qw( :isattrs :attrs )
+  :is
+    DEPRECATED. See MooseX::Has::Sugar::Minimal for the same functionality
 
-FUNCTIONS
-    These you probably don't care about, they're all managed by
-    Sub::Exporter and its stuff anyway.
+  :allattrs
+    DEPRECATED, just use ":default" or do
 
-    rw  returns "('is','rw')"
+        use MooseX::Has::Sugar;
 
-    ro  returns "('is','ro')"
+EXPORTED FUNCTIONS
+  bare
+    returns "('is','bare')"
 
-    bare
-        returns "('is','bare')"
+  ro
+    returns "('is','ro')"
 
-    lazy
-        returns "('lazy',1)"
+  rw
+    returns "('is','rw')"
 
-    required
-        returns "('required',1)"
+  required
+    returns "('required',1)"
 
-    lazy_build
-        returns "('lazy_build',1)"
+  lazy
+    returns "('lazy',1)"
 
-    coerce
-        returns "('coerce',1)"
+  lazy_build
+    returns "('lazy_build',1)"
 
-    weak_ref
-        returns "('weak_ref',1)"
+  weak_ref
+    returns "('weak_ref',1)"
 
-    auto_deref
-        returns "('auto_deref',1)"
+  coerce
+    returns "('coerce',1)"
 
-BUGS
-    Please report any bugs or feature requests to "bug-moosex-has-extras at
-    rt.cpan.org", or through the web interface at
-    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=MooseX-Has-Sugar>. I
-    will be notified, and then you'll automatically be notified of progress
-    on your bug as I make changes.
+    WARNING: Conflict with MooseX::Types and Moose::Util::TypeConstraints,
+    see CONFLICTS.
 
-SUPPORT
-    You can find documentation for this module with the perldoc command.
+  auto_deref
+    returns "('auto_deref',1)"
 
-        perldoc MooseX::Has::Sugar
+CONFLICTS
+  MooseX::Has::Sugar::Minimal
+  MooseX::Has::Sugar::Saccharin
+    This module is not intended to be used in conjunction with
+    MooseX::Has::Sugar::Minimal or MooseX::Has::Sugar::Saccharin
 
-    You can also look for information at:
+    We export many of the same symbols and its just not very sensible.
 
-    *   RT: CPAN's request tracker
+  MooseX::Types
+  Moose::Util::TypeConstraints
+    due to exporting the "coerce" symbol, using us in the same scope as a
+    call to
 
-        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=MooseX-Has-Sugar>
+        use MooseX::Types ....
 
-    *   AnnoCPAN: Annotated CPAN documentation
+    or use Moose::Util::TypeConstraints
 
-        <http://annocpan.org/dist/MooseX-Has-Sugar>
+    will result in a symbol collision.
 
-    *   CPAN Ratings
+    We recommend using and creating proper type libraries instead, ( which
+    will absolve you entirely of the need to use MooseX::Types and
+    MooseX::Has::Sugar(::*)? in the same scope )
 
-        <http://cpanratings.perl.org/d/MooseX-Has-Sugar>
-
-    *   Search CPAN
-
-        <http://search.cpan.org/dist/MooseX-Has-Sugar/>
-
-ACKNOWLEDGEMENTS
 AUTHOR
       Kent Fredric <kentnl at cpan.org>
 

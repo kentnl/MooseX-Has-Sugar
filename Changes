@@ -1,5 +1,12 @@
 Revision history for MooseX-Has-Sugar
 
+0.0405    2009-12-04 22:20:43 Pacific/Auckland
+          Toolkit upgrade & rebuild.
+          Testsuite cleanup.
+          Documentation overhaul with ::Weaver
+          Dropped :allattrs from MXHS as its identical to :default
+          Tests drop Find::Lib;
+
 0.0404    2009-07-06 03:34:10 UTC
           Added Saccharin, experimental sugars.
 
