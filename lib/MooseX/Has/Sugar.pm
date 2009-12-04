@@ -124,11 +124,44 @@ use Sub::Exporter ();
 
 =export_group :default
 
-exports L</:attrs> and L</:isattrs>
+Since 0.0300, this exports all our syntax, the same as C<:attrs :isattrs>.
+Primarily because I found you generally want all the sugar, not just part of it.
+This also gets rid of that nasty exclusion logic.
 
 =export_group :isattrs
 
+This exports C<ro>, C<rw> and C<bare> as lists, so they behave as stand-alone attrs like
+L</lazy> does.
+
+    has foo => (
+            required,
+            isa => 'Str',
+            ro,
+    );
+
+B<NOTE: This option is incompatible with L<MooseX::Has::Sugar::Minimal>> : L</CONFLICTS>
+
 =export_group :attrs
+
+This exports L</lazy> , L</lazy_build> and L</required>, L</coerce>, L</weak_ref>
+and L</auto_deref> as subs that assume positive.
+
+    has foo => (
+            required,
+            isa => 'Str',
+    );
+
+B<NOTE: This option is incompatible with L<MooseX::Types> and L<Moose::Util::TypeConstraints>> : L</CONFLICTS>
+
+=export_group :is
+
+B<DEPRECATED>. See L<MooseX::Has::Sugar::Minimal> for the same functionality
+
+=export_group :allattrs
+
+B<DEPRECATED>, just use L</:default> or do
+
+    use MooseX::Has::Sugar;
 
 =cut
 
@@ -156,157 +189,98 @@ sub import {
     }
     goto &MooseX::Has::Sugar::do_import;
 }
+=export_function bare
+
+returns C<('is','bare')>
+
+=cut
 
 sub bare() {
     return ( 'is', 'bare' );
 }
 
+=export_function ro
+
+returns C<('is','ro')>
+
+=cut
+
 sub ro() {
     return ( 'is', 'ro' );
 }
+
+=export_function rw
+
+returns C<('is','rw')>
+
+=cut
 
 sub rw() {
     return ( 'is', 'rw' );
 }
 
+=export_function required
+
+returns C<('required',1)>
+
+=cut
+
 sub required() {
     return ( 'required', 1 );
 }
+
+=export_function lazy
+
+returns C<('lazy',1)>
+
+=cut
 
 sub lazy() {
     return ( 'lazy', 1 );
 }
 
+=export_function lazy_build
+
+returns C<('lazy_build',1)>
+
+=cut
+
 sub lazy_build() {
     return ( 'lazy_build', 1 );
 }
+
+=export_function weak_ref
+
+returns C<('weak_ref',1)>
+
+=cut
 
 sub weak_ref() {
     return ( 'weak_ref', 1 );
 }
 
+=export_function coerce
+
+returns C<('coerce',1)>
+
+B<WARNING:> Conflict with L<MooseX::Types> and L<Moose::Util::TypeConstraints>, see L<CONFLICTS>.
+
+=cut
+
 sub coerce() {
     return ( 'coerce', 1 );
 }
+
+=export_function auto_deref
+
+returns C<('auto_deref',1)>
+
+=cut
 
 sub auto_deref() {
     return ( 'auto_deref', 1 );
 }
 1;
-
-
-=head1 EXPORT
-
-=over 4
-
-=item rw
-
-=item ro
-
-=item bare
-
-=item lazy
-
-=item lazy_build
-
-=item required
-
-=item coerce
-
-=item weak_ref
-
-=item auto_deref
-
-=back
-
-=head1 EXPORT GROUPS
-
-=over 4
-
-=item :default
-
-Since 0.0300, this exports all our syntax, the same as C<:attrs :isattrs>.
-Primarily because I found you generally want all the sugar, not just part of it.
-This also gets rid of that nasty exclusion logic.
-
-=item :is
-
-B<DEPRECATED>. See L<MooseX::Has::Sugar::Minimal> for the same functionality
-
-=item :attrs
-
-This exports C<lazy> , C<lazy_build> and C<required>, C<coerce>, C<weak_ref>
-and C<auto_deref> as subs that assume positive.
-
-    has foo => (
-            required,
-            isa => 'Str',
-    );
-
-=item :isattrs
-
-This exports C<ro>, C<rw> and C<bare> as lists, so they behave as stand-alone attrs like
-C<lazy> does.
-
-    has foo => (
-            required,
-            isa => 'Str',
-            ro,
-    );
-
-B<NOTE: This option is incompatible with L<MooseX::Has::Sugar::Minimal>>
-
-=item :allattrs
-
-This is  a shorthand for  qw( :isattrs :attrs )
-
-=back
-
-=head1 FUNCTIONS
-
-These you probably don't care about, they're all managed by L<Sub::Exporter>
-and its stuff anyway.
-
-=over 4
-
-=item rw
-
-returns C<('is','rw')>
-
-=item ro
-
-returns C<('is','ro')>
-
-=item bare
-
-returns C<('is','bare')>
-
-=item lazy
-
-returns C<('lazy',1)>
-
-=item required
-
-returns C<('required',1)>
-
-=item lazy_build
-
-returns C<('lazy_build',1)>
-
-=item coerce
-
-returns C<('coerce',1)>
-
-=item weak_ref
-
-returns C<('weak_ref',1)>
-
-=item auto_deref
-
-returns C<('auto_deref',1)>
-
-=back
-
 
 =head1 CONFLICTS
 
