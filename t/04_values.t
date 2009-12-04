@@ -2,7 +2,8 @@ use strict;
 use warnings;
 
 use Test::More tests => 12;    # last test to print
-use Find::Lib './04_values';
+use FindBin;
+use lib "$FindBin::Bin/04_values";
 use TestCant;
 
 use AMinimal;

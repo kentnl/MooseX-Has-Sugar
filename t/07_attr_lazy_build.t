@@ -4,7 +4,9 @@ use warnings;
 
 use Test::More tests => 7;    # last test to print
 use Test::Exception;
-use Find::Lib './07_attr_lazy_build';
+
+use FindBin;
+use lib "$FindBin::Bin/07_attr_lazy_build";
 
 use TestPackage;
 

@@ -4,7 +4,8 @@ use warnings;
 
 use Test::More tests => 9;    # last test to print
 use Test::Exception;
-use Find::Lib './06_attr_required';
+use FindBin;
+use lib "$FindBin::Bin/06_attr_required";
 
 use TestPackage;
 

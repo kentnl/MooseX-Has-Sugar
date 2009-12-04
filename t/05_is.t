@@ -4,7 +4,8 @@ use warnings;
 
 use Test::More tests => 9;    # last test to print
 use Test::Exception;
-use Find::Lib './05_is';
+use FindBin;
+use lib "$FindBin::Bin/05_is";
 
 use TestPackage;
 
