@@ -1,11 +1,32 @@
+use warnings;
+use strict;
+
 package MooseX::Has::Sugar::Minimal;
 
 # ABSTRACT: Less Sugary Syntax for moose 'has' fields
 
-use warnings;
-use strict;
-
 use Sub::Exporter ();
+
+=head1 SYNOPSIS
+
+This is a legacy variant of L<MooseX::Has::Sugar> which only exports C<ro>
+and C<rw> functions, the way L<MooseX::Has::Sugar> used to with C<:is>;
+
+    use MooseX::Types::Moose qw( Str );
+    use MooseX::Has::Sugar::Minimal;
+
+    has foo => (
+            isa => Str,
+            is  => ro,
+            required => 1,
+    );
+    has bar => (
+            isa => Str,
+            is => rw,
+            lazy_build => 1,
+    );
+
+=cut
 
 Sub::Exporter::setup_exporter(
     {
@@ -32,25 +53,6 @@ sub rw() {
 1;
 
 __END__
-
-=head1 SYNOPSIS
-
-This is a legacy variant of L<MooseX::Has::Sugar> which only exports C<ro>
-and C<rw> functions, the way L<MooseX::Has::Sugar> used to with C<:is>;
-
-    use MooseX::Types::Moose qw( Str );
-    use MooseX::Has::Sugar::Minimal;
-
-    has foo => (
-            isa => Str,
-            is  => ro,
-            required => 1,
-    );
-    has bar => (
-            isa => Str,
-            is => rw,
-            lazy_build => 1,
-    );
 
 
 =head1 EXPORT

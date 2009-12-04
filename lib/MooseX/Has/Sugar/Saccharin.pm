@@ -1,9 +1,9 @@
+use warnings;
+use strict;
+
 package MooseX::Has::Sugar::Saccharin;
 
 # ABSTRACT: Experimental sweetness
-
-use warnings;
-use strict;
 
 =head1 SYNOPSIS
 
