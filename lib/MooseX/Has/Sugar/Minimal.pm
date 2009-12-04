@@ -82,7 +82,6 @@ sub rw() {
 
 1;
 
-
 =head1 CONFLICTS
 
 =head2 MooseX::Has::Sugar

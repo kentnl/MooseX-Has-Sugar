@@ -166,29 +166,30 @@ B<DEPRECATED>, just use L</:default> or do
 =cut
 
 Sub::Exporter::setup_exporter(
-    {
-        as      => 'do_import',
-        exports => [ 'ro', 'rw', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', 'bare', ],
-        groups  => {
-            isattrs => [ 'ro',       'rw',   'bare', ],
-            attrs   => [ 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
-            default  => [ '-attrs', '-isattrs' ],
-        }
+  {
+    as      => 'do_import',
+    exports => [ 'ro', 'rw', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', 'bare', ],
+    groups  => {
+      isattrs => [ 'ro',       'rw',   'bare', ],
+      attrs   => [ 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
+      default => [ '-attrs', '-isattrs' ],
     }
+  }
 );
 
 sub import {
-    for (@_) {
-        if ( $_ =~ qr/^[:-]is\$/ ) {
-            Carp::croak( qq{Trivial ro/rw with :is dropped as of 0.0300.\n} . q{ See MooseX::Has::Sugar::Minimal for those. } );
-        }
-        if ( $_ =~ qr/^[:-]allattrs\$/ ){
-            Carp::carp( q{MooseX::Has::Sugar->import(:allattrs) is deprecated. just do 'use MooseX::Has::Sugar;' instead.});
-            $_ =~ s/^[:-]allattrs\$/:default/;
-        }
+  for (@_) {
+    if ( $_ =~ qr/^[:-]is\$/ ) {
+      Carp::croak( qq{Trivial ro/rw with :is dropped as of 0.0300.\n} . q{ See MooseX::Has::Sugar::Minimal for those. } );
     }
-    goto &MooseX::Has::Sugar::do_import;
+    if ( $_ =~ qr/^[:-]allattrs\$/ ) {
+      Carp::carp(q{MooseX::Has::Sugar->import(:allattrs) is deprecated. just do 'use MooseX::Has::Sugar;' instead.});
+      $_ =~ s/^[:-]allattrs\$/:default/;
+    }
+  }
+  goto &MooseX::Has::Sugar::do_import;
 }
+
 =export_function bare
 
 returns C<('is','bare')>
@@ -196,7 +197,7 @@ returns C<('is','bare')>
 =cut
 
 sub bare() {
-    return ( 'is', 'bare' );
+  return ( 'is', 'bare' );
 }
 
 =export_function ro
@@ -206,7 +207,7 @@ returns C<('is','ro')>
 =cut
 
 sub ro() {
-    return ( 'is', 'ro' );
+  return ( 'is', 'ro' );
 }
 
 =export_function rw
@@ -216,7 +217,7 @@ returns C<('is','rw')>
 =cut
 
 sub rw() {
-    return ( 'is', 'rw' );
+  return ( 'is', 'rw' );
 }
 
 =export_function required
@@ -226,7 +227,7 @@ returns C<('required',1)>
 =cut
 
 sub required() {
-    return ( 'required', 1 );
+  return ( 'required', 1 );
 }
 
 =export_function lazy
@@ -236,7 +237,7 @@ returns C<('lazy',1)>
 =cut
 
 sub lazy() {
-    return ( 'lazy', 1 );
+  return ( 'lazy', 1 );
 }
 
 =export_function lazy_build
@@ -246,7 +247,7 @@ returns C<('lazy_build',1)>
 =cut
 
 sub lazy_build() {
-    return ( 'lazy_build', 1 );
+  return ( 'lazy_build', 1 );
 }
 
 =export_function weak_ref
@@ -256,7 +257,7 @@ returns C<('weak_ref',1)>
 =cut
 
 sub weak_ref() {
-    return ( 'weak_ref', 1 );
+  return ( 'weak_ref', 1 );
 }
 
 =export_function coerce
@@ -268,7 +269,7 @@ B<WARNING:> Conflict with L<MooseX::Types> and L<Moose::Util::TypeConstraints>, 
 =cut
 
 sub coerce() {
-    return ( 'coerce', 1 );
+  return ( 'coerce', 1 );
 }
 
 =export_function auto_deref
@@ -278,7 +279,7 @@ returns C<('auto_deref',1)>
 =cut
 
 sub auto_deref() {
-    return ( 'auto_deref', 1 );
+  return ( 'auto_deref', 1 );
 }
 1;
 
