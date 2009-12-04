@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.0405    2009-12-04 22:20:43 Pacific/Auckland
           Toolkit upgrade & rebuild.
           Testsuite cleanup.
           Documentation overhaul with ::Weaver
