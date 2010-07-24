@@ -156,7 +156,7 @@ like C<< ( coerce => 1, @rest ) >>
 
 =head3 WARNING:
 
-Conflicts with L<< C<MooseX::Types's>> C<coerce> method|MooseX::Types/coerce >>
+Conflicts with L<< C<MooseX::Types's> C<coerce> method|MooseX::Types/coerce >>
 
 =cut
 
