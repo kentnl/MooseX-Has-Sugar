@@ -2,9 +2,9 @@ use warnings;
 use strict;
 
 package MooseX::Has::Sugar::Minimal;
-our $VERSION = '0.0405';
-
-
+BEGIN {
+  $MooseX::Has::Sugar::Minimal::VERSION = '0.05044303';
+}
 
 # ABSTRACT: Less Sugary Syntax for moose 'has' fields
 
@@ -49,12 +49,12 @@ MooseX::Has::Sugar::Minimal - Less Sugary Syntax for moose 'has' fields
 
 =head1 VERSION
 
-version 0.0405
+version 0.05044303
 
 =head1 SYNOPSIS
 
-This is a legacy variant of L<MooseX::Has::Sugar> which only exports C<ro>
-and C<rw> functions, the way L<MooseX::Has::Sugar> used to with C<:is>;
+This is a legacy variant of L<Sugar|MooseX::Has::Sugar> which only exports C<ro>
+and C<rw> functions, the way L<MooseX::Has::Sugar|MooseX::Has::Sugar> used to with C<:is>;
 
     use MooseX::Types::Moose qw( Str );
     use MooseX::Has::Sugar::Minimal;
@@ -70,7 +70,7 @@ and C<rw> functions, the way L<MooseX::Has::Sugar> used to with C<:is>;
             lazy_build => 1,
     );
 
-All functions are exported by L<Sub::Exporter>.
+All functions are exported by L<The Sub::Exporter Module|Sub::Exporter>.
 
 =head1 EXPORT GROUPS
 
@@ -103,12 +103,12 @@ returns C<('rw')>
 =head2 MooseX::Has::Sugar::Saccharin
 
 This module is not intended to be used in conjunction with
- L<MooseX::Has::Sugar> or L<MooseX::Has::Sugar::Saccharin>.
+ L<::Sugar|MooseX::Has::Sugar> or L<::Sugar::Saccharin|MooseX::Has::Sugar::Saccharin>.
 
 We all export L</ro> and L</rw> in different ways.
 
 If you do however want to use them in conjunction, specific imports must
- be done on L<MooseX::Has::Sugar>'s side to stop it exporting different
+ be done on L<MooseX::Has::Sugar's|MooseX::Has::Sugar> side to stop it exporting different
  ro/rw. Any of the below should be fine.
 
     use MooseX::Has::Sugar::Minimal;
@@ -123,11 +123,11 @@ If you do however want to use them in conjunction, specific imports must
 
 =head1 AUTHOR
 
-  Kent Fredric <kentnl at cpan.org>
+Kent Fredric <kentnl at cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Kent Fredric.
+This software is copyright (c) 2010 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

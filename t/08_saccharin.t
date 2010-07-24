@@ -5,12 +5,12 @@ use warnings;
 use Test::More tests => 7;    # last test to print
 use Test::Exception;
 use FindBin;
-use lib "$FindBin::Bin/08_saccharin";
+use lib "$FindBin::Bin/lib";
 
-use TestPackage;
+use T8Saccharin::TestPackage;
 
 sub cr {
-  return TestPackage->new();
+  return T8Saccharin::TestPackage->new();
 }
 
 pass("Syntax Compiles");

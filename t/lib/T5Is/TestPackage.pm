@@ -1,7 +1,4 @@
-package TestPackage;
-our $VERSION = '0.0405';
-
-
+package T5Is::TestPackage;
 
 # $Id:$
 use strict;

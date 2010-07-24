@@ -1,13 +1,9 @@
-package AMinimal;
-our $VERSION = '0.0405';
-
-
+package  T4Values::AMinimal;
 
 # $Id:$
 use strict;
 use warnings;
 
-use Moose;
 use MooseX::Has::Sugar::Minimal;
 use namespace::autoclean;
 
@@ -23,6 +19,5 @@ sub bare_generated { { isa => 'Str', is => bare, } }
 
 sub bare_manual { { isa => 'Str', is => 'bare', } }
 
-__PACKAGE__->meta->make_immutable;
 1;
 

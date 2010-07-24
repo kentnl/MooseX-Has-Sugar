@@ -3,38 +3,39 @@ use warnings;
 
 use Test::More tests => 12;    # last test to print
 use FindBin;
-use lib "$FindBin::Bin/04_values";
-use TestCant;
+use lib "$FindBin::Bin/lib";
 
-use AMinimal;
+use T4Values::TestCant;
 
-is_deeply( AMinimal->ro_generated,   AMinimal->ro_manual,   'Simple Expansion ro' );
-is_deeply( AMinimal->rw_generated,   AMinimal->rw_manual,   'Simple Expansion rw' );
-is_deeply( AMinimal->bare_generated, AMinimal->bare_manual, 'Simple Expansion bare' );
+use T4Values::AMinimal;
 
-can_unok( 'AMinimal', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
+is_deeply( T4Values::AMinimal->ro_generated,   T4Values::AMinimal->ro_manual,   'Simple Expansion ro' );
+is_deeply( T4Values::AMinimal->rw_generated,   T4Values::AMinimal->rw_manual,   'Simple Expansion rw' );
+is_deeply( T4Values::AMinimal->bare_generated, T4Values::AMinimal->bare_manual, 'Simple Expansion bare' );
 
-use BDeclare;
+can_unok( 'T4Values::AMinimal', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 
-is_deeply( BDeclare->generated, BDeclare->manual, 'Attr Expansion' );
+use T4Values::BDeclare;
 
-can_unok( 'BDeclare', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
+is_deeply( T4Values::BDeclare->generated, T4Values::BDeclare->manual, 'Attr Expansion' );
 
-use CDeclareRo;
+can_unok( 'T4Values::BDeclare', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 
-is_deeply( CDeclareRo->generated, CDeclareRo->manual, 'is Attr Expansion' );
+use T4Values::CDeclareRo;
 
-can_unok( 'CDeclareRo', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
+is_deeply( T4Values::CDeclareRo->generated, T4Values::CDeclareRo->manual, 'is Attr Expansion' );
 
-use DEverything;
+can_unok( 'T4Values::CDeclareRo', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 
-is_deeply( DEverything->generated, DEverything->manual, 'All Attr Expansion' );
+use T4Values::DEverything;
 
-can_unok( 'DEverything', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
+is_deeply( T4Values::DEverything->generated, T4Values::DEverything->manual, 'All Attr Expansion' );
 
-use EMixed;
+can_unok( 'T4Values::DEverything', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 
-is_deeply( EMixed->generated, EMixed->manual, 'Mixed Attr Expansion' );
+use T4Values::EMixed;
 
-can_unok( 'EMixed', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
+is_deeply( T4Values::EMixed->generated, T4Values::EMixed->manual, 'Mixed Attr Expansion' );
+
+can_unok( 'T4Values::EMixed', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 

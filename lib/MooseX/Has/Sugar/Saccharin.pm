@@ -2,9 +2,9 @@ use warnings;
 use strict;
 
 package MooseX::Has::Sugar::Saccharin;
-our $VERSION = '0.0405';
-
-
+BEGIN {
+  $MooseX::Has::Sugar::Saccharin::VERSION = '0.05044303';
+}
 
 # ABSTRACT: Experimental sweetness
 
@@ -126,7 +126,7 @@ MooseX::Has::Sugar::Saccharin - Experimental sweetness
 
 =head1 VERSION
 
-version 0.0405
+version 0.05044303
 
 =head1 SYNOPSIS
 
@@ -223,7 +223,7 @@ like C<< ( coerce => 1, @rest ) >>
 
 =head3 WARNING:
 
-Conflicts with L</MooseX::Types>
+Conflicts with L<< C<MooseX::Types's> C<coerce> method|MooseX::Types/coerce >>
 
 =head2 auto_deref
 
@@ -285,7 +285,7 @@ Works exactly like default.
 =head2 MooseX::Has::Sugar::Minimal
 
 This module is not intended to be used in conjunction with
- L<MooseX::Has::Sugar> or L<MooseX::Has::Sugar::Minimal>
+ L<::Sugar|MooseX::Has::Sugar> or L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal>
 
 We export many of the same symbols and its just not very sensible.
 
@@ -315,11 +315,11 @@ As such, we can't have that keyword in that scenario.
 
 =head1 AUTHOR
 
-  Kent Fredric <kentnl at cpan.org>
+Kent Fredric <kentnl at cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Kent Fredric.
+This software is copyright (c) 2010 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

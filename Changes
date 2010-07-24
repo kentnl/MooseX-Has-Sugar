@@ -1,5 +1,11 @@
 Revision history for MooseX-Has-Sugar
 
+0.05044303 2010-07-24 22:03:50 Pacific/Auckland
+          Migrate to @KENTNL Dzil.
+          Rework t/ dirs.
+          Drop depend on MX::Types in tests.
+          Drop accidental dep on Test::Kwalitee
+
 0.0405    2009-12-04 22:20:43 Pacific/Auckland
           Toolkit upgrade & rebuild.
           Testsuite cleanup.

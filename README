@@ -2,12 +2,13 @@ NAME
     MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
 
 VERSION
-    version 0.0405
+    version 0.05044303
 
 SYNOPSIS
     Moose "has" syntax is generally fine, but sometimes one gets bothered
-    with the constant typing of string quotes for things. MooseX::Types
-    exists and in many ways reduces the need for constant string creation.
+    with the constant typing of string quotes for things. The MooseX::Types
+    module exists and in many ways reduces the need for constant string
+    creation.
 
   Primary Benefits at a Glance
    Reduced Typing in "has" declarations.
@@ -71,7 +72,7 @@ SYNOPSIS
 
   Alternative Forms
    Basic "is" Expansion Only
-    ( using MooseX::Has::Sugar::Minimal instead )
+    ( using ::Sugar::Minimal instead )
 
         use MooseX::Types::Moose qw( Str );
         use MooseX::Has::Sugar::Minimal;
@@ -88,7 +89,7 @@ SYNOPSIS
         );
 
    Attribute Expansions with Basic Expansions
-    ( Combining parts of this and MooseX::Has::Sugar::Minimal )
+    ( Combining parts of this and ::Sugar::Minimal )
 
         use MooseX::Types::Moose qw( Str );
         use MooseX::Has::Sugar::Minimal;
@@ -121,8 +122,7 @@ EXPORT GROUPS
                 ro,
         );
 
-    NOTE: This option is incompatible with MooseX::Has::Sugar::Minimal :
-    "CONFLICTS"
+    NOTE: This option is incompatible with ::Sugar::Minimal : "CONFLICTS"
 
   :attrs
     This exports "lazy" , "lazy_build" and "required", "coerce", "weak_ref"
@@ -133,11 +133,11 @@ EXPORT GROUPS
                 isa => 'Str',
         );
 
-    NOTE: This option is incompatible with MooseX::Types and
-    Moose::Util::TypeConstraints : "CONFLICTS"
+    NOTE: This option is incompatible with MooseX::Types and Moose's Type
+    Constraints Module : "CONFLICTS"
 
   :is
-    DEPRECATED. See MooseX::Has::Sugar::Minimal for the same functionality
+    DEPRECATED. See ::Sugar::Minimal for the same functionality
 
   :allattrs
     DEPRECATED, just use ":default" or do
@@ -170,7 +170,7 @@ EXPORTED FUNCTIONS
     returns "('coerce',1)"
 
     WARNING: Conflict with MooseX::Types and Moose::Util::TypeConstraints,
-    see CONFLICTS.
+    see "CONFLICTS".
 
   auto_deref
     returns "('auto_deref',1)"
@@ -179,7 +179,7 @@ CONFLICTS
   MooseX::Has::Sugar::Minimal
   MooseX::Has::Sugar::Saccharin
     This module is not intended to be used in conjunction with
-    MooseX::Has::Sugar::Minimal or MooseX::Has::Sugar::Saccharin
+    ::Sugar::Minimal or ::Sugar::Saccharin
 
     We export many of the same symbols and its just not very sensible.
 
@@ -199,10 +199,10 @@ CONFLICTS
     MooseX::Has::Sugar(::*)? in the same scope )
 
 AUTHOR
-      Kent Fredric <kentnl at cpan.org>
+    Kent Fredric <kentnl at cpan.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2009 by Kent Fredric.
+    This software is copyright (c) 2010 by Kent Fredric.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.

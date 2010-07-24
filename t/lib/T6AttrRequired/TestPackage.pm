@@ -1,7 +1,4 @@
-package TestPackage;
-our $VERSION = '0.0405';
-
-
+package T6AttrRequired::TestPackage;
 
 # $Id:$
 use strict;
