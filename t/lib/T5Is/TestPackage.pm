@@ -1,4 +1,4 @@
-package TestPackage;
+package T5Is::TestPackage;
 
 # $Id:$
 use strict;

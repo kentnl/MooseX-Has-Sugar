@@ -5,12 +5,12 @@ use warnings;
 use Test::More tests => 9;    # last test to print
 use Test::Exception;
 use FindBin;
-use lib "$FindBin::Bin/05_is";
+use lib "$FindBin::Bin/lib";
 
-use TestPackage;
+use T5Is::TestPackage;
 
 sub cr {
-  return TestPackage->new(@_);
+  return T5Is::TestPackage->new(@_);
 }
 
 pass("Syntax Compiles");
