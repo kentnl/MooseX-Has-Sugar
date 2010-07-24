@@ -156,7 +156,7 @@ like C<< ( coerce => 1, @rest ) >>
 
 =head3 WARNING:
 
-Conflicts with L</MooseX::Types>
+Conflicts with L<< C<MooseX::Types's>> C<coerce> method|MooseX::Types/coerce >>
 
 =cut
 
@@ -284,7 +284,7 @@ sub trigger(&) {
 =head2 MooseX::Has::Sugar::Minimal
 
 This module is not intended to be used in conjunction with
- L<MooseX::Has::Sugar> or L<MooseX::Has::Sugar::Minimal>
+ L<::Sugar|MooseX::Has::Sugar> or L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal>
 
 We export many of the same symbols and its just not very sensible.
 
