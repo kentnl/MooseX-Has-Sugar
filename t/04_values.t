@@ -19,7 +19,7 @@ use T4Values::BDeclare;
 
 is_deeply( T4Values::BDeclare->generated, T4Values::BDeclare->manual, 'Attr Expansion' );
 
-can_unok( ' T4Values::BDeclare', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
+can_unok( 'T4Values::BDeclare', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 
 use T4Values::CDeclareRo;
 
