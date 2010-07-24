@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Migrate to @KENTNL Dzil.
 
 0.0405    2009-12-04 22:20:43 Pacific/Auckland
           Toolkit upgrade & rebuild.
