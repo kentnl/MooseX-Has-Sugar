@@ -6,12 +6,12 @@ use Test::More tests => 7;    # last test to print
 use Test::Exception;
 
 use FindBin;
-use lib "$FindBin::Bin/07_attr_lazy_build";
+use lib "$FindBin::Bin/lib";
 
-use TestPackage;
+use T7AttrLazyBuild::TestPackage;
 
 sub cr {
-  return TestPackage->new();
+  return T7AttrLazyBuild::TestPackage->new();
 }
 
 pass("Syntax Compiles");

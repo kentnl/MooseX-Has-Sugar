@@ -1,4 +1,4 @@
-package TestPackage;
+package T7AttrLazyBuild::TestPackage;
 
 # $Id:$
 use strict;
