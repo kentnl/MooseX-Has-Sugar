@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
           Migrate to @KENTNL Dzil.
+          Rework t/ dirs.
+          Drop depend on MX::Types in tests.
+          Drop accidental dep on Test::Kwalitee
 
 0.0405    2009-12-04 22:20:43 Pacific/Auckland
           Toolkit upgrade & rebuild.

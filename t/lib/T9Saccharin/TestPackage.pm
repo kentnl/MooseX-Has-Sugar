@@ -4,34 +4,33 @@ package T9Saccharin::TestPackage;
 use strict;
 use warnings;
 
-use MooseX::Types::Moose (':all');
 use MooseX::Has::Sugar::Saccharin;
 use namespace::autoclean;
 
 sub Alpha {
   return {
-    orig => { 'isa' => Str, 'required' => 1, 'is' => 'rw' },
-    mx   => { required rw Str },
+    orig => { 'isa' => 'Str', 'required' => 1, 'is' => 'rw' },
+    mx   => { required rw 'Str' },
   };
 }
 
 sub Beta {
   return {
-    orig => { 'isa' => Str, 'required' => 1, 'is' => 'rw' },
-    mx => { rw Str, required },
+    orig => { 'isa' => 'Str', 'required' => 1, 'is' => 'rw' },
+    mx => { rw 'Str', required },
   };
 }
 
 sub Gamma {
   return {
     orig => {
-      'isa'   => Str,
+      'isa'   => 'Str',
       'is'    => 'rw',
       default => sub {
         return 1;
         }
     },
-    mx => { rw Str, default { 1 } },
+    mx => { rw 'Str', default { 1 } },
   };
 }
 
