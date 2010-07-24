@@ -151,7 +151,7 @@ and L</auto_deref> as subs that assume positive.
             isa => 'Str',
     );
 
-B<NOTE: This option is incompatible with L<MooseX::Types|MooseX::Types> and L<Mooses' Type Constraints Module|Moose::Util::TypeConstraints>> : L</CONFLICTS>
+B<NOTE: This option is incompatible with L<MooseX::Types|MooseX::Types> and L<Moose's Type Constraints Module|Moose::Util::TypeConstraints>> : L</CONFLICTS>
 
 =export_group :is
 
@@ -264,7 +264,7 @@ sub weak_ref() {
 
 returns C<('coerce',1)>
 
-B<WARNING:> Conflict with L<MooseX::Types|MooseX::Types> and L<Moose::Util::TypeConstraints|Moose::Util::TypeConstraints>, see L<CONFLICTS>.
+B<WARNING:> Conflict with L<MooseX::Types|MooseX::Types> and L<Moose::Util::TypeConstraints|Moose::Util::TypeConstraints>, see L</CONFLICTS>.
 
 =cut
 
