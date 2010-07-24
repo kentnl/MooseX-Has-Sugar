@@ -5,13 +5,13 @@ use warnings;
 use Test::More tests => 9;    # last test to print
 use Test::Exception;
 use FindBin;
-use lib "$FindBin::Bin/06_attr_required";
+use lib "$FindBin::Bin/lib";
 
-use TestPackage;
+use T6AttrRequired::TestPackage;
 
 pass("Syntax Compiles");
 
-sub cr { return TestPackage->new(@_) }
+sub cr { return T6AttrRequired::TestPackage->new(@_) }
 
 for ( {}, { roattr => "v" }, { rwattr => "v" }, { bareattr => 'v' } ) {
   dies_ok( sub { cr( %{$_} ) }, 'Constraints on requirements still work' );

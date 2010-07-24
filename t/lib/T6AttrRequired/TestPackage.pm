@@ -1,4 +1,4 @@
-package TestPackage;
+package T6AttrRequired::TestPackage;
 
 # $Id:$
 use strict;
