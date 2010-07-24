@@ -7,8 +7,8 @@ package MooseX::Has::Sugar;
 
 =head1 SYNOPSIS
 
-L<Moose> C<has> syntax is generally fine, but sometimes one gets bothered with
-the constant typing of string quotes for things. L<MooseX::Types> exists and in
+L<Moose|Moose> C<has> syntax is generally fine, but sometimes one gets bothered with
+the constant typing of string quotes for things. L<The MooseX::Types module|MooseX::Types> exists and in
 many ways reduces the need for constant string creation.
 
 =head2 Primary Benefits at a Glance
@@ -82,7 +82,7 @@ Or even
 
 =head3 Basic C<is> Expansion Only
 
-( using L<MooseX::Has::Sugar::Minimal> instead )
+( using L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal> instead )
 
     use MooseX::Types::Moose qw( Str );
     use MooseX::Has::Sugar::Minimal;
@@ -100,7 +100,7 @@ Or even
 
 =head3 Attribute Expansions with Basic Expansions
 
-( Combining parts of this and L<MooseX::Has::Sugar::Minimal> )
+( Combining parts of this and L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal> )
 
     use MooseX::Types::Moose qw( Str );
     use MooseX::Has::Sugar::Minimal;
@@ -139,7 +139,7 @@ L</lazy> does.
             ro,
     );
 
-B<NOTE: This option is incompatible with L<MooseX::Has::Sugar::Minimal>> : L</CONFLICTS>
+B<NOTE: This option is incompatible with L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal>> : L</CONFLICTS>
 
 =export_group :attrs
 
@@ -151,11 +151,11 @@ and L</auto_deref> as subs that assume positive.
             isa => 'Str',
     );
 
-B<NOTE: This option is incompatible with L<MooseX::Types> and L<Moose::Util::TypeConstraints>> : L</CONFLICTS>
+B<NOTE: This option is incompatible with L<MooseX::Types|MooseX::Types> and L<Mooses' Type Constraints Module|Moose::Util::TypeConstraints>> : L</CONFLICTS>
 
 =export_group :is
 
-B<DEPRECATED>. See L<MooseX::Has::Sugar::Minimal> for the same functionality
+B<DEPRECATED>. See L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal> for the same functionality
 
 =export_group :allattrs
 
@@ -264,7 +264,7 @@ sub weak_ref() {
 
 returns C<('coerce',1)>
 
-B<WARNING:> Conflict with L<MooseX::Types> and L<Moose::Util::TypeConstraints>, see L<CONFLICTS>.
+B<WARNING:> Conflict with L<MooseX::Types|MooseX::Types> and L<Moose::Util::TypeConstraints|Moose::Util::TypeConstraints>, see L<CONFLICTS>.
 
 =cut
 
@@ -290,7 +290,7 @@ sub auto_deref() {
 =head2 MooseX::Has::Sugar::Saccharin
 
 This module is not intended to be used in conjunction with
- L<MooseX::Has::Sugar::Minimal> or L<MooseX::Has::Sugar::Saccharin>
+ L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal> or L<::Sugar::Saccharin|MooseX::Has::Sugar::Saccharin>
 
 We export many of the same symbols and its just not very sensible.
 
