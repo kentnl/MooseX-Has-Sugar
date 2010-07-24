@@ -1,4 +1,4 @@
-package TestPackage;
+package T8Saccharin::TestPackage;
 
 # $Id:$
 use strict;

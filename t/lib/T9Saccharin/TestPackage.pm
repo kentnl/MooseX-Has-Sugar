@@ -1,9 +1,9 @@
-package TestPackage;
+package T9Saccharin::TestPackage;
 
 # $Id:$
 use strict;
 use warnings;
-use Moose;
+
 use MooseX::Types::Moose (':all');
 use MooseX::Has::Sugar::Saccharin;
 use namespace::autoclean;
