@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Improved docs and tests for Saccharin. ( Alexandr Ciornii / chorny )
 
 0.05044303 2010-07-24 22:03:50 Pacific/Auckland
           Migrate to @KENTNL Dzil.
