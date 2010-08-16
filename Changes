@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.05046611 2010-08-17 06:30:39 Pacific/Auckland
           Improved docs and tests for Saccharin. ( Alexandr Ciornii / chorny )
           Eradicated excess in xt/.
 
