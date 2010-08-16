@@ -9,6 +9,7 @@ package MooseX::Has::Sugar::Saccharin;
 
 This is a highly experimental sugaring module. No Guarantees of stability.
 
+    use MooseX::Types::Moose qw( :all );
     has name   => rw Str, default { 1 };
     has suffix => required rw Str;
     has 'suffix', required rw Str;

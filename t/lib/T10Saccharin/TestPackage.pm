@@ -7,6 +7,7 @@ use Moose;
 use namespace::autoclean;
 
 use MooseX::Has::Sugar::Saccharin;
+use MooseX::Types::Moose qw( :all );
 
 has roattr => required ro Str;
 
