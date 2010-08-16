@@ -3,7 +3,7 @@ use strict;
 
 package MooseX::Has::Sugar::Saccharin;
 BEGIN {
-  $MooseX::Has::Sugar::Saccharin::VERSION = '0.05044303';
+  $MooseX::Has::Sugar::Saccharin::VERSION = '0.05046611';
 }
 
 # ABSTRACT: Experimental sweetness
@@ -126,12 +126,13 @@ MooseX::Has::Sugar::Saccharin - Experimental sweetness
 
 =head1 VERSION
 
-version 0.05044303
+version 0.05046611
 
 =head1 SYNOPSIS
 
 This is a highly experimental sugaring module. No Guarantees of stability.
 
+    use MooseX::Types::Moose qw( :all );
     has name   => rw Str, default { 1 };
     has suffix => required rw Str;
     has 'suffix', required rw Str;

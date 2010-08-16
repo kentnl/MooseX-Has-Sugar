@@ -9,7 +9,7 @@ dist.ini
 lib/MooseX/Has/Sugar.pm
 lib/MooseX/Has/Sugar/Minimal.pm
 lib/MooseX/Has/Sugar/Saccharin.pm
-perlcriticrc
+perlcritic.rc
 t/00-compile.t
 t/000-report-versions-tiny.t
 t/04_values.t
@@ -18,6 +18,9 @@ t/06_attr_required.t
 t/07_attr_lazy_build.t
 t/08_saccharin.t
 t/09_saccharin.t
+t/10_saccharin.t
+t/author-critic.t
+t/lib/T10Saccharin/TestPackage.pm
 t/lib/T4Values/AMinimal.pm
 t/lib/T4Values/BDeclare.pm
 t/lib/T4Values/CDeclareRo.pm
@@ -29,7 +32,6 @@ t/lib/T6AttrRequired/TestPackage.pm
 t/lib/T7AttrLazyBuild/TestPackage.pm
 t/lib/T8Saccharin/TestPackage.pm
 t/lib/T9Saccharin/TestPackage.pm
-t/release-critic.t
 t/release-distmeta.t
 t/release-eol.t
 t/release-kwalitee.t

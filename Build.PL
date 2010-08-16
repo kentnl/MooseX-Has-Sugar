@@ -7,11 +7,13 @@ use Module::Build 0.3601;
 
 my %module_build_args = (
   'build_requires' => {
+    'English' => '0',
     'File::Find' => '0',
     'File::Temp' => '0',
     'FindBin' => '0',
     'Module::Build' => '0.3601',
     'Moose' => '0',
+    'MooseX::Types::Moose' => '0',
     'Test::Exception' => '0',
     'Test::More' => '0.88',
     'namespace::autoclean' => '0'
@@ -24,7 +26,7 @@ my %module_build_args = (
     'Kent Fredric <kentnl at cpan.org>'
   ],
   'dist_name' => 'MooseX-Has-Sugar',
-  'dist_version' => '0.05044303',
+  'dist_version' => '0.05046611',
   'license' => 'perl',
   'module_name' => 'MooseX::Has::Sugar',
   'recommends' => {},

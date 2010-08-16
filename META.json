@@ -4,7 +4,7 @@
       "Kent Fredric <kentnl at cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.101900, CPAN::Meta::Converter version 2.101670",
+   "generated_by" : "Dist::Zilla version 4.101900, CPAN::Meta::Converter version 2.102160",
    "license" : [
       "perl_5"
    ],
@@ -32,10 +32,12 @@
       },
       "test" : {
          "requires" : {
+            "English" : 0,
             "File::Find" : 0,
             "File::Temp" : 0,
             "FindBin" : 0,
             "Moose" : 0,
+            "MooseX::Types::Moose" : 0,
             "Test::Exception" : 0,
             "Test::More" : "0.88",
             "namespace::autoclean" : 0
@@ -45,15 +47,15 @@
    "provides" : {
       "MooseX::Has::Sugar" : {
          "file" : "lib/MooseX/Has/Sugar.pm",
-         "version" : "0.05044303"
+         "version" : "0.05046611"
       },
       "MooseX::Has::Sugar::Minimal" : {
          "file" : "lib/MooseX/Has/Sugar/Minimal.pm",
-         "version" : "0.05044303"
+         "version" : "0.05046611"
       },
       "MooseX::Has::Sugar::Saccharin" : {
          "file" : "lib/MooseX/Has/Sugar/Saccharin.pm",
-         "version" : "0.05044303"
+         "version" : "0.05046611"
       }
    },
    "release_status" : "stable",
@@ -65,29 +67,32 @@
          "web" : "http://github.com/kentfredric/MooseX-Has-Sugar/tree"
       }
    },
-   "version" : "0.05044303",
+   "version" : "0.05046611",
    "x_BuiltWith" : {
       "modules" : {
          "Carp" : "1.16",
+         "English" : "1.04",
          "File::Find" : "1.15",
          "File::Temp" : "0.22",
          "FindBin" : "1.50",
          "Module::Build" : "0.3607",
-         "Moose" : "1.08",
+         "Moose" : "1.09",
+         "MooseX::Types::Moose" : "0.23",
          "Sub::Exporter" : "0.982",
          "Test::Exception" : "0.29",
-         "Test::More" : "0.94",
+         "Test::More" : "0.96",
          "namespace::autoclean" : "0.11"
       },
       "perl" : "5.012001",
-      "platform" : "linux"
+      "platform" : "linux",
+      "uname" : "Linux 2.6.35-gentoo x86_64 GenuineIntel GNU/Linux\n"
    },
    "x_Dist_Zilla" : {
       "plugins" : [
          {
             "class" : "Dist::Zilla::Plugin::AutoVersion::Relative",
             "name" : "@KENTNL/AutoVersion::Relative",
-            "version" : "0.01027903"
+            "version" : "0.01035617"
          },
          {
             "class" : "Dist::Zilla::Plugin::GatherDir",
@@ -127,7 +132,7 @@
          {
             "class" : "Dist::Zilla::Plugin::MetaProvides::Package",
             "name" : "@KENTNL/MetaProvides::Package",
-            "version" : "1.10027802"
+            "version" : "1.11034304"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaJSON",
@@ -166,13 +171,34 @@
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaData::BuiltWith",
+            "config" : {
+               "Dist::Zilla::Plugin::MetaData::BuiltWith" : {
+                  "_stash_key" : "x_BuiltWith",
+                  "show_uname" : 1,
+                  "uname" : {
+                     "uname_args" : [
+                        "-s",
+                        "-o",
+                        "-r",
+                        "-m",
+                        "-i"
+                     ],
+                     "uname_call" : "uname"
+                  }
+               }
+            },
             "name" : "@KENTNL/MetaData::BuiltWith",
-            "version" : "0.01000216"
+            "version" : "0.01005122"
          },
          {
             "class" : "Dist::Zilla::Plugin::CompileTests",
             "name" : "@KENTNL/CompileTests",
             "version" : "1.101800"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::CriticTests",
+            "name" : "@KENTNL/CriticTests",
+            "version" : "1.102280"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaTests",
