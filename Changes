@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Replaced Test::Exceptions with Test::Fatal
+          Removed FindBin in tests.
+          ( core Tests now 5% faster! )
 
 0.05046611 2010-08-17 06:30:39 Pacific/Auckland
           Improved docs and tests for Saccharin. ( Alexandr Ciornii / chorny )
