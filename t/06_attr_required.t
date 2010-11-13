@@ -2,10 +2,9 @@
 use strict;
 use warnings;
 
-use Test::More tests => 9;    # last test to print
-use Test::Exception;
-use FindBin;
-use lib "$FindBin::Bin/lib";
+use Test::More;
+use Test::Fatal;
+use lib "t/lib";
 
 use T6AttrRequired::TestPackage;
 
@@ -14,16 +13,17 @@ pass("Syntax Compiles");
 sub cr { return T6AttrRequired::TestPackage->new(@_) }
 
 for ( {}, { roattr => "v" }, { rwattr => "v" }, { bareattr => 'v' } ) {
-  dies_ok( sub { cr( %{$_} ) }, 'Constraints on requirements still work' );
+  isnt( exception { cr( %{$_} ) }, undef, 'Constraints on requirements still work' );
 }
 
-lives_ok( sub { cr( rwattr => 'v', roattr => 'v', bareattr => 'v', ) }, 'Construction still works' );
+is( exception { cr( rwattr => 'v', roattr => 'v', bareattr => 'v', ) }, undef, 'Construction still works' );
 
 my $i = cr( rwattr => 'v', roattr => 'v', bareattr => 'v', );
 
-dies_ok( sub { $i->roattr('x') }, "RO works still" );
+isnt( exception { $i->roattr('x') }, undef, "RO works still" );
 
-lives_ok( sub { $i->rwattr('x') }, 'RW works still' );
+is( exception { $i->rwattr('x') }, undef, 'RW works still' );
 
 is( $i->rwattr(), 'x', "RW Works as expected" );
 
+done_testing;

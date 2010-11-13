@@ -1,9 +1,8 @@
 use strict;
 use warnings;
 
-use Test::More tests => 12;    # last test to print
-use FindBin;
-use lib "$FindBin::Bin/lib";
+use Test::More;
+use lib "t/lib";
 
 use T4Values::TestCant;
 
@@ -38,4 +37,4 @@ use T4Values::EMixed;
 is_deeply( T4Values::EMixed->generated, T4Values::EMixed->manual, 'Mixed Attr Expansion' );
 
 can_unok( 'T4Values::EMixed', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
-
+done_testing;
