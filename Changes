@@ -1,5 +1,10 @@
 Revision history for MooseX-Has-Sugar
 
+0.05055616 2010-11-14 12:43:43 Pacific/Auckland
+          Replaced Test::Exceptions with Test::Fatal
+          Removed FindBin in tests.
+          ( core Tests now 5% faster! )
+
 0.05046611 2010-08-17 06:30:39 Pacific/Auckland
           Improved docs and tests for Saccharin. ( Alexandr Ciornii / chorny )
           Eradicated excess in xt/.
