@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  [Packaging]
+  - Moved to @Author::KENTNL
 
 0.05055616 2010-11-14 12:43:43 Pacific/Auckland
           Replaced Test::Exceptions with Test::Fatal
