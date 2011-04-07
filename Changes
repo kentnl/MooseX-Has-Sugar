@@ -3,6 +3,9 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
  - Maintainence only release. No external changes.
 
+ [Dependencies:Development]
+ - @KENTNL to @Author::KENTNL
+
  [Packaging]
  - Moved to @Author::KENTNL
  - update gitignore and perlcritic rules.
