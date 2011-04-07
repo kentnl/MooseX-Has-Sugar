@@ -13,22 +13,22 @@ Revision history for {{$dist->name}}
  - Remove portability test
 
 
-0.05055616 2010-11-14 12:43:43 Pacific/Auckland
+0.05055616 2010-11-13T23:43:43Z
           Replaced Test::Exceptions with Test::Fatal
           Removed FindBin in tests.
           ( core Tests now 5% faster! )
 
-0.05046611 2010-08-17 06:30:39 Pacific/Auckland
+0.05046611 2010-08-16T18:30:39Z
           Improved docs and tests for Saccharin. ( Alexandr Ciornii / chorny )
           Eradicated excess in xt/.
 
-0.05044303 2010-07-24 22:03:50 Pacific/Auckland
+0.05044303 2010-07-24T10:03:50Z
           Migrate to @KENTNL Dzil.
           Rework t/ dirs.
           Drop depend on MX::Types in tests.
           Drop accidental dep on Test::Kwalitee
 
-0.0405    2009-12-04 22:20:43 Pacific/Auckland
+0.0405    2009-12-04T09:20:43Z
           Toolkit upgrade & rebuild.
           Testsuite cleanup.
           Documentation overhaul with ::Weaver
