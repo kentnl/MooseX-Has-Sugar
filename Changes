@@ -7,6 +7,7 @@ Revision history for {{$dist->name}}
  - Moved to @Author::KENTNL
  - update gitignore and perlcritic rules.
  - ship perltidyrc
+ - Normalize Changes.
 
  [Tests]
  - Add CPAN::Changes test
