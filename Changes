@@ -50,25 +50,25 @@ Revision history for {{$dist->name}}
           Moved to Dist::Zilla.
           Loads of edits for change
 
-0.0400    2009-06-28 12:53:52 Pacific/Auckland
+0.0400    2009-06-28T00:53:52Z
           Improved Test cases
           Improved meta dependency advertising
           added 'bare' keyword.
 
-0.0300    2009-05-30 04:22:57 Pacific/Auckand
+0.0300    2009-05-29T16:22:57Z
           export group :is/-is moved to ::Minimal.
           MX::H::S::Minimal exports by default
           MX::H::Sugar exports all list-flavours by default.
           MX::H::Sugar croaks if group :is is requested.
           Test/Documentation updated.
 
-0.0200    2009-05-17 09:38:31 Pacific/Auckland
+0.0200    2009-05-16T21:38:31Z
           Fixed META.yml
           Added weak_ref, coerce and auto_deref to -attrs
           Added collision detection to complain if you use it wrong.
           Removed Constant Folding based subs, too pesky at present.
           Added A bunch of tests.
 
-0.0100    2009-05-15 21:18:30 Pacific/Auckland
+0.0100    2009-05-15T09:18:30Z
           First version.
 
