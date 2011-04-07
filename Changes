@@ -1,61 +1,77 @@
 Revision history for MooseX-Has-Sugar
 
-0.05055616 2010-11-14 12:43:43 Pacific/Auckland
-          Replaced Test::Exceptions with Test::Fatal
-          Removed FindBin in tests.
-          ( core Tests now 5% faster! )
+0.05070419 2011-04-07T02:03:19Z
+ - Maintainence only release. No external changes.
 
-0.05046611 2010-08-17 06:30:39 Pacific/Auckland
-          Improved docs and tests for Saccharin. ( Alexandr Ciornii / chorny )
-          Eradicated excess in xt/.
+ [Dependencies:Development]
+ - @KENTNL to @Author::KENTNL
 
-0.05044303 2010-07-24 22:03:50 Pacific/Auckland
-          Migrate to @KENTNL Dzil.
-          Rework t/ dirs.
-          Drop depend on MX::Types in tests.
-          Drop accidental dep on Test::Kwalitee
+ [Packaging]
+ - Moved to @Author::KENTNL
+ - update gitignore and perlcritic rules.
+ - ship perltidyrc
+ - Normalize Changes.
 
-0.0405    2009-12-04 22:20:43 Pacific/Auckland
-          Toolkit upgrade & rebuild.
-          Testsuite cleanup.
-          Documentation overhaul with ::Weaver
-          Dropped :allattrs from MXHS as its identical to :default
-          Tests drop Find::Lib;
+ [Tests]
+ - Add CPAN::Changes test
+ - Remove portability test
 
-0.0404    2009-07-06 03:34:10 UTC
-          Added Saccharin, experimental sugars.
+0.05055616 2010-11-13T23:43:43Z
+ - Replaced Test::Exceptions with Test::Fatal
+ - Removed FindBin in tests.
+ - Core Tests now 5% faster!.
 
-0.0403    2009-06-30 13:56:07 UTC
-          Using Dist::Zilla's handy author-tests feature
-          Revised Docmentation a little to be more correct
+0.05046611 2010-08-16T18:30:39Z
+ - Improved docs and tests for Saccharin. ( Alexandr Ciornii / chorny )
+ - Eradicated excess in xt/.
 
-0.0402    2009-06-29 19:43:05 UTC
-          Fixed missing META.yml in Dzil build
+0.05044303 2010-07-24T10:03:50Z
+ - Migrate to @KENTNL Dzil.
+ - Rework t/ dirs.
+ - Drop depend on MX::Types in tests.
+ - Drop accidental dep on Test::Kwalitee
 
-0.0401    2009-06-29 18:16:51 UTC
-          Fixed Dep on Moose Test.
-          Moved to Dist::Zilla.
-          Loads of edits for change
+0.0405 2009-12-04T09:20:43Z
+ - Toolkit upgrade & rebuild.
+ - Testsuite cleanup.
+ - Documentation overhaul with ::Weaver
+ - Dropped :allattrs from MXHS as its identical to :default
+ - Tests drop Find::Lib;
 
-0.0400    Sun Jun 28 12:53:52 NZST 2009
-          Improved Test cases
-          Improved meta dependency advertising
-          added 'bare' keyword.
+0.0404 2009-07-06T03:34:10Z
+ - Added Saccharin, experimental sugars.
 
-0.0300    Sat May 30 04:22:57 NZST 2009
-          export group :is/-is moved to ::Minimal.
-          MX::H::S::Minimal exports by default
-          MX::H::Sugar exports all list-flavours by default.
-          MX::H::Sugar croaks if group :is is requested.
-          Test/Documentation updated.
+0.0403 2009-06-30T13:56:07Z
+ - Using Dist::Zilla's handy author-tests feature
+ - Revised Docmentation a little to be more correct
 
-0.0200    Sun May 17 09:38:31 NZST 2009
-          Fixed META.yml
-          Added weak_ref, coerce and auto_deref to -attrs
-          Added collision detection to complain if you use it wrong.
-          Removed Constant Folding based subs, too pesky at present.
-          Added A bunch of tests.
+0.0402 2009-06-29T19:43:05Z
+ - Fixed missing META.yml in Dzil build
 
-0.0100    Fri May 15 21:18:30 NZST 2009
-          First version.
+0.0401 2009-06-29T18:16:51Z
+ - Fixed Dep on Moose Test.
+ - Moved to Dist::Zilla.
+ - Loads of edits for change
+
+0.0400 2009-06-28T00:53:52Z
+ - Improved Test cases
+ - Improved meta dependency advertising
+ - added 'bare' keyword.
+
+0.0300 2009-05-29T16:22:57Z
+ - export group :is/-is moved to ::Minimal.
+ - MX::H::S::Minimal exports by default
+ - MX::H::Sugar exports all list-flavours by default.
+ - MX::H::Sugar croaks if group :is is requested.
+ - Test/Documentation updated.
+
+0.0200 2009-05-16T21:38:31Z
+ - Fixed META.yml
+ - Added weak_ref, coerce and auto_deref to -attrs
+ - Added collision detection to complain if you use it wrong.
+ - Removed Constant Folding based subs, too pesky at present.
+ - Added A bunch of tests.
+
+0.0100 2009-05-15T09:18:30Z
+ - First version.
 

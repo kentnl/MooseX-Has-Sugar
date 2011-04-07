@@ -11,3 +11,13 @@ allow_includes = 1
 
 [Documentation::PodSpelling]
 stop_words = attrs ro rw
+
+[Subroutines::ProhibitUnusedPrivateSubroutines]
+private_name_regex = _(?!build_)\w
+
+[TestingAndDebugging::RequireUseStrict]
+equivalent_modules = Moose
+
+[TestingAndDebugging::RequireUseWarnings]
+equivalent_modules = Moose
+

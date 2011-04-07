@@ -25,7 +25,7 @@ my %module_build_args = (
     'Kent Fredric <kentnl at cpan.org>'
   ],
   'dist_name' => 'MooseX-Has-Sugar',
-  'dist_version' => '0.05055616',
+  'dist_version' => '0.05070419',
   'license' => 'perl',
   'module_name' => 'MooseX::Has::Sugar',
   'recommends' => {},

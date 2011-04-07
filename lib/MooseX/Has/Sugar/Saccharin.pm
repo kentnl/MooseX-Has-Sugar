@@ -3,7 +3,7 @@ use strict;
 
 package MooseX::Has::Sugar::Saccharin;
 BEGIN {
-  $MooseX::Has::Sugar::Saccharin::VERSION = '0.05055616';
+  $MooseX::Has::Sugar::Saccharin::VERSION = '0.05070419';
 }
 
 # ABSTRACT: Experimental sweetness
@@ -126,7 +126,7 @@ MooseX::Has::Sugar::Saccharin - Experimental sweetness
 
 =head1 VERSION
 
-version 0.05055616
+version 0.05070419
 
 =head1 SYNOPSIS
 
@@ -320,7 +320,7 @@ Kent Fredric <kentnl at cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Kent Fredric.
+This software is copyright (c) 2011 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
