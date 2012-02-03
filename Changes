@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.05070420 2012-02-03T03:33:11Z
  - Maintenance/Packaging release.
 
  [Internals]
