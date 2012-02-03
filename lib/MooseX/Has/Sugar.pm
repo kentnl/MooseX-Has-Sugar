@@ -3,7 +3,10 @@ use strict;
 
 package MooseX::Has::Sugar;
 BEGIN {
-  $MooseX::Has::Sugar::VERSION = '0.05070419';
+  $MooseX::Has::Sugar::AUTHORITY = 'cpan:KENTNL';
+}
+{
+  $MooseX::Has::Sugar::VERSION = '0.05070420';
 }
 
 # ABSTRACT: Sugar Syntax for moose 'has' fields
@@ -94,7 +97,7 @@ MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
 
 =head1 VERSION
 
-version 0.05070419
+version 0.05070420
 
 =head1 SYNOPSIS
 
@@ -323,7 +326,7 @@ Kent Fredric <kentnl at cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Kent Fredric.
+This software is copyright (c) 2012 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

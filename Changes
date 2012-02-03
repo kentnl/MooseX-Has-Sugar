@@ -1,5 +1,30 @@
 Revision history for MooseX-Has-Sugar
 
+0.05070420 2012-02-03T03:33:11Z
+ - Maintenance/Packaging release.
+
+ [Internals]
+ - All namespaces provide $AUTHORITY
+ - $VERSION moved to outside of BEGIN
+
+ [Packaging]
+ - Update LICENSE ( Year, Address, Indentation )
+ - Extra Tests moved to xt/
+ - Git URI's moved to https://
+ - Export x_authority
+ - Git based versions instead of auto incrementing relative versions.
+
+ [Dependencies::Changed]
+ - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 -> v1.2.0
+
+ [Dependencies::New]
+ - runtime requires : perl 5.006
+ - runtime requires : strict
+ - runtime requires : warnings
+
+ [Dependencies::Removed]
+ - test requires : English
+
 0.05070419 2011-04-07T02:03:19Z
  - Maintainence only release. No external changes.
 
