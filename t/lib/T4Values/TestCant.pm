@@ -34,7 +34,8 @@ sub can_unok($@) {
 
   my @nok = ();
   foreach my $method (@methods) {
-    $tb->_try( sub { !$proto->can($method) } ) or push @nok, $method;
+    local ($!,$@);
+    eval { !$proto->can($method) }  or push @nok, $method;
   }
 
   my $name =
