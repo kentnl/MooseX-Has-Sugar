@@ -1,0 +1,209 @@
+NAME
+    MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
+
+VERSION
+    version 0.05070421
+
+SYNOPSIS
+    Moose "has" syntax is generally fine, but sometimes one gets bothered
+    with the constant typing of string quotes for things. The MooseX::Types
+    module exists and in many ways reduces the need for constant string
+    creation.
+
+  Primary Benefits at a Glance
+   Reduced Typing in "has" declarations.
+    The constant need to type "=>" and '' is fine for one-off cases, but the
+    instant you have more than about 4 attributes it starts to get annoying.
+
+   More compact declarations.
+    Reduces much of the redundant typing in most cases, which makes your
+    life easier, and makes it take up less visual space, which makes it
+    faster to read.
+
+   No String Worries
+    Strings are often problematic, due to white-space etc. Noted that if you
+    do happen to mess them up, Moose should at *least* warn you that you've
+    done something daft. Using this alleviates that worry.
+
+  Before this Module.
+   Classical Moose
+        has foo => (
+                isa => 'Str',
+                is  => 'ro',
+                required => 1,
+        );
+
+        has bar => (
+                isa => 'Str',
+                is => 'rw'
+                lazy_build => 1,
+        );
+
+   Lazy Evil way to do it:
+    PLEASE DO NOT DO THIS
+
+        has qw( foo isa Str is ro required 1 );
+        has qw( bar isa Str is rw lazy_build 1 );
+
+  With this module
+    ( and with MooseX::Types )
+
+        use MooseX::Types::Moose qw( Str );
+        use MooseX::Has::Sugar;
+
+        has foo => (
+                isa => Str,
+                ro,
+                required,
+        );
+        has bar => (
+                isa => Str,
+                rw,
+                lazy_build,
+        );
+
+    Or even
+
+        use MooseX::Types::Moose qw( Str );
+        use MooseX::Has::Sugar;
+
+        has foo => ( isa => Str, ro,  required, );
+        has bar => ( isa => Str, rw,  lazy_build, );
+
+  Alternative Forms
+   Basic "is" Expansion Only
+    ( using ::Sugar::Minimal instead )
+
+        use MooseX::Types::Moose qw( Str );
+        use MooseX::Has::Sugar::Minimal;
+
+        has foo => (
+                isa => Str,
+                is  => ro,
+                required => 1,
+        );
+        has bar => (
+                isa => Str,
+                is => rw,
+                lazy_build => 1,
+        );
+
+   Attribute Expansions with Basic Expansions
+    ( Combining parts of this and ::Sugar::Minimal )
+
+        use MooseX::Types::Moose qw( Str );
+        use MooseX::Has::Sugar::Minimal;
+        use MooseX::Has::Sugar qw( :attrs );
+
+        has foo => (
+                isa => Str,
+                is  => ro,
+                required,
+        );
+        has bar => (
+                isa => Str,
+                is => rw,
+                lazy_build,
+        );
+
+EXPORT GROUPS
+  :default
+    Since 0.0300, this exports all our syntax, the same as ":attrs
+    :isattrs". Primarily because I found you generally want all the sugar,
+    not just part of it. This also gets rid of that nasty exclusion logic.
+
+  :isattrs
+    This exports "ro", "rw" and "bare" as lists, so they behave as
+    stand-alone attrs like "lazy" does.
+
+        has foo => (
+                required,
+                isa => 'Str',
+                ro,
+        );
+
+    NOTE: This option is incompatible with ::Sugar::Minimal : "CONFLICTS"
+
+  :attrs
+    This exports "lazy" , "lazy_build" and "required", "coerce", "weak_ref"
+    and "auto_deref" as subs that assume positive.
+
+        has foo => (
+                required,
+                isa => 'Str',
+        );
+
+    NOTE: This option is incompatible with MooseX::Types and Moose's Type
+    Constraints Module : "CONFLICTS"
+
+  :is
+    DEPRECATED. See ::Sugar::Minimal for the same functionality
+
+  :allattrs
+    DEPRECATED, just use ":default" or do
+
+        use MooseX::Has::Sugar;
+
+EXPORTED FUNCTIONS
+  bare
+    returns "('is','bare')"
+
+  ro
+    returns "('is','ro')"
+
+  rw
+    returns "('is','rw')"
+
+  required
+    returns "('required',1)"
+
+  lazy
+    returns "('lazy',1)"
+
+  lazy_build
+    returns "('lazy_build',1)"
+
+  weak_ref
+    returns "('weak_ref',1)"
+
+  coerce
+    returns "('coerce',1)"
+
+    WARNING: Conflict with MooseX::Types and Moose::Util::TypeConstraints,
+    see "CONFLICTS".
+
+  auto_deref
+    returns "('auto_deref',1)"
+
+CONFLICTS
+  MooseX::Has::Sugar::Minimal
+  MooseX::Has::Sugar::Saccharin
+    This module is not intended to be used in conjunction with
+    ::Sugar::Minimal or ::Sugar::Saccharin
+
+    We export many of the same symbols and its just not very sensible.
+
+  MooseX::Types
+  Moose::Util::TypeConstraints
+    due to exporting the "coerce" symbol, using us in the same scope as a
+    call to
+
+        use MooseX::Types ....
+
+    or use Moose::Util::TypeConstraints
+
+    will result in a symbol collision.
+
+    We recommend using and creating proper type libraries instead, ( which
+    will absolve you entirely of the need to use MooseX::Types and
+    MooseX::Has::Sugar(::*)? in the same scope )
+
+AUTHOR
+    Kent Fredric <kentnl at cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2012 by Kent Fredric.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
