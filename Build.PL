@@ -9,22 +9,22 @@ my %module_build_args = (
   "build_requires" => {
     "File::Find" => 0,
     "File::Temp" => 0,
-    "Module::Build" => "0.3601",
+    "Module::Build" => "0.4002",
     "Moose" => 0,
     "MooseX::Types::Moose" => 0,
     "Test::Fatal" => 0,
-    "Test::More" => "0.88",
+    "Test::More" => "0.98",
     "namespace::autoclean" => 0
   },
   "configure_requires" => {
-    "Module::Build" => "0.3601"
+    "Module::Build" => "0.4002"
   },
   "dist_abstract" => "Sugar Syntax for moose 'has' fields",
   "dist_author" => [
     "Kent Fredric <kentnl at cpan.org>"
   ],
   "dist_name" => "MooseX-Has-Sugar",
-  "dist_version" => "0.05070420",
+  "dist_version" => "0.05070421",
   "license" => "perl",
   "module_name" => "MooseX::Has::Sugar",
   "recommends" => {},

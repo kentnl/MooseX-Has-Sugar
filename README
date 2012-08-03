@@ -2,7 +2,7 @@ NAME
     MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
 
 VERSION
-    version 0.05070420
+    version 0.05070421
 
 SYNOPSIS
     Moose "has" syntax is generally fine, but sometimes one gets bothered

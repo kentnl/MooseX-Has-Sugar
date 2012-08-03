@@ -4,7 +4,7 @@
       "Kent Fredric <kentnl at cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300020, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Module::Build version 0.4002, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -16,23 +16,19 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Module::Build" : "0.4002"
+            "File::Find" : "0",
+            "File::Temp" : "0",
+            "Module::Build" : "0.4002",
+            "Moose" : "0",
+            "MooseX::Types::Moose" : "0",
+            "Test::Fatal" : "0",
+            "Test::More" : "0.98",
+            "namespace::autoclean" : "0"
          }
       },
       "configure" : {
          "requires" : {
             "Module::Build" : "0.4002"
-         }
-      },
-      "develop" : {
-         "recommends" : {
-            "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "v1.3.0"
-         },
-         "requires" : {
-            "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "0"
-         },
-         "suggests" : {
-            "Dist::Zilla::PluginBundle::Author::KENTNL" : "v1.4.3"
          }
       },
       "runtime" : {
@@ -42,17 +38,6 @@
             "perl" : "5.006",
             "strict" : "0",
             "warnings" : "0"
-         }
-      },
-      "test" : {
-         "requires" : {
-            "File::Find" : "0",
-            "File::Temp" : "0",
-            "Moose" : "0",
-            "MooseX::Types::Moose" : "0",
-            "Test::Fatal" : "0",
-            "Test::More" : "0.98",
-            "namespace::autoclean" : "0"
          }
       }
    },
@@ -74,9 +59,7 @@
    "resources" : {
       "homepage" : "https://github.com/kentfredric/MooseX-Has-Sugar",
       "repository" : {
-         "type" : "git",
-         "url" : "https://github.com/kentfredric/MooseX-Has-Sugar.git",
-         "web" : "https://github.com/kentfredric/MooseX-Has-Sugar"
+         "url" : "https://github.com/kentfredric/MooseX-Has-Sugar.git"
       }
    },
    "version" : "0.05070421",
@@ -100,11 +83,11 @@
       },
       "perl" : {
          "original" : "v5.16.0",
-         "qv" : 1,
+         "qv" : "1",
          "version" : [
-            5,
-            16,
-            0
+            "5",
+            "16",
+            "0"
          ]
       },
       "perl-config" : {
@@ -424,4 +407,3 @@
    },
    "x_authority" : "cpan:KENTNL"
 }
-

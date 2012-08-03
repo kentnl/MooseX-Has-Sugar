@@ -1,4 +1,20 @@
-Revision history for MooseX-Has-Sugar
+﻿Revision history for MooseX-Has-Sugar
+
+0.05070421 2012-08-03T10:25:23Z
+ [Bugs]
+ - Fixed use of a Test::Builder method that is going away. Thanks to Schwern for reporting and providing the patch.
+
+ [Dependencies::Changed]
+ - build requires : Module::Build 0.3601 -> 0.4002
+ - configure requires : Module::Build 0.3601 -> 0.4002
+ - develop recommends : Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 -> v1.3.0
+ - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.2.0 -> v1.4.3
+ - test requires : Test::More 0.88 -> 0.98
+
+ [TODO]
+ - Thinking of adding Moo support of some kind, but Moo is notedly different. Esp: lazy/lazy_build.
+ - I considered making a Moo-style-for-Moose version, but then considered that implementing 'lazy' would have to know what the attribute was called to set the respective Moose builder value, so that is Too Hard. 
+ - Please, if you're reading this and have suggestions/feedback, feel free to hit me up on IRC =).
 
 0.05070420 2012-02-03T03:33:11Z
  - Maintenance/Packaging release.
