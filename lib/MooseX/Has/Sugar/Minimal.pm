@@ -30,11 +30,11 @@ All functions are exported by L<The Sub::Exporter Module|Sub::Exporter>.
 
 =cut
 
-=export_group :default
+=export_group C<:default>
 
 Exports L</:is>
 
-=export_group :is
+=export_group C<:is>
 
 Exports L</bare>, L</ro>, L</rw>
 
@@ -50,7 +50,7 @@ Sub::Exporter::setup_exporter(
   }
 );
 
-=export_function bare
+=export_function C<bare>
 
 returns C<('bare')>
 
@@ -60,7 +60,7 @@ sub bare() {
   return ('bare');
 }
 
-=export_function ro
+=export_function C<ro>
 
 returns C<('ro')>
 
@@ -70,7 +70,7 @@ sub ro() {
   return ('ro');
 }
 
-=export_function rw
+=export_function C<rw>
 
 returns C<('rw')>
 

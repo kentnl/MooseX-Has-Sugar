@@ -122,15 +122,15 @@ Or even
 use Carp          ();
 use Sub::Exporter ();
 
-=export_group :default
+=export_group C<:default>
 
-Since 0.0300, this exports all our syntax, the same as C<:attrs :isattrs>.
+Since 0.0300, this exports all our syntax, the same as C<:attrs> C<:isattrs>.
 Primarily because I found you generally want all the sugar, not just part of it.
 This also gets rid of that nasty exclusion logic.
 
-=export_group :isattrs
+=export_group C<:isattrs>
 
-This exports C<ro>, C<rw> and C<bare> as lists, so they behave as stand-alone attrs like
+This exports C<ro>, C<rw> and C<bare> as lists, so they behave as stand-alone attributes like
 L</lazy> does.
 
     has foo => (
@@ -141,7 +141,7 @@ L</lazy> does.
 
 B<NOTE: This option is incompatible with L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal>> : L</CONFLICTS>
 
-=export_group :attrs
+=export_group C<:attrs>
 
 This exports L</lazy> , L</lazy_build> and L</required>, L</coerce>, L</weak_ref>
 and L</auto_deref> as subs that assume positive.
@@ -153,11 +153,11 @@ and L</auto_deref> as subs that assume positive.
 
 B<NOTE: This option is incompatible with L<MooseX::Types|MooseX::Types> and L<Moose's Type Constraints Module|Moose::Util::TypeConstraints>> : L</CONFLICTS>
 
-=export_group :is
+=export_group C<:is>
 
 B<DEPRECATED>. See L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal> for the same functionality
 
-=export_group :allattrs
+=export_group C<:allattrs>
 
 B<DEPRECATED>, just use L</:default> or do
 
@@ -190,7 +190,7 @@ sub import {
   goto &MooseX::Has::Sugar::do_import;
 }
 
-=export_function bare
+=export_function C<bare>
 
 returns C<('is','bare')>
 
@@ -200,7 +200,7 @@ sub bare() {
   return ( 'is', 'bare' );
 }
 
-=export_function ro
+=export_function C<ro>
 
 returns C<('is','ro')>
 
@@ -210,7 +210,7 @@ sub ro() {
   return ( 'is', 'ro' );
 }
 
-=export_function rw
+=export_function C<rw>
 
 returns C<('is','rw')>
 
@@ -220,7 +220,7 @@ sub rw() {
   return ( 'is', 'rw' );
 }
 
-=export_function required
+=export_function C<required>
 
 returns C<('required',1)>
 
@@ -230,7 +230,7 @@ sub required() {
   return ( 'required', 1 );
 }
 
-=export_function lazy
+=export_function C<lazy>
 
 returns C<('lazy',1)>
 
@@ -240,7 +240,7 @@ sub lazy() {
   return ( 'lazy', 1 );
 }
 
-=export_function lazy_build
+=export_function C<lazy_build>
 
 returns C<('lazy_build',1)>
 
@@ -250,7 +250,7 @@ sub lazy_build() {
   return ( 'lazy_build', 1 );
 }
 
-=export_function weak_ref
+=export_function C<weak_ref>
 
 returns C<('weak_ref',1)>
 
@@ -260,7 +260,7 @@ sub weak_ref() {
   return ( 'weak_ref', 1 );
 }
 
-=export_function coerce
+=export_function C<coerce>
 
 returns C<('coerce',1)>
 
@@ -272,7 +272,7 @@ sub coerce() {
   return ( 'coerce', 1 );
 }
 
-=export_function auto_deref
+=export_function C<auto_deref>
 
 returns C<('auto_deref',1)>
 

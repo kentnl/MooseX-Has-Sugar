@@ -21,7 +21,7 @@ Your choice.
 use Carp          ();
 use Sub::Exporter ();
 
-=export_group :default
+=export_group C<:default>
 
 exports  L</ro>, L</rw>, L</required>, L</lazy>, L</lazy_build>, L</coerce>, L</weak_ref>, L</auto_deref>,
       L</bare>, L</default>, L</init_arg>, L</predicate>, L</clearer>, L</builder>, L</trigger>,
@@ -38,9 +38,9 @@ Sub::Exporter::setup_exporter(
   }
 );
 
-=export_function bare
+=export_function C<bare>
 
-=export_function bare $Type
+=export_function C<bare> C<$Type>
 
     bare Str
 
@@ -54,9 +54,9 @@ sub bare($) {
   return ( 'is', 'bare', 'isa', shift, );
 }
 
-=export_function ro
+=export_function C<ro>
 
-=export_function ro $Type
+=export_function C<ro> C<$Type>
 
     ro Str
 
@@ -70,9 +70,9 @@ sub ro($) {
   return ( 'is', 'ro', 'isa', shift, );
 }
 
-=export_function rw
+=export_function C<rw>
 
-=export_function rw $Type
+=export_function C<rw> C<$Type>
 
     rw Str
 
@@ -86,9 +86,9 @@ sub rw($) {
   return ( 'is', 'rw', 'isa', shift, );
 }
 
-=export_function required
+=export_function C<required>
 
-=export_function required @rest
+=export_function C<required @rest>
 
 this
 
@@ -113,9 +113,9 @@ sub required(@) {
   return ( 'required', 1, @_ );
 }
 
-=export_function lazy
+=export_function C<lazy>
 
-=export_function lazy @rest
+=export_function C<lazy @rest>
 
 like C<< ( lazy => 1 , @rest ) >>
 
@@ -125,9 +125,9 @@ sub lazy(@) {
   return ( 'lazy', 1, @_ );
 }
 
-=export_function lazy_build
+=export_function C<lazy_build>
 
-=export_function lazy_build @rest
+=export_function C<lazy_build @rest>
 
 like C<< ( lazy_build => 1, @rest ) >>
 
@@ -137,9 +137,9 @@ sub lazy_build(@) {
   return ( 'lazy_build', 1, @_ );
 }
 
-=export_function weak_ref
+=export_function C<weak_ref>
 
-=export_function weak_ref @rest
+=export_function C<weak_ref @rest>
 
 like C<< ( weak_ref => 1, @rest ) >>
 
@@ -149,9 +149,9 @@ sub weak_ref(@) {
   return ( 'weak_ref', 1, @_ );
 }
 
-=export_function coerce
+=export_function C<coerce>
 
-=export_function @rest
+=export_function C<coerce @rest>
 
 like C<< ( coerce => 1, @rest ) >>
 
@@ -165,9 +165,9 @@ sub coerce(@) {
   return ( 'coerce', 1, @_ );
 }
 
-=export_function auto_deref
+=export_function C<auto_deref>
 
-=export_function auto_deref @rest
+=export_function C<auto_deref @rest>
 
 like C<< ( auto_deref => 1, @rest ) >>
 
@@ -177,9 +177,9 @@ sub auto_deref(@) {
   return ( 'auto_deref', 1, @_ );
 }
 
-=export_function builder
+=export_function C<builder>
 
-=export_function builder $buildername:
+=export_function C<builder $buildername>
 
     required rw Str, builder '_build_foo'
 
@@ -193,9 +193,9 @@ sub builder($) {
   return ( 'builder', shift );
 }
 
-=export_function predicate
+=export_function C<predicate>
 
-=export_function predicate $predicatename
+=export_function C<predicate $predicatename>
 
 see L</builder>
 
@@ -205,9 +205,9 @@ sub predicate($) {
   return ( 'predicate', shift );
 }
 
-=export_function clearer
+=export_function C<clearer>
 
-=export_function clearer $clearername
+=export_function C<clearer $clearername>
 
 see L</builder>
 
@@ -217,9 +217,9 @@ sub clearer($) {
   return ( 'clearer', shift );
 }
 
-=export_function init_arg
+=export_function C<init_arg>
 
-=export_function init_arg $argname
+=export_function C<init_arg $argname>
 
 see L</builder>
 
@@ -229,9 +229,9 @@ sub init_arg($) {
   return ( 'init_arg', shift );
 }
 
-=export_function default
+=export_function C<default>
 
-=export_function default { $code }
+=export_function C<default { $code }>
 
 Examples:
 
@@ -257,9 +257,9 @@ sub default(&) {
   );
 }
 
-=export_function trigger
+=export_function C<trigger>
 
-=export_function trigger { $code }
+=export_function C<trigger { $code }>
 
 Works exactly like default.
 
