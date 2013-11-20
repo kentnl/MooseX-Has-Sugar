@@ -30,7 +30,9 @@ sub Gamma {
         return 1;
         }
     },
-    mx => { rw 'Str', default { 1 } },
+    mx => {
+      rw 'Str', default { 1 }
+    },
   };
 }
 
