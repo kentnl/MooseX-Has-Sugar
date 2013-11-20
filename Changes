@@ -1,23 +1,146 @@
 ﻿Revision history for MooseX-Has-Sugar
 
+0.05070422 2013-11-20T08:32:12Z
+ [00 Maint release]
+
+ [Dependencies::Added / develop requires]
+ - Dist::Zilla::Plugin::Author::KENTNL::MinimumPerl
+ - Dist::Zilla::Plugin::Authority 1.006
+ - Dist::Zilla::Plugin::AutoPrereqs
+ - Dist::Zilla::Plugin::CheckExtraTests
+ - Dist::Zilla::Plugin::ConfirmRelease
+ - Dist::Zilla::Plugin::EOLTests
+ - Dist::Zilla::Plugin::Git::Check
+ - Dist::Zilla::Plugin::Git::Commit
+ - Dist::Zilla::Plugin::Git::CommitBuild
+ - Dist::Zilla::Plugin::Git::GatherDir
+ - Dist::Zilla::Plugin::Git::NextVersion
+ - Dist::Zilla::Plugin::Git::Tag
+ - Dist::Zilla::Plugin::GithubMeta
+ - Dist::Zilla::Plugin::License
+ - Dist::Zilla::Plugin::Manifest
+ - Dist::Zilla::Plugin::ManifestSkip
+ - Dist::Zilla::Plugin::MetaConfig
+ - Dist::Zilla::Plugin::MetaData::BuiltWith
+ - Dist::Zilla::Plugin::MetaJSON
+ - Dist::Zilla::Plugin::MetaProvides::Package 1.14000001
+ - Dist::Zilla::Plugin::MetaTests
+ - Dist::Zilla::Plugin::MetaYAML
+ - Dist::Zilla::Plugin::ModuleBuild
+ - Dist::Zilla::Plugin::NextRelease
+ - Dist::Zilla::Plugin::PkgVersion
+ - Dist::Zilla::Plugin::PodCoverageTests
+ - Dist::Zilla::Plugin::PodSyntaxTests
+ - Dist::Zilla::Plugin::PodWeaver
+ - Dist::Zilla::Plugin::Prereqs
+ - Dist::Zilla::Plugin::Prereqs::MatchInstalled
+ - Dist::Zilla::Plugin::PruneCruft
+ - Dist::Zilla::Plugin::ReadmeAnyFromPod
+ - Dist::Zilla::Plugin::ReadmeFromPod
+ - Dist::Zilla::Plugin::ReportVersions::Tiny
+ - Dist::Zilla::Plugin::Test::CPAN::Changes
+ - Dist::Zilla::Plugin::Test::Compile::PerFile
+ - Dist::Zilla::Plugin::Test::Kwalitee
+ - Dist::Zilla::Plugin::Test::MinimumVersion
+ - Dist::Zilla::Plugin::Test::Perl::Critic
+ - Dist::Zilla::Plugin::TestRelease
+ - Dist::Zilla::Plugin::Twitter
+ - Dist::Zilla::Plugin::UploadToCPAN
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.002001
+ - Pod::Coverage::TrustPod
+ - Test::CPAN::Changes 0.19
+ - Test::CPAN::Meta
+ - Test::Kwalitee 1.12
+ - Test::Pod 1.41
+ - Test::Pod::Coverage 1.08
+ - version 0.9901
+
+ [Dependencies::Added / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
+
+ [Dependencies::Added / test requires]
+ - lib
+
+ [Dependencies::Changed / build requires]
+ - Module::Build 0.4002 → 0.4202
+
+ [Dependencies::Changed / configure requires]
+ - Module::Build 0.4002 → 0.4202
+
+ [Dependencies::Changed / test requires]
+ - Test::More 0.98 → 1.001002
+
+ [Dependencies::Removed / develop recommends]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
+
+ [Dependencies::Removed / develop requires]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite
+
+ [Dependencies::Removed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.4.3
+
+ [Dependencies::Removed / test requires]
+ - File::Find
+ - File::Temp
+
+ [Documentation]
+ - Update © Year
+ - Specify doc encoding.
+
+ [Meta]
+ - Bug tracker to github issues
+
+ [Packaging]
+ - Use test_requires with new MB
+
+ [Tests]
+ - Switch to Test::Compile::PerFile
+ - Update ReportVersions::Tiny test
+ - Update CPAN::Changes test
+ - Update Kwalitee test
+
 0.05070421 2012-08-03T10:25:23Z
  [Bugs]
- - Fixed use of a Test::Builder method that is going away. Thanks to Schwern for reporting and providing the patch.
+ - Fixed use of a Test::Builder method that is going away. Thanks to
+   Schwern for reporting and providing the patch.
 
- [Dependencies::Changed]
- - build requires : Module::Build 0.3601 -> 0.4002
- - configure requires : Module::Build 0.3601 -> 0.4002
- - develop recommends : Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 -> v1.3.0
- - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.2.0 -> v1.4.3
- - test requires : Test::More 0.88 -> 0.98
+ [Dependencies::Changed / build requires]
+ - Module::Build 0.3601 → 0.4002
+
+ [Dependencies::Changed / configure requires]
+ - Module::Build 0.3601 → 0.4002
+
+ [Dependencies::Changed / develop recommends]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 → v1.3.0
+
+ [Dependencies::Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.2.0 → v1.4.3
+
+ [Dependencies::Changed / test requires]
+ - Test::More 0.88 → 0.98
 
  [TODO]
- - Thinking of adding Moo support of some kind, but Moo is notedly different. Esp: lazy/lazy_build.
- - I considered making a Moo-style-for-Moose version, but then considered that implementing 'lazy' would have to know what the attribute was called to set the respective Moose builder value, so that is Too Hard. 
- - Please, if you're reading this and have suggestions/feedback, feel free to hit me up on IRC =).
+ - Thinking of adding Moo support of some kind, but Moo is notedly
+   different. Esp: lazy/lazy_build.
+ - I considered making a Moo-style-for-Moose version, but then considered
+   that implementing 'lazy' would have to know what the attribute was
+   called to set the respective Moose builder value, so that is Too Hard.
+ - Please, if you're reading this and have suggestions/feedback, feel free
+   to hit me up on IRC =).
 
 0.05070420 2012-02-03T03:33:11Z
  - Maintenance/Packaging release.
+
+ [Dependencies::Added / runtime requires]
+ - perl 5.006
+ - strict
+ - warnings
+
+ [Dependencies::Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 → v1.2.0
+
+ [Dependencies::Removed / test requires]
+ - English
 
  [Internals]
  - All namespaces provide $AUTHORITY
@@ -30,22 +153,26 @@
  - Export x_authority
  - Git based versions instead of auto incrementing relative versions.
 
- [Dependencies::Changed]
- - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 -> v1.2.0
-
- [Dependencies::New]
- - runtime requires : perl 5.006
- - runtime requires : strict
- - runtime requires : warnings
-
- [Dependencies::Removed]
- - test requires : English
-
 0.05070419 2011-04-07T02:03:19Z
  - Maintainence only release. No external changes.
 
- [Dependencies:Development]
- - @KENTNL to @Author::KENTNL
+ [Dependencies::Added / develop recommends]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803
+
+ [Dependencies::Added / develop requires]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite
+
+ [Dependencies::Added / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0
+
+ [Dependencies::Removed / develop recommends]
+ - Dist::Zilla::PluginBundle::KENTNL::Lite 0.01009803
+
+ [Dependencies::Removed / develop requires]
+ - Dist::Zilla::PluginBundle::KENTNL::Lite
+
+ [Dependencies::Removed / develop suggests]
+ - Dist::Zilla::PluginBundle::KENTNL 0.01017119
 
  [Packaging]
  - Moved to @Author::KENTNL
@@ -62,9 +189,29 @@
  - Removed FindBin in tests.
  - Core Tests now 5% faster!.
 
+ [Dependencies::Added / develop recommends]
+ - Dist::Zilla::PluginBundle::KENTNL::Lite 0.01009803
+
+ [Dependencies::Added / develop requires]
+ - Dist::Zilla::PluginBundle::KENTNL::Lite
+
+ [Dependencies::Added / develop suggests]
+ - Dist::Zilla::PluginBundle::KENTNL 0.01017119
+
+ [Dependencies::Added / test requires]
+ - Test::Fatal
+
+ [Dependencies::Removed / test requires]
+ - FindBin
+ - Test::Exception
+
 0.05046611 2010-08-16T18:30:39Z
  - Improved docs and tests for Saccharin. ( Alexandr Ciornii / chorny )
  - Eradicated excess in xt/.
+
+ [Dependencies::Added / test requires]
+ - English
+ - MooseX::Types::Moose
 
 0.05044303 2010-07-24T10:03:50Z
  - Migrate to @KENTNL Dzil.

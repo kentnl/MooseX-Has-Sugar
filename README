@@ -2,7 +2,7 @@ NAME
     MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
 
 VERSION
-    version 0.05070421
+    version 0.05070422
 
 SYNOPSIS
     Moose "has" syntax is generally fine, but sometimes one gets bothered
@@ -107,14 +107,14 @@ SYNOPSIS
         );
 
 EXPORT GROUPS
-  :default
-    Since 0.0300, this exports all our syntax, the same as ":attrs
-    :isattrs". Primarily because I found you generally want all the sugar,
+  ":default"
+    Since 0.0300, this exports all our syntax, the same as ":attrs"
+    ":isattrs". Primarily because I found you generally want all the sugar,
     not just part of it. This also gets rid of that nasty exclusion logic.
 
-  :isattrs
+  ":isattrs"
     This exports "ro", "rw" and "bare" as lists, so they behave as
-    stand-alone attrs like "lazy" does.
+    stand-alone attributes like "lazy" does.
 
         has foo => (
                 required,
@@ -124,7 +124,7 @@ EXPORT GROUPS
 
     NOTE: This option is incompatible with ::Sugar::Minimal : "CONFLICTS"
 
-  :attrs
+  ":attrs"
     This exports "lazy" , "lazy_build" and "required", "coerce", "weak_ref"
     and "auto_deref" as subs that assume positive.
 
@@ -136,43 +136,43 @@ EXPORT GROUPS
     NOTE: This option is incompatible with MooseX::Types and Moose's Type
     Constraints Module : "CONFLICTS"
 
-  :is
+  ":is"
     DEPRECATED. See ::Sugar::Minimal for the same functionality
 
-  :allattrs
+  ":allattrs"
     DEPRECATED, just use ":default" or do
 
         use MooseX::Has::Sugar;
 
 EXPORTED FUNCTIONS
-  bare
+  "bare"
     returns "('is','bare')"
 
-  ro
+  "ro"
     returns "('is','ro')"
 
-  rw
+  "rw"
     returns "('is','rw')"
 
-  required
+  "required"
     returns "('required',1)"
 
-  lazy
+  "lazy"
     returns "('lazy',1)"
 
-  lazy_build
+  "lazy_build"
     returns "('lazy_build',1)"
 
-  weak_ref
+  "weak_ref"
     returns "('weak_ref',1)"
 
-  coerce
+  "coerce"
     returns "('coerce',1)"
 
     WARNING: Conflict with MooseX::Types and Moose::Util::TypeConstraints,
     see "CONFLICTS".
 
-  auto_deref
+  "auto_deref"
     returns "('auto_deref',1)"
 
 CONFLICTS
@@ -202,7 +202,7 @@ AUTHOR
     Kent Fredric <kentnl at cpan.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Kent Fredric.
+    This software is copyright (c) 2013 by Kent Fredric.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.

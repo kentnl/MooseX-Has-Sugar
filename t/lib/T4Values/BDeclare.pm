@@ -6,7 +6,6 @@ use warnings;
 use MooseX::Has::Sugar;
 use namespace::autoclean;
 
-
 sub generated {
   { isa => 'Str', is => 'ro', required, lazy, lazy_build, coerce, weak_ref, auto_deref };
 }

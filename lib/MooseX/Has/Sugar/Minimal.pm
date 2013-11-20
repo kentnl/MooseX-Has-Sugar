@@ -6,7 +6,7 @@ BEGIN {
   $MooseX::Has::Sugar::Minimal::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MooseX::Has::Sugar::Minimal::VERSION = '0.05070421';
+  $MooseX::Has::Sugar::Minimal::VERSION = '0.05070422';
 }
 
 # ABSTRACT: Less Sugary Syntax for moose 'has' fields
@@ -42,9 +42,11 @@ sub rw() {
 
 1;
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -52,7 +54,7 @@ MooseX::Has::Sugar::Minimal - Less Sugary Syntax for moose 'has' fields
 
 =head1 VERSION
 
-version 0.05070421
+version 0.05070422
 
 =head1 SYNOPSIS
 
@@ -77,25 +79,25 @@ All functions are exported by L<The Sub::Exporter Module|Sub::Exporter>.
 
 =head1 EXPORT GROUPS
 
-=head2 :default
+=head2 C<:default>
 
 Exports L</:is>
 
-=head2 :is
+=head2 C<:is>
 
 Exports L</bare>, L</ro>, L</rw>
 
 =head1 EXPORTED FUNCTIONS
 
-=head2 bare
+=head2 C<bare>
 
 returns C<('bare')>
 
-=head2 ro
+=head2 C<ro>
 
 returns C<('ro')>
 
-=head2 rw
+=head2 C<rw>
 
 returns C<('rw')>
 
@@ -130,10 +132,9 @@ Kent Fredric <kentnl at cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Kent Fredric.
+This software is copyright (c) 2013 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

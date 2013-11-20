@@ -13,7 +13,6 @@ has roattr => required ro Str;
 
 has rwattr => required rw Str;
 
-
 __PACKAGE__->meta->make_immutable;
 
 1;
