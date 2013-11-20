@@ -215,7 +215,7 @@ Or even
 
 =head1 EXPORT GROUPS
 
-=head2 :default
+=head2 C<:default>
 
 Since 0.0300, this exports all our syntax, the same as C<:attrs> C<:isattrs>.
 Primarily because I found you generally want all the sugar, not just part of it.
@@ -223,7 +223,7 @@ This also gets rid of that nasty exclusion logic.
 
 =head2 C<:isattrs>
 
-This exports C<ro>, C<rw> and C<bare> as lists, so they behave as stand-alone attrs like
+This exports C<ro>, C<rw> and C<bare> as lists, so they behave as stand-alone attributes like
 L</lazy> does.
 
     has foo => (
@@ -234,7 +234,7 @@ L</lazy> does.
 
 B<NOTE: This option is incompatible with L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal>> : L</CONFLICTS>
 
-=head2 :attrs
+=head2 C<:attrs>
 
 This exports L</lazy> , L</lazy_build> and L</required>, L</coerce>, L</weak_ref>
 and L</auto_deref> as subs that assume positive.
@@ -246,7 +246,7 @@ and L</auto_deref> as subs that assume positive.
 
 B<NOTE: This option is incompatible with L<MooseX::Types|MooseX::Types> and L<Moose's Type Constraints Module|Moose::Util::TypeConstraints>> : L</CONFLICTS>
 
-=head2 :is
+=head2 C<:is>
 
 B<DEPRECATED>. See L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal> for the same functionality
 
@@ -258,41 +258,41 @@ B<DEPRECATED>, just use L</:default> or do
 
 =head1 EXPORTED FUNCTIONS
 
-=head2 bare
+=head2 C<bare>
 
 returns C<('is','bare')>
 
-=head2 ro
+=head2 C<ro>
 
 returns C<('is','ro')>
 
-=head2 rw
+=head2 C<rw>
 
 returns C<('is','rw')>
 
-=head2 required
+=head2 C<required>
 
 returns C<('required',1)>
 
-=head2 lazy
+=head2 C<lazy>
 
 returns C<('lazy',1)>
 
-=head2 lazy_build
+=head2 C<lazy_build>
 
 returns C<('lazy_build',1)>
 
-=head2 weak_ref
+=head2 C<weak_ref>
 
 returns C<('weak_ref',1)>
 
-=head2 coerce
+=head2 C<coerce>
 
 returns C<('coerce',1)>
 
 B<WARNING:> Conflict with L<MooseX::Types|MooseX::Types> and L<Moose::Util::TypeConstraints|Moose::Util::TypeConstraints>, see L</CONFLICTS>.
 
-=head2 auto_deref
+=head2 C<auto_deref>
 
 returns C<('auto_deref',1)>
 
