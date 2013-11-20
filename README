@@ -108,11 +108,11 @@ SYNOPSIS
 
 EXPORT GROUPS
   :default
-    Since 0.0300, this exports all our syntax, the same as ":attrs
-    :isattrs". Primarily because I found you generally want all the sugar,
+    Since 0.0300, this exports all our syntax, the same as ":attrs"
+    ":isattrs". Primarily because I found you generally want all the sugar,
     not just part of it. This also gets rid of that nasty exclusion logic.
 
-  :isattrs
+  ":isattrs"
     This exports "ro", "rw" and "bare" as lists, so they behave as
     stand-alone attrs like "lazy" does.
 
@@ -139,7 +139,7 @@ EXPORT GROUPS
   :is
     DEPRECATED. See ::Sugar::Minimal for the same functionality
 
-  :allattrs
+  ":allattrs"
     DEPRECATED, just use ":default" or do
 
         use MooseX::Has::Sugar;

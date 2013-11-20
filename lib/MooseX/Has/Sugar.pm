@@ -217,11 +217,11 @@ Or even
 
 =head2 :default
 
-Since 0.0300, this exports all our syntax, the same as C<:attrs :isattrs>.
+Since 0.0300, this exports all our syntax, the same as C<:attrs> C<:isattrs>.
 Primarily because I found you generally want all the sugar, not just part of it.
 This also gets rid of that nasty exclusion logic.
 
-=head2 :isattrs
+=head2 C<:isattrs>
 
 This exports C<ro>, C<rw> and C<bare> as lists, so they behave as stand-alone attrs like
 L</lazy> does.
@@ -250,7 +250,7 @@ B<NOTE: This option is incompatible with L<MooseX::Types|MooseX::Types> and L<Mo
 
 B<DEPRECATED>. See L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal> for the same functionality
 
-=head2 :allattrs
+=head2 C<:allattrs>
 
 B<DEPRECATED>, just use L</:default> or do
 
