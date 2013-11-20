@@ -6,7 +6,7 @@ BEGIN {
   $MooseX::Has::Sugar::Saccharin::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MooseX::Has::Sugar::Saccharin::VERSION = '0.05070421';
+  $MooseX::Has::Sugar::Saccharin::VERSION = '0.05070422';
 }
 
 # ABSTRACT: Experimental sweetness
@@ -119,9 +119,11 @@ sub trigger(&) {
 }
 1;
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -129,7 +131,7 @@ MooseX::Has::Sugar::Saccharin - Experimental sweetness
 
 =head1 VERSION
 
-version 0.05070421
+version 0.05070422
 
 =head1 SYNOPSIS
 
@@ -323,10 +325,9 @@ Kent Fredric <kentnl at cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Kent Fredric.
+This software is copyright (c) 2013 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
