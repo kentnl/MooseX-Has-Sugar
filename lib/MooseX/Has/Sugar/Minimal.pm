@@ -79,25 +79,25 @@ All functions are exported by L<The Sub::Exporter Module|Sub::Exporter>.
 
 =head1 EXPORT GROUPS
 
-=head2 :default
+=head2 C<:default>
 
 Exports L</:is>
 
-=head2 :is
+=head2 C<:is>
 
 Exports L</bare>, L</ro>, L</rw>
 
 =head1 EXPORTED FUNCTIONS
 
-=head2 bare
+=head2 C<bare>
 
 returns C<('bare')>
 
-=head2 ro
+=head2 C<ro>
 
 returns C<('ro')>
 
-=head2 rw
+=head2 C<rw>
 
 returns C<('rw')>
 

@@ -146,16 +146,16 @@ Your choice.
 
 =head1 EXPORT GROUPS
 
-=head2 :default
+=head2 C<:default>
 
 exports  L</ro>, L</rw>, L</required>, L</lazy>, L</lazy_build>, L</coerce>, L</weak_ref>, L</auto_deref>,
       L</bare>, L</default>, L</init_arg>, L</predicate>, L</clearer>, L</builder>, L</trigger>,
 
 =head1 EXPORTED FUNCTIONS
 
-=head2 bare
+=head2 C<bare>
 
-=head2 bare $Type
+=head2 C<bare> C<$Type>
 
     bare Str
 
@@ -163,9 +163,9 @@ equivalent to this
 
     is => 'bare', isa => Str
 
-=head2 ro
+=head2 C<ro>
 
-=head2 ro $Type
+=head2 C<ro> C<$Type>
 
     ro Str
 
@@ -173,9 +173,9 @@ equivalent to this
 
     is => 'ro', isa => Str,
 
-=head2 rw
+=head2 C<rw>
 
-=head2 rw $Type
+=head2 C<rw> C<$Type>
 
     rw Str
 
@@ -183,9 +183,9 @@ equivalent to this
 
     is => 'rw', isa => Str
 
-=head2 required
+=head2 C<required>
 
-=head2 required @rest
+=head2 C<required @rest>
 
 this
 
@@ -203,27 +203,27 @@ is equivalent to this
 
     is => 'rw', isa => Str , required => 1
 
-=head2 lazy
+=head2 C<lazy>
 
-=head2 lazy @rest
+=head2 C<lazy @rest>
 
 like C<< ( lazy => 1 , @rest ) >>
 
-=head2 lazy_build
+=head2 C<lazy_build>
 
-=head2 lazy_build @rest
+=head2 C<lazy_build @rest>
 
 like C<< ( lazy_build => 1, @rest ) >>
 
-=head2 weak_ref
+=head2 C<weak_ref>
 
-=head2 weak_ref @rest
+=head2 C<weak_ref @rest>
 
 like C<< ( weak_ref => 1, @rest ) >>
 
-=head2 coerce
+=head2 C<coerce>
 
-=head2 @rest
+=head2 C<coerce @rest>
 
 like C<< ( coerce => 1, @rest ) >>
 
@@ -231,15 +231,15 @@ like C<< ( coerce => 1, @rest ) >>
 
 Conflicts with L<< C<MooseX::Types's> C<coerce> method|MooseX::Types/coerce >>
 
-=head2 auto_deref
+=head2 C<auto_deref>
 
-=head2 auto_deref @rest
+=head2 C<auto_deref @rest>
 
 like C<< ( auto_deref => 1, @rest ) >>
 
-=head2 builder
+=head2 C<builder>
 
-=head2 builder $buildername:
+=head2 C<builder $buildername>
 
     required rw Str, builder '_build_foo'
 
@@ -247,27 +247,27 @@ is like
 
     builder => '_build_foo'
 
-=head2 predicate
+=head2 C<predicate>
 
-=head2 predicate $predicatename
-
-see L</builder>
-
-=head2 clearer
-
-=head2 clearer $clearername
+=head2 C<predicate $predicatename>
 
 see L</builder>
 
-=head2 init_arg
+=head2 C<clearer>
 
-=head2 init_arg $argname
+=head2 C<clearer $clearername>
 
 see L</builder>
 
-=head2 default
+=head2 C<init_arg>
 
-=head2 default { $code }
+=head2 C<init_arg $argname>
+
+see L</builder>
+
+=head2 C<default>
+
+=head2 C<default { $code }>
 
 Examples:
 
@@ -278,9 +278,9 @@ Examples:
 
 $_ is localised as the same value as $_[0] for convenience ( usually $self )
 
-=head2 trigger
+=head2 C<trigger>
 
-=head2 trigger { $code }
+=head2 C<trigger { $code }>
 
 Works exactly like default.
 
