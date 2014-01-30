@@ -13,6 +13,8 @@
  - Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled
  - Dist::Zilla::Plugin::RunExtraTests
  - Dist::Zilla::Plugin::Test::ReportPrereqs
+ - Moose
+ - MooseX::Types::Moose
 
  [Added / test recommends]
  - CPAN::Meta

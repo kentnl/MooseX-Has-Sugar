@@ -7,6 +7,8 @@
  - Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled
  - Dist::Zilla::Plugin::RunExtraTests
  - Dist::Zilla::Plugin::Test::ReportPrereqs
+ - Moose
+ - MooseX::Types::Moose
 
  [Changed / develop requires]
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.002001 → 2.012000
