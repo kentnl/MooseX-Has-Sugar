@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 use MooseX::Has::Sugar::Minimal;
-use namespace::autoclean;
+use namespace::clean -except => 'meta';
 
 sub ro_generated { { isa => 'Str', is => ro, } }
 

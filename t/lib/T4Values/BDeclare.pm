@@ -4,7 +4,7 @@ package  T4Values::BDeclare;
 use strict;
 use warnings;
 use MooseX::Has::Sugar;
-use namespace::autoclean;
+use namespace::clean -except => 'meta';
 
 sub generated {
   { isa => 'Str', is => 'ro', required, lazy, lazy_build, coerce, weak_ref, auto_deref };

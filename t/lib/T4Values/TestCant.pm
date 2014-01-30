@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use Test::More    ();
 use Sub::Exporter ();
-use namespace::autoclean;
+use namespace::clean -except => 'meta';
 
 Sub::Exporter::setup_exporter(
   {

@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use MooseX::Has::Sugar::Minimal;
 use MooseX::Has::Sugar qw( :attrs );
-use namespace::autoclean;
+use namespace::clean -except => 'meta';
 
 sub generated {
   {
