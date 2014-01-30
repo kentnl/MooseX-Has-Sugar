@@ -37,8 +37,8 @@ Sub::Exporter::setup_exporter(
       'ro',   'rw',      'required', 'lazy',      'lazy_build', 'coerce',  'weak_ref', 'auto_deref',
       'bare', 'default', 'init_arg', 'predicate', 'clearer',    'builder', 'trigger',
     ],
-    groups => { default => ['-all'], }
-  }
+    groups => { default => ['-all'], },
+  },
 );
 
 =export_function C<bare>
@@ -256,7 +256,7 @@ sub default(&) {
       my $self = $_[0];
       local $_ = $self;
       return $code->();
-    }
+    },
   );
 }
 
@@ -276,7 +276,7 @@ sub trigger(&) {
       my $self = $_[0];
       local $_ = $self;
       return $code->();
-    }
+    },
   );
 }
 1;

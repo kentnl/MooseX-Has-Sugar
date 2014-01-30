@@ -175,9 +175,9 @@ Sub::Exporter::setup_exporter(
     groups  => {
       isattrs => [ 'ro',       'rw',   'bare', ],
       attrs   => [ 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
-      default => [ '-attrs', '-isattrs' ],
-    }
-  }
+      default => [ '-attrs', '-isattrs', ],
+    },
+  },
 );
 
 sub import {
@@ -186,7 +186,7 @@ sub import {
       Carp::croak( qq{Trivial ro/rw with :is dropped as of 0.0300.\n} . q{ See MooseX::Has::Sugar::Minimal for those. } );
     }
     if ( $_ =~ qr/^[:-]allattrs\$/ ) {
-      Carp::carp(q{MooseX::Has::Sugar->import(:allattrs) is deprecated. just do 'use MooseX::Has::Sugar;' instead.});
+      Carp::carp( q{MooseX::Has::Sugar->import(:allattrs) is deprecated.} . q{ just do 'use MooseX::Has::Sugar;' instead.} );
       $_ =~ s/^[:-]allattrs\$/:default/;
     }
   }

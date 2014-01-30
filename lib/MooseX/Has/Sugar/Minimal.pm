@@ -48,9 +48,9 @@ Sub::Exporter::setup_exporter(
     exports => [ 'ro', 'rw', 'bare', ],
     groups  => {
       is      => [ 'ro', 'rw', 'bare', ],
-      default => ['-is'],
-    }
-  }
+      default => [ '-is', ],
+    },
+  },
 );
 
 =export_function C<bare>
