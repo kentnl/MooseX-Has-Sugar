@@ -8,50 +8,45 @@ $MooseX::Has::Sugar::Minimal::VERSION = '0.05070423';
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Sub::Exporter ();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Sub::Exporter::setup_exporter(
-  {
-    exports => [ 'ro', 'rw', 'bare', ],
-    groups  => {
-      is      => [ 'ro', 'rw', 'bare', ],
-      default => [ '-is', ],
-    },
+use Sub::Exporter::Progressive -setup => {
+  exports => [ 'ro', 'rw', 'bare', ],
+  groups  => {
+    default => [ '-all', ],
   },
-);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

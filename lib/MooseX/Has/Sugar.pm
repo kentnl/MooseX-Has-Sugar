@@ -122,76 +122,61 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Carp          ();
-use Sub::Exporter ();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Sub::Exporter::setup_exporter(
-  {
-    as      => 'do_import',
+use Carp ();
+use Sub::Exporter::Progressive (
+  -setup => {
     exports => [ 'ro', 'rw', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', 'bare', ],
     groups  => {
       isattrs => [ 'ro',       'rw',   'bare', ],
       attrs   => [ 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
-      default => [ '-attrs', '-isattrs', ],
+      default => [ 'ro',       'rw',   'bare', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
     },
-  },
+
+  }
 );
 
-sub import {
-  for (@_) {
-    if ( $_ =~ qr/^[:-]is\$/ ) {
-      Carp::croak( qq{Trivial ro/rw with :is dropped as of 0.0300.\n} . q{ See MooseX::Has::Sugar::Minimal for those. } );
-    }
-    if ( $_ =~ qr/^[:-]allattrs\$/ ) {
-      Carp::carp( q{MooseX::Has::Sugar->import(:allattrs) is deprecated.} . q{ just do 'use MooseX::Has::Sugar;' instead.} );
-      $_ =~ s/^[:-]allattrs\$/:default/;
-    }
-  }
-  goto &MooseX::Has::Sugar::do_import;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -22,7 +22,7 @@ my %WriteMakefileArgs = (
   "NAME" => "MooseX::Has::Sugar",
   "PREREQ_PM" => {
     "Carp" => 0,
-    "Sub::Exporter" => 0,
+    "Sub::Exporter::Progressive" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -48,7 +48,7 @@ my %FallbackPrereqs = (
   "ExtUtils::MakeMaker" => 0,
   "File::Spec::Functions" => 0,
   "List::Util" => 0,
-  "Sub::Exporter" => 0,
+  "Sub::Exporter::Progressive" => 0,
   "Test::Fatal" => 0,
   "Test::More" => "0.89",
   "lib" => 0,

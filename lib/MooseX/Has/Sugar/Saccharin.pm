@@ -21,31 +21,31 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Carp          ();
-use Sub::Exporter ();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Sub::Exporter::setup_exporter(
-  {
+use Carp ();
+use Sub::Exporter::Progressive (
+  -setup => {
     exports => [
       'ro',   'rw',      'required', 'lazy',      'lazy_build', 'coerce',  'weak_ref', 'auto_deref',
       'bare', 'default', 'init_arg', 'predicate', 'clearer',    'builder', 'trigger',
     ],
-    groups => { default => ['-all'], },
+    groups => {
+      default => ['-all'],
+    },
   },
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
