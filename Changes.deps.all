@@ -16,6 +16,9 @@
  - Moose
  - MooseX::Types::Moose
 
+ [Added / runtime requires]
+ - Sub::Exporter::Progressive
+
  [Added / test recommends]
  - CPAN::Meta
  - CPAN::Meta::Requirements 2.120900
@@ -53,6 +56,9 @@
  - Dist::Zilla::Plugin::PruneCruft
  - Dist::Zilla::Plugin::ReportVersions::Tiny
  - version 0.9901
+
+ [Removed / runtime requires]
+ - Sub::Exporter
 
  [Removed / test requires]
  - Moose

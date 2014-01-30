@@ -8,7 +8,13 @@ package MooseX::Has::Sugar::Minimal;
 
 # AUTHORITY
 
-use Sub::Exporter ();
+use Sub::Exporter::Progressive -setup => {
+  exports => [ 'ro', 'rw', 'bare', ],
+  groups  => {
+    is      => [ 'ro', 'rw', 'bare', ],
+    default => [ '-all', ],
+  },
+};
 
 =head1 SYNOPSIS
 
@@ -42,16 +48,6 @@ Exports L</:is>
 Exports L</bare>, L</ro>, L</rw>
 
 =cut
-
-Sub::Exporter::setup_exporter(
-  {
-    exports => [ 'ro', 'rw', 'bare', ],
-    groups  => {
-      is      => [ 'ro', 'rw', 'bare', ],
-      default => [ '-is', ],
-    },
-  },
-);
 
 =export_function C<bare>
 

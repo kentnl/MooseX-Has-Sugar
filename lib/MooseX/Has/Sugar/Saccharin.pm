@@ -21,8 +21,18 @@ Your choice.
 
 =cut
 
-use Carp          ();
-use Sub::Exporter ();
+use Carp ();
+use Sub::Exporter::Progressive (
+  -setup => {
+    exports => [
+      'ro',   'rw',      'required', 'lazy',      'lazy_build', 'coerce',  'weak_ref', 'auto_deref',
+      'bare', 'default', 'init_arg', 'predicate', 'clearer',    'builder', 'trigger',
+    ],
+    groups => {
+      default => ['-all'],
+    },
+  },
+);
 
 =export_group C<:default>
 
@@ -36,16 +46,6 @@ L</bare>, L</default>, L</init_arg>, L</predicate>, L</clearer>, L</builder>, L<
 =back
 
 =cut
-
-Sub::Exporter::setup_exporter(
-  {
-    exports => [
-      'ro',   'rw',      'required', 'lazy',      'lazy_build', 'coerce',  'weak_ref', 'auto_deref',
-      'bare', 'default', 'init_arg', 'predicate', 'clearer',    'builder', 'trigger',
-    ],
-    groups => { default => ['-all'], },
-  },
-);
 
 =export_function C<bare>
 

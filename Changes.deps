@@ -5,6 +5,9 @@
  [Added / configure requires]
  - ExtUtils::MakeMaker 6.30
 
+ [Added / runtime requires]
+ - Sub::Exporter::Progressive
+
  [Added / test recommends]
  - CPAN::Meta
  - CPAN::Meta::Requirements 2.120900
@@ -28,6 +31,9 @@
 
  [Removed / configure requires]
  - Module::Build 0.4202
+
+ [Removed / runtime requires]
+ - Sub::Exporter
 
  [Removed / test requires]
  - Moose
