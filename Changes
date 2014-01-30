@@ -1,6 +1,64 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [00 Major Release]
+ - Many far reaching changes in packaging.
+ - Very little visible user interface change.
+ - Very serious dependency side changes to reduce aggregate dependency
+   weight ( and install time ).
+ - 40 aggregate deps on 5.8 vs the previous releases 65.
+ - 7  aggregate deps on 5.19 vs the previous releases 38.
+
+ [01 Depecated stuff is deprecated]
+ - 5 Years really aught to be enough for people to notice a deprecation
+   notice.
+ - so things I marked as deprecated before Dec 4 2009, are now gone.
+
+ [02 Exporter Switched to Sub::Exporter::Progressive]
+ - This is only possible due to nuking the deprecated behavior.
+ - This overall will reduce dependency weight for fresh installs using MXHS
+ - If you need advanced behaviour, please install Sub::Exporter yourself,
+   and Sub::Exporter::Progressive will be happy with proxying.
+
+ [03 Toolkit switched to EUMM]
+ - Toolkit was moved to EUMM.
+ - Toolkit related dependency ramping has been eliminated in favour of
+   ramping recommendatons instead.
+ - This should substantially reduce dependency weight on fresh perls.
+
+ [04 namespace::clean is in use instead of namespace::autoclean]
+ - Mostly, because the latter hard depends on Moose.
+
+ [05 Moosy inference removed from hard dependency path]
+ - Moose is no longer a "hard" testing dependency.
+ - MooseX::Types::Moose is no longer a hard testing dependency.
+ - Both dependencies exist for integration tests for Moose.
+ - which are probably irrelevant to you if you're not using Moose.
+ - but MooseX::Has::Sugar is really just a fancy package of constants,
+   which can work on either Moose or Moo
+ - so depending on Moose to support a Moo project is bad.
+ - so thats fixed now. ☺
+
+ [06 More recommendations]
+ - As referenced in above sections, more heavy focus is moving towards
+   "recommended" deps. Recommended deps are very useful, and they may give
+   you better test coverage, or better features, or better bug resilience,
+   but they're not really things you want to force people who use your code
+   to install.
+ - So `recommended` deps are declared to help you get the best bang for
+   your buck
+ - While giving people who only want "acceptable standards, but now" a
+   faster installpath.
+ - use cpanm --with-recommended or something.
+
+ [07 Versioning Scheme]
+ - x.\d{8} was getting really boring and hard to read.
+ - so x.\d{6} is now the standard.
+ - this sort of regressive mantissa length change is only acceptable in
+   conjunction with the major increment, because 1.x is unambiguously
+   larger than 0.x in every western number system I've ever seen, with the
+   exception of Date Formats, which nobody at all agrees upon anyway.
+
  [Dependencies::Stats]
  - Dependencies changed since 0.05070422, see Changes.deps{,.all,.dev} for
    details

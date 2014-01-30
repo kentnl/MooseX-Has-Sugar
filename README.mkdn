@@ -4,7 +4,7 @@ MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
 
 # VERSION
 
-version 0.05070423
+version 1.000000
 
 # SYNOPSIS
 
