@@ -3,6 +3,7 @@ use strict;
 use warnings;
 
 use Test::More;
+use Test::Requires 'MooseX::Types::Moose';
 use Test::Fatal;
 use lib "t/lib";
 
