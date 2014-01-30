@@ -1,6 +1,8 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.000000 2014-01-30T19:43:03Z
  [00 Major Release]
  - Many far reaching changes in packaging.
  - Very little visible user interface change.
