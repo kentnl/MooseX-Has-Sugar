@@ -95,6 +95,8 @@ my $static_prereqs = do { my $x = {
                                       'Dist::Zilla::Plugin::Twitter' => '0',
                                       'Dist::Zilla::Plugin::UploadToCPAN' => '0',
                                       'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.012000',
+                                      'Moose' => '0',
+                                      'MooseX::Types::Moose' => '0',
                                       'Pod::Coverage::TrustPod' => '0',
                                       'Test::CPAN::Changes' => '0.19',
                                       'Test::CPAN::Meta' => '0',
