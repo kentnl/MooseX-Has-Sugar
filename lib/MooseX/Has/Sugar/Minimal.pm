@@ -6,6 +6,8 @@ package MooseX::Has::Sugar::Minimal;
 
 # ABSTRACT: Less Sugary Syntax for moose 'has' fields
 
+# AUTHORITY
+
 use Sub::Exporter ();
 
 =head1 SYNOPSIS

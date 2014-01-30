@@ -6,6 +6,8 @@ package MooseX::Has::Sugar::Saccharin;
 
 # ABSTRACT: Experimental sweetness
 
+# AUTHORITY
+
 =head1 SYNOPSIS
 
 This is a highly experimental sugaring module. No Guarantees of stability.

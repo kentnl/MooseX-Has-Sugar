@@ -6,6 +6,8 @@ package MooseX::Has::Sugar;
 
 # ABSTRACT: Sugar Syntax for moose 'has' fields
 
+# AUTHORITY
+
 =head1 SYNOPSIS
 
 L<Moose|Moose> C<has> syntax is generally fine, but sometimes one gets bothered with
