@@ -2,18 +2,30 @@ use warnings;
 use strict;
 
 package MooseX::Has::Sugar::Saccharin;
-BEGIN {
-  $MooseX::Has::Sugar::Saccharin::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $MooseX::Has::Sugar::Saccharin::VERSION = '0.05070422';
-}
-
+$MooseX::Has::Sugar::Saccharin::VERSION = '0.05070423';
 # ABSTRACT: Experimental sweetness
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 use Carp          ();
 use Sub::Exporter ();
+
+
+
+
+
+
 
 
 Sub::Exporter::setup_exporter(
@@ -27,9 +39,31 @@ Sub::Exporter::setup_exporter(
 );
 
 
+
+
+
+
+
+
+
+
+
+
+
 sub bare($) {
   return ( 'is', 'bare', 'isa', shift, );
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub ro($) {
@@ -37,9 +71,42 @@ sub ro($) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 sub rw($) {
   return ( 'is', 'rw', 'isa', shift, );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub required(@) {
@@ -47,9 +114,23 @@ sub required(@) {
 }
 
 
+
+
+
+
+
+
+
 sub lazy(@) {
   return ( 'lazy', 1, @_ );
 }
+
+
+
+
+
+
+
 
 
 sub lazy_build(@) {
@@ -57,9 +138,27 @@ sub lazy_build(@) {
 }
 
 
+
+
+
+
+
+
+
 sub weak_ref(@) {
   return ( 'weak_ref', 1, @_ );
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub coerce(@) {
@@ -67,9 +166,27 @@ sub coerce(@) {
 }
 
 
+
+
+
+
+
+
+
 sub auto_deref(@) {
   return ( 'auto_deref', 1, @_ );
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub builder($) {
@@ -77,9 +194,23 @@ sub builder($) {
 }
 
 
+
+
+
+
+
+
+
 sub predicate($) {
   return ( 'predicate', shift );
 }
+
+
+
+
+
+
+
 
 
 sub clearer($) {
@@ -87,9 +218,30 @@ sub clearer($) {
 }
 
 
+
+
+
+
+
+
+
 sub init_arg($) {
   return ( 'init_arg', shift );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## no critic (ProhibitBuiltinHomonyms)
@@ -104,6 +256,13 @@ sub default(&) {
     }
   );
 }
+
+
+
+
+
+
+
 
 
 sub trigger(&) {
@@ -131,7 +290,7 @@ MooseX::Has::Sugar::Saccharin - Experimental sweetness
 
 =head1 VERSION
 
-version 0.05070422
+version 0.05070423
 
 =head1 SYNOPSIS
 
@@ -325,7 +484,7 @@ Kent Fredric <kentnl at cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

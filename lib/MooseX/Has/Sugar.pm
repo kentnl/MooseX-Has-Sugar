@@ -2,18 +2,167 @@ use warnings;
 use strict;
 
 package MooseX::Has::Sugar;
-BEGIN {
-  $MooseX::Has::Sugar::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $MooseX::Has::Sugar::VERSION = '0.05070422';
-}
-
+$MooseX::Has::Sugar::VERSION = '0.05070423';
 # ABSTRACT: Sugar Syntax for moose 'has' fields
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 use Carp          ();
 use Sub::Exporter ();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Sub::Exporter::setup_exporter(
@@ -42,9 +191,19 @@ sub import {
 }
 
 
+
+
+
+
+
 sub bare() {
   return ( 'is', 'bare' );
 }
+
+
+
+
+
 
 
 sub ro() {
@@ -52,9 +211,19 @@ sub ro() {
 }
 
 
+
+
+
+
+
 sub rw() {
   return ( 'is', 'rw' );
 }
+
+
+
+
+
 
 
 sub required() {
@@ -62,9 +231,19 @@ sub required() {
 }
 
 
+
+
+
+
+
 sub lazy() {
   return ( 'lazy', 1 );
 }
+
+
+
+
+
 
 
 sub lazy_build() {
@@ -72,14 +251,31 @@ sub lazy_build() {
 }
 
 
+
+
+
+
+
 sub weak_ref() {
   return ( 'weak_ref', 1 );
 }
 
 
+
+
+
+
+
+
+
 sub coerce() {
   return ( 'coerce', 1 );
 }
+
+
+
+
+
 
 
 sub auto_deref() {
@@ -99,7 +295,7 @@ MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
 
 =head1 VERSION
 
-version 0.05070422
+version 0.05070423
 
 =head1 SYNOPSIS
 
@@ -328,7 +524,7 @@ Kent Fredric <kentnl at cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
