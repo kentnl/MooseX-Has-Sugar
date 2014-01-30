@@ -1,11 +1,13 @@
 ﻿Revision history for MooseX-Has-Sugar
 
-1.000000 2014-01-30T19:18:48Z
+1.000000 2014-01-30T19:43:03Z
  [00 Major Release]
  - Many far reaching changes in packaging.
  - Very little visible user interface change.
  - Very serious dependency side changes to reduce aggregate dependency
-   weight ( and install time )
+   weight ( and install time ).
+ - 40 aggregate deps on 5.8 vs the previous releases 65.
+ - 7  aggregate deps on 5.19 vs the previous releases 38.
 
  [01 Depecated stuff is deprecated]
  - 5 Years really aught to be enough for people to notice a deprecation
