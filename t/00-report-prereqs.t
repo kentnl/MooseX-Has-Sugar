@@ -122,6 +122,7 @@ my $static_prereqs = do { my $x = {
                    'recommends' => {
                                      'CPAN::Meta' => '0',
                                      'CPAN::Meta::Requirements' => '2.120900',
+                                     'Moose' => '0',
                                      'MooseX::Types::Moose' => '0'
                                    },
                    'requires' => {
@@ -129,6 +130,7 @@ my $static_prereqs = do { my $x = {
                                    'File::Spec::Functions' => '0',
                                    'List::Util' => '0',
                                    'Moose' => '0',
+                                   'MooseX::Types::Moose' => '0',
                                    'Test::Fatal' => '0',
                                    'Test::More' => '1.001002',
                                    'lib' => '0',
