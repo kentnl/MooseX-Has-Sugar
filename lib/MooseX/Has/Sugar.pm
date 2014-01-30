@@ -1,3 +1,4 @@
+use 5.006;    # pragmas, qr
 use warnings;
 use strict;
 
