@@ -7,7 +7,7 @@
  - build: ↑1
  - configure: ↑1
  - develop: +6 ↑1 -7
- - test: +6
+ - test: +7 -1
 
 0.05070422 2013-11-20T08:32:12Z
  [00 Maint release]

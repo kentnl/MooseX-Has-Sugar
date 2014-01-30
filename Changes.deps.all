@@ -10,6 +10,7 @@
  [Added / test recommends]
  - CPAN::Meta
  - CPAN::Meta::Requirements 2.120900
+ - MooseX::Types::Moose
 
  [Added / test requires]
  - ExtUtils::MakeMaker
@@ -34,6 +35,9 @@
  - Dist::Zilla::Plugin::PruneCruft
  - Dist::Zilla::Plugin::ReportVersions::Tiny
  - version 0.9901
+
+ [Removed / test requires]
+ - MooseX::Types::Moose
 
 0.05070422 2013-11-20T08:32:12Z
  [Added / develop requires]
