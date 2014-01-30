@@ -6,7 +6,8 @@ use Test::More;
 
 BEGIN {
   my $mod = 'Moose';
-  eval 'require $mod; 1';
+  local $@;
+  eval qq[require $mod; 1];
   if ( my $e = $@ ) {
     my $msg = "$e";
     if ( $e =~ /^Can't locate/ ) {
