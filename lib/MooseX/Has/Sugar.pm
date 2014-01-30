@@ -1,9 +1,12 @@
+use 5.006;    # pragmas, qr
 use warnings;
 use strict;
 
 package MooseX::Has::Sugar;
 $MooseX::Has::Sugar::VERSION = '0.05070423';
 # ABSTRACT: Sugar Syntax for moose 'has' fields
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 

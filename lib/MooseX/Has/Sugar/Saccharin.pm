@@ -1,9 +1,12 @@
+use 5.006;    # pragmas
 use warnings;
 use strict;
 
 package MooseX::Has::Sugar::Saccharin;
 $MooseX::Has::Sugar::Saccharin::VERSION = '0.05070423';
 # ABSTRACT: Experimental sweetness
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 

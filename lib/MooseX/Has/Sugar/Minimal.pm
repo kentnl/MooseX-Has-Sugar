@@ -1,9 +1,12 @@
+use 5.006;    # pragmas
 use warnings;
 use strict;
 
 package MooseX::Has::Sugar::Minimal;
 $MooseX::Has::Sugar::Minimal::VERSION = '0.05070423';
 # ABSTRACT: Less Sugary Syntax for moose 'has' fields
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Sub::Exporter ();
 
