@@ -131,8 +131,7 @@ use Sub::Exporter::Progressive (
       attrs   => [ 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
       default => [ 'ro',       'rw',   'bare', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
     },
-
-  }
+  },
 );
 
 

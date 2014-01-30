@@ -11,6 +11,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 use Sub::Exporter::Progressive -setup => {
   exports => [ 'ro', 'rw', 'bare', ],
   groups  => {
+    is      => [ 'ro', 'rw', 'bare', ],
     default => [ '-all', ],
   },
 };
