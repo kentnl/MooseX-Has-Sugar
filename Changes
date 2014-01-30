@@ -1,87 +1,89 @@
 ﻿Revision history for MooseX-Has-Sugar
 
+1.000000 2014-01-30T19:43:03Z
+ [00 Major Release]
+ - Many far reaching changes in packaging.
+ - Very little visible user interface change.
+ - Very serious dependency side changes to reduce aggregate dependency
+   weight ( and install time ).
+ - 40 aggregate deps on 5.8 vs the previous releases 65.
+ - 7  aggregate deps on 5.19 vs the previous releases 38.
+
+ [01 Depecated stuff is deprecated]
+ - 5 Years really aught to be enough for people to notice a deprecation
+   notice.
+ - so things I marked as deprecated before Dec 4 2009, are now gone.
+
+ [02 Exporter Switched to Sub::Exporter::Progressive]
+ - This is only possible due to nuking the deprecated behavior.
+ - This overall will reduce dependency weight for fresh installs using MXHS
+ - If you need advanced behaviour, please install Sub::Exporter yourself,
+   and Sub::Exporter::Progressive will be happy with proxying.
+
+ [03 Toolkit switched to EUMM]
+ - Toolkit was moved to EUMM.
+ - Toolkit related dependency ramping has been eliminated in favour of
+   ramping recommendatons instead.
+ - This should substantially reduce dependency weight on fresh perls.
+
+ [04 namespace::clean is in use instead of namespace::autoclean]
+ - Mostly, because the latter hard depends on Moose.
+
+ [05 Moosy inference removed from hard dependency path]
+ - Moose is no longer a "hard" testing dependency.
+ - MooseX::Types::Moose is no longer a hard testing dependency.
+ - Both dependencies exist for integration tests for Moose.
+ - which are probably irrelevant to you if you're not using Moose.
+ - but MooseX::Has::Sugar is really just a fancy package of constants,
+   which can work on either Moose or Moo
+ - so depending on Moose to support a Moo project is bad.
+ - so thats fixed now. ☺
+
+ [06 More recommendations]
+ - As referenced in above sections, more heavy focus is moving towards
+   "recommended" deps. Recommended deps are very useful, and they may give
+   you better test coverage, or better features, or better bug resilience,
+   but they're not really things you want to force people who use your code
+   to install.
+ - So `recommended` deps are declared to help you get the best bang for
+   your buck
+ - While giving people who only want "acceptable standards, but now" a
+   faster installpath.
+ - use cpanm --with-recommended or something.
+
+ [07 Versioning Scheme]
+ - x.\d{8} was getting really boring and hard to read.
+ - so x.\d{6} is now the standard.
+ - this sort of regressive mantissa length change is only acceptable in
+   conjunction with the major increment, because 1.x is unambiguously
+   larger than 0.x in every western number system I've ever seen, with the
+   exception of Date Formats, which nobody at all agrees upon anyway.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.05070422, see Changes.deps{,.all,.dev} for
+   details
+ - build: -1
+ - configure: +2 -1
+ - develop: +9 ↑1 -9
+ - runtime: +1 -1
+ - test: +11 ↓1 -3
+
 0.05070422 2013-11-20T08:32:12Z
  [00 Maint release]
 
- [Dependencies::Added / develop requires]
- - Dist::Zilla::Plugin::Author::KENTNL::MinimumPerl
- - Dist::Zilla::Plugin::Authority 1.006
- - Dist::Zilla::Plugin::AutoPrereqs
- - Dist::Zilla::Plugin::CheckExtraTests
- - Dist::Zilla::Plugin::ConfirmRelease
- - Dist::Zilla::Plugin::EOLTests
- - Dist::Zilla::Plugin::Git::Check
- - Dist::Zilla::Plugin::Git::Commit
- - Dist::Zilla::Plugin::Git::CommitBuild
- - Dist::Zilla::Plugin::Git::GatherDir
- - Dist::Zilla::Plugin::Git::NextVersion
- - Dist::Zilla::Plugin::Git::Tag
- - Dist::Zilla::Plugin::GithubMeta
- - Dist::Zilla::Plugin::License
- - Dist::Zilla::Plugin::Manifest
- - Dist::Zilla::Plugin::ManifestSkip
- - Dist::Zilla::Plugin::MetaConfig
- - Dist::Zilla::Plugin::MetaData::BuiltWith
- - Dist::Zilla::Plugin::MetaJSON
- - Dist::Zilla::Plugin::MetaProvides::Package 1.14000001
- - Dist::Zilla::Plugin::MetaTests
- - Dist::Zilla::Plugin::MetaYAML
- - Dist::Zilla::Plugin::ModuleBuild
- - Dist::Zilla::Plugin::NextRelease
- - Dist::Zilla::Plugin::PkgVersion
- - Dist::Zilla::Plugin::PodCoverageTests
- - Dist::Zilla::Plugin::PodSyntaxTests
- - Dist::Zilla::Plugin::PodWeaver
- - Dist::Zilla::Plugin::Prereqs
- - Dist::Zilla::Plugin::Prereqs::MatchInstalled
- - Dist::Zilla::Plugin::PruneCruft
- - Dist::Zilla::Plugin::ReadmeAnyFromPod
- - Dist::Zilla::Plugin::ReadmeFromPod
- - Dist::Zilla::Plugin::ReportVersions::Tiny
- - Dist::Zilla::Plugin::Test::CPAN::Changes
- - Dist::Zilla::Plugin::Test::Compile::PerFile
- - Dist::Zilla::Plugin::Test::Kwalitee
- - Dist::Zilla::Plugin::Test::MinimumVersion
- - Dist::Zilla::Plugin::Test::Perl::Critic
- - Dist::Zilla::Plugin::TestRelease
- - Dist::Zilla::Plugin::Twitter
- - Dist::Zilla::Plugin::UploadToCPAN
- - Dist::Zilla::PluginBundle::Author::KENTNL 2.002001
- - Pod::Coverage::TrustPod
- - Test::CPAN::Changes 0.19
- - Test::CPAN::Meta
- - Test::Kwalitee 1.12
- - Test::Pod 1.41
- - Test::Pod::Coverage 1.08
- - version 0.9901
+ [Dependencies::Noteworthy]
+ - Upgrade Module::Build to 0.4202
+ - Upgrade Test::More 0.98 to 1.001002
+ - drop File::Find
+ - drop File::Temp
 
- [Dependencies::Added / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
-
- [Dependencies::Added / test requires]
- - lib
-
- [Dependencies::Changed / build requires]
- - Module::Build 0.4002 → 0.4202
-
- [Dependencies::Changed / configure requires]
- - Module::Build 0.4002 → 0.4202
-
- [Dependencies::Changed / test requires]
- - Test::More 0.98 → 1.001002
-
- [Dependencies::Removed / develop recommends]
- - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
-
- [Dependencies::Removed / develop requires]
- - Dist::Zilla::PluginBundle::Author::KENTNL::Lite
-
- [Dependencies::Removed / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL v1.4.3
-
- [Dependencies::Removed / test requires]
- - File::Find
- - File::Temp
+ [Dependencies::Stats]
+ - Dependencies changed since 0.05070421, see Changes.deps{,.all,.dev} for
+   details
+ - build: ↑1
+ - configure: ↑1
+ - develop: +51 -3
+ - test: +1 ↑1 -2
 
  [Documentation]
  - Update © Year
@@ -104,20 +106,17 @@
  - Fixed use of a Test::Builder method that is going away. Thanks to
    Schwern for reporting and providing the patch.
 
- [Dependencies::Changed / build requires]
- - Module::Build 0.3601 → 0.4002
+ [Dependencies::Noteworthy]
+ - Upgrade Module::Build to 0.4002
+ - Upgrade Test::More to 0.98
 
- [Dependencies::Changed / configure requires]
- - Module::Build 0.3601 → 0.4002
-
- [Dependencies::Changed / develop recommends]
- - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 → v1.3.0
-
- [Dependencies::Changed / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL v1.2.0 → v1.4.3
-
- [Dependencies::Changed / test requires]
- - Test::More 0.88 → 0.98
+ [Dependencies::Stats]
+ - Dependencies changed since 0.05070420, see Changes.deps{,.all,.dev} for
+   details
+ - build: ↑1
+ - configure: ↑1
+ - develop: ↑2
+ - test: ↑1
 
  [TODO]
  - Thinking of adding Moo support of some kind, but Moo is notedly
@@ -131,16 +130,12 @@
 0.05070420 2012-02-03T03:33:11Z
  - Maintenance/Packaging release.
 
- [Dependencies::Added / runtime requires]
- - perl 5.006
- - strict
- - warnings
-
- [Dependencies::Changed / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 → v1.2.0
-
- [Dependencies::Removed / test requires]
- - English
+ [Dependencies::Stats]
+ - Dependencies changed since 0.05070419, see Changes.deps{,.all,.dev} for
+   details
+ - develop: ↑1
+ - runtime: +3
+ - test: -1
 
  [Internals]
  - All namespaces provide $AUTHORITY
@@ -156,23 +151,10 @@
 0.05070419 2011-04-07T02:03:19Z
  - Maintainence only release. No external changes.
 
- [Dependencies::Added / develop recommends]
- - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803
-
- [Dependencies::Added / develop requires]
- - Dist::Zilla::PluginBundle::Author::KENTNL::Lite
-
- [Dependencies::Added / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0
-
- [Dependencies::Removed / develop recommends]
- - Dist::Zilla::PluginBundle::KENTNL::Lite 0.01009803
-
- [Dependencies::Removed / develop requires]
- - Dist::Zilla::PluginBundle::KENTNL::Lite
-
- [Dependencies::Removed / develop suggests]
- - Dist::Zilla::PluginBundle::KENTNL 0.01017119
+ [Dependencies::Stats]
+ - Dependencies changed since 0.05055616, see Changes.deps{,.all,.dev} for
+   details
+ - develop: +3 -3
 
  [Packaging]
  - Moved to @Author::KENTNL
@@ -189,29 +171,27 @@
  - Removed FindBin in tests.
  - Core Tests now 5% faster!.
 
- [Dependencies::Added / develop recommends]
- - Dist::Zilla::PluginBundle::KENTNL::Lite 0.01009803
+ [Dependencies::Noteworthy]
+ - use Test::Fatal instead of Test::Exception
+ - drop use of FindBin
 
- [Dependencies::Added / develop requires]
- - Dist::Zilla::PluginBundle::KENTNL::Lite
-
- [Dependencies::Added / develop suggests]
- - Dist::Zilla::PluginBundle::KENTNL 0.01017119
-
- [Dependencies::Added / test requires]
- - Test::Fatal
-
- [Dependencies::Removed / test requires]
- - FindBin
- - Test::Exception
+ [Dependencies::Stats]
+ - Dependencies changed since 0.05046611, see Changes.deps{,.all,.dev} for
+   details
+ - develop: +3
+ - test: +1 -2
 
 0.05046611 2010-08-16T18:30:39Z
  - Improved docs and tests for Saccharin. ( Alexandr Ciornii / chorny )
  - Eradicated excess in xt/.
 
- [Dependencies::Added / test requires]
- - English
- - MooseX::Types::Moose
+ [Dependencies::Noteworthy]
+ - tests require MooseX::Types::Moose
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.05044303, see Changes.deps{,.all,.dev} for
+   details
+ - test: +2
 
 0.05044303 2010-07-24T10:03:50Z
  - Migrate to @KENTNL Dzil.

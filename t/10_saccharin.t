@@ -3,6 +3,25 @@ use strict;
 use warnings;
 
 use Test::More;
+
+BEGIN {
+  for my $mod (qw( Moose MooseX::Types::Moose )) {
+    local $@;
+    eval qq[require $mod; 1];
+    if ( my $e = $@ ) {
+      my $msg = "$e";
+      if ( $e =~ /^Can't locate/ ) {
+        $msg = "Test requires module '$mod' but it's not found";
+      }
+      if ( $ENV{RELEASE_TESTING} ) {
+        BAIL_OUT($msg);
+      }
+      else {
+        plan skip_all => $msg;
+      }
+    }
+  }
+}
 use Test::Fatal;
 use lib "t/lib";
 

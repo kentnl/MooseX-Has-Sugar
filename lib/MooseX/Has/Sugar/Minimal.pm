@@ -1,29 +1,58 @@
+use 5.006;    # pragmas
 use warnings;
 use strict;
 
 package MooseX::Has::Sugar::Minimal;
-BEGIN {
-  $MooseX::Has::Sugar::Minimal::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $MooseX::Has::Sugar::Minimal::VERSION = '0.05070422';
-}
-
+$MooseX::Has::Sugar::Minimal::VERSION = '1.000000';
 # ABSTRACT: Less Sugary Syntax for moose 'has' fields
 
-use Sub::Exporter ();
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
+use Sub::Exporter::Progressive -setup => {
+  exports => [ 'ro', 'rw', 'bare', ],
+  groups  => {
+    is      => [ 'ro', 'rw', 'bare', ],
+    default => [ '-all', ],
+  },
+};
 
 
 
-Sub::Exporter::setup_exporter(
-  {
-    exports => [ 'ro', 'rw', 'bare', ],
-    groups  => {
-      is      => [ 'ro', 'rw', 'bare', ],
-      default => ['-is'],
-    }
-  }
-);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub bare() {
@@ -31,9 +60,19 @@ sub bare() {
 }
 
 
+
+
+
+
+
 sub ro() {
   return ('ro');
 }
+
+
+
+
+
 
 
 sub rw() {
@@ -54,7 +93,7 @@ MooseX::Has::Sugar::Minimal - Less Sugary Syntax for moose 'has' fields
 
 =head1 VERSION
 
-version 0.05070422
+version 1.000000
 
 =head1 SYNOPSIS
 
@@ -132,7 +171,7 @@ Kent Fredric <kentnl at cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

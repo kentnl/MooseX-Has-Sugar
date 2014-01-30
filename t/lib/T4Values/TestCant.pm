@@ -3,16 +3,14 @@ package  T4Values::TestCant;
 # $Id:$
 use strict;
 use warnings;
-use Test::More    ();
-use Sub::Exporter ();
-use namespace::autoclean;
-
-Sub::Exporter::setup_exporter(
-  {
+use Test::More ();
+use Sub::Exporter::Progressive (
+  -setup => {
     exports => ['can_unok'],
     groups  => { default => ['can_unok'] },
   }
 );
+use namespace::clean -except => 'import';
 
 # Sniped from Test::More;
 sub can_unok($@) {

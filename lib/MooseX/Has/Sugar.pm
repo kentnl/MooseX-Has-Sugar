@@ -1,45 +1,186 @@
+use 5.006;    # pragmas, qr
 use warnings;
 use strict;
 
 package MooseX::Has::Sugar;
-BEGIN {
-  $MooseX::Has::Sugar::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $MooseX::Has::Sugar::VERSION = '0.05070422';
-}
-
+$MooseX::Has::Sugar::VERSION = '1.000000';
 # ABSTRACT: Sugar Syntax for moose 'has' fields
 
-
-use Carp          ();
-use Sub::Exporter ();
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
-Sub::Exporter::setup_exporter(
-  {
-    as      => 'do_import',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use Carp ();
+use Sub::Exporter::Progressive (
+  -setup => {
     exports => [ 'ro', 'rw', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', 'bare', ],
     groups  => {
       isattrs => [ 'ro',       'rw',   'bare', ],
       attrs   => [ 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
-      default => [ '-attrs', '-isattrs' ],
-    }
-  }
+      default => [ 'ro',       'rw',   'bare', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
+    },
+  },
 );
 
-sub import {
-  for (@_) {
-    if ( $_ =~ qr/^[:-]is\$/ ) {
-      Carp::croak( qq{Trivial ro/rw with :is dropped as of 0.0300.\n} . q{ See MooseX::Has::Sugar::Minimal for those. } );
-    }
-    if ( $_ =~ qr/^[:-]allattrs\$/ ) {
-      Carp::carp(q{MooseX::Has::Sugar->import(:allattrs) is deprecated. just do 'use MooseX::Has::Sugar;' instead.});
-      $_ =~ s/^[:-]allattrs\$/:default/;
-    }
-  }
-  goto &MooseX::Has::Sugar::do_import;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub bare() {
@@ -47,9 +188,19 @@ sub bare() {
 }
 
 
+
+
+
+
+
 sub ro() {
   return ( 'is', 'ro' );
 }
+
+
+
+
+
 
 
 sub rw() {
@@ -57,9 +208,19 @@ sub rw() {
 }
 
 
+
+
+
+
+
 sub required() {
   return ( 'required', 1 );
 }
+
+
+
+
+
 
 
 sub lazy() {
@@ -67,9 +228,19 @@ sub lazy() {
 }
 
 
+
+
+
+
+
 sub lazy_build() {
   return ( 'lazy_build', 1 );
 }
+
+
+
+
+
 
 
 sub weak_ref() {
@@ -77,9 +248,21 @@ sub weak_ref() {
 }
 
 
+
+
+
+
+
+
+
 sub coerce() {
   return ( 'coerce', 1 );
 }
+
+
+
+
+
 
 
 sub auto_deref() {
@@ -99,7 +282,7 @@ MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
 
 =head1 VERSION
 
-version 0.05070422
+version 1.000000
 
 =head1 SYNOPSIS
 
@@ -328,7 +511,7 @@ Kent Fredric <kentnl at cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -1,30 +1,62 @@
+use 5.006;    # pragmas
 use warnings;
 use strict;
 
 package MooseX::Has::Sugar::Saccharin;
-BEGIN {
-  $MooseX::Has::Sugar::Saccharin::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $MooseX::Has::Sugar::Saccharin::VERSION = '0.05070422';
-}
-
+$MooseX::Has::Sugar::Saccharin::VERSION = '1.000000';
 # ABSTRACT: Experimental sweetness
 
-
-use Carp          ();
-use Sub::Exporter ();
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
-Sub::Exporter::setup_exporter(
-  {
+
+
+
+
+
+
+
+
+
+
+
+
+use Carp ();
+use Sub::Exporter::Progressive (
+  -setup => {
     exports => [
       'ro',   'rw',      'required', 'lazy',      'lazy_build', 'coerce',  'weak_ref', 'auto_deref',
       'bare', 'default', 'init_arg', 'predicate', 'clearer',    'builder', 'trigger',
     ],
-    groups => { default => ['-all'], }
-  }
+    groups => {
+      default => ['-all'],
+    },
+  },
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub bare($) {
@@ -32,9 +64,31 @@ sub bare($) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 sub ro($) {
   return ( 'is', 'ro', 'isa', shift, );
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub rw($) {
@@ -42,9 +96,38 @@ sub rw($) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sub required(@) {
   return ( 'required', 1, @_ );
 }
+
+
+
+
+
+
+
 
 
 sub lazy(@) {
@@ -52,9 +135,23 @@ sub lazy(@) {
 }
 
 
+
+
+
+
+
+
+
 sub lazy_build(@) {
   return ( 'lazy_build', 1, @_ );
 }
+
+
+
+
+
+
+
 
 
 sub weak_ref(@) {
@@ -62,9 +159,27 @@ sub weak_ref(@) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 sub coerce(@) {
   return ( 'coerce', 1, @_ );
 }
+
+
+
+
+
+
+
 
 
 sub auto_deref(@) {
@@ -72,9 +187,27 @@ sub auto_deref(@) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 sub builder($) {
   return ( 'builder', shift );
 }
+
+
+
+
+
+
+
 
 
 sub predicate($) {
@@ -82,14 +215,42 @@ sub predicate($) {
 }
 
 
+
+
+
+
+
+
+
 sub clearer($) {
   return ( 'clearer', shift );
 }
 
 
+
+
+
+
+
+
+
 sub init_arg($) {
   return ( 'init_arg', shift );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## no critic (ProhibitBuiltinHomonyms)
@@ -101,9 +262,16 @@ sub default(&) {
       my $self = $_[0];
       local $_ = $self;
       return $code->();
-    }
+    },
   );
 }
+
+
+
+
+
+
+
 
 
 sub trigger(&) {
@@ -114,7 +282,7 @@ sub trigger(&) {
       my $self = $_[0];
       local $_ = $self;
       return $code->();
-    }
+    },
   );
 }
 1;
@@ -131,7 +299,7 @@ MooseX::Has::Sugar::Saccharin - Experimental sweetness
 
 =head1 VERSION
 
-version 0.05070422
+version 1.000000
 
 =head1 SYNOPSIS
 
@@ -148,8 +316,14 @@ Your choice.
 
 =head2 C<:default>
 
-exports  L</ro>, L</rw>, L</required>, L</lazy>, L</lazy_build>, L</coerce>, L</weak_ref>, L</auto_deref>,
-      L</bare>, L</default>, L</init_arg>, L</predicate>, L</clearer>, L</builder>, L</trigger>,
+exports:
+
+=over 4
+
+L</ro>, L</rw>, L</required>, L</lazy>, L</lazy_build>, L</coerce>, L</weak_ref>, L</auto_deref>,
+L</bare>, L</default>, L</init_arg>, L</predicate>, L</clearer>, L</builder>, L</trigger>
+
+=back
 
 =head1 EXPORTED FUNCTIONS
 
@@ -325,7 +499,7 @@ Kent Fredric <kentnl at cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
