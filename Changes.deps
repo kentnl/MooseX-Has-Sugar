@@ -2,12 +2,14 @@
  [Added / test recommends]
  - CPAN::Meta
  - CPAN::Meta::Requirements 2.120900
+ - Moose
  - MooseX::Types::Moose
 
  [Added / test requires]
  - ExtUtils::MakeMaker
  - File::Spec::Functions
  - List::Util
+ - namespace::clean
  - version
 
  [Changed / build requires]
@@ -17,7 +19,9 @@
  - Module::Build 0.4202 → 0.4204
 
  [Removed / test requires]
+ - Moose
  - MooseX::Types::Moose
+ - namespace::autoclean
 
 0.05070422 2013-11-20T08:32:12Z
  [Added / test requires]
