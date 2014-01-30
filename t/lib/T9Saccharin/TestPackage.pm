@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 use MooseX::Has::Sugar::Saccharin;
-use namespace::autoclean;
+use namespace::clean;
 
 sub Alpha {
   return {

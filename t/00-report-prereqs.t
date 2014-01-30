@@ -132,7 +132,7 @@ my $static_prereqs = do { my $x = {
                                    'Test::Fatal' => '0',
                                    'Test::More' => '1.001002',
                                    'lib' => '0',
-                                   'namespace::autoclean' => '0',
+                                   'namespace::clean' => '0',
                                    'version' => '0'
                                  }
                  }

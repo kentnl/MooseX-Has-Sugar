@@ -1,6 +1,6 @@
 ﻿Revision history for MooseX-Has-Sugar
 
-0.05070423 2014-01-30T18:12:12Z
+0.05070423 2014-01-30T18:20:13Z
  [Dependencies::Stats]
  - Dependencies changed since 0.05070422, see Changes.deps{,.all,.dev} for
    details

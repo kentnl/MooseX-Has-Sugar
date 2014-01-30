@@ -38,7 +38,7 @@ my %module_build_args = (
     "Test::Fatal" => 0,
     "Test::More" => "1.001002",
     "lib" => 0,
-    "namespace::autoclean" => 0,
+    "namespace::clean" => 0,
     "version" => 0
   }
 );
@@ -52,7 +52,7 @@ my %fallback_build_requires = (
   "Test::Fatal" => 0,
   "Test::More" => "1.001002",
   "lib" => 0,
-  "namespace::autoclean" => 0,
+  "namespace::clean" => 0,
   "version" => 0
 );
 

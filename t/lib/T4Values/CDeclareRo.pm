@@ -4,7 +4,7 @@ package  T4Values::CDeclareRo;
 use strict;
 use warnings;
 use MooseX::Has::Sugar;
-use namespace::autoclean;
+use namespace::clean -except => 'meta';
 
 sub generated { { isa => 'Str', ro, } }
 

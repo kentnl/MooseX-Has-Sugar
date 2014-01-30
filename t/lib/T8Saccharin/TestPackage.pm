@@ -4,9 +4,8 @@ package T8Saccharin::TestPackage;
 use strict;
 use warnings;
 use Moose;
-use namespace::autoclean;
-
 use MooseX::Has::Sugar::Saccharin;
+use namespace::clean -except => 'meta';
 
 has roattr => lazy_build ro 'Str';
 
