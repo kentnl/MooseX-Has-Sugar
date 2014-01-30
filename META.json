@@ -102,6 +102,7 @@
             "MooseX::Types::Moose" : "0",
             "Test::Fatal" : "0",
             "Test::More" : "1.001002",
+            "Test::Requires" : "0",
             "lib" : "0",
             "namespace::autoclean" : "0",
             "version" : "0"
@@ -199,6 +200,7 @@
          "Test::More" : "1.001002",
          "Test::Pod" : "1.48",
          "Test::Pod::Coverage" : "1.08",
+         "Test::Requires" : "0.07",
          "lib" : "0.63",
          "namespace::autoclean" : "0.15",
          "strict" : "1.08",
