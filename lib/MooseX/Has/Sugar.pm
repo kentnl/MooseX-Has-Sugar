@@ -3,7 +3,7 @@ use warnings;
 use strict;
 
 package MooseX::Has::Sugar;
-$MooseX::Has::Sugar::VERSION = '1.000000'; # TRIAL
+$MooseX::Has::Sugar::VERSION = '1.000000';
 # ABSTRACT: Sugar Syntax for moose 'has' fields
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
