@@ -121,7 +121,8 @@ my $static_prereqs = do { my $x = {
        'test' => {
                    'recommends' => {
                                      'CPAN::Meta' => '0',
-                                     'CPAN::Meta::Requirements' => '2.120900'
+                                     'CPAN::Meta::Requirements' => '2.120900',
+                                     'MooseX::Types::Moose' => '0'
                                    },
                    'requires' => {
                                    'ExtUtils::MakeMaker' => '0',

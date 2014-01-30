@@ -92,7 +92,8 @@
       "test" : {
          "recommends" : {
             "CPAN::Meta" : "0",
-            "CPAN::Meta::Requirements" : "2.120900"
+            "CPAN::Meta::Requirements" : "2.120900",
+            "MooseX::Types::Moose" : "0"
          },
          "requires" : {
             "ExtUtils::MakeMaker" : "0",
@@ -189,6 +190,7 @@
          "List::Util" : "1.38",
          "Module::Build" : "0.4204",
          "Moose" : "2.1202",
+         "MooseX::Types::Moose" : "0.41",
          "Pod::Coverage::TrustPod" : "0.100003",
          "Sub::Exporter" : "0.987",
          "Test::CPAN::Changes" : "0.27",
@@ -651,6 +653,17 @@
                }
             },
             "name" : "@Author::KENTNL/::Role::BundleDeps",
+            "version" : "5.012"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs" : {
+                  "phase" : "test",
+                  "type" : "recommends"
+               }
+            },
+            "name" : "TestRecommends",
             "version" : "5.012"
          },
          {
