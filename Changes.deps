@@ -1,9 +1,17 @@
 0.05070423
+ [Added / configure recommends]
+ - ExtUtils::MakeMaker 6.86
+
+ [Added / configure requires]
+ - ExtUtils::MakeMaker 6.30
+
  [Added / test recommends]
  - CPAN::Meta
  - CPAN::Meta::Requirements 2.120900
+ - ExtUtils::MakeMaker 6.86
  - Moose
  - MooseX::Types::Moose
+ - Test::More 1.001002
 
  [Added / test requires]
  - ExtUtils::MakeMaker
@@ -12,11 +20,14 @@
  - namespace::clean
  - version
 
- [Changed / build requires]
- - Module::Build 0.4202 → 0.4204
+ [Changed / test requires]
+ - Test::More 1.001002 → 0.89
 
- [Changed / configure requires]
- - Module::Build 0.4202 → 0.4204
+ [Removed / build requires]
+ - Module::Build 0.4202
+
+ [Removed / configure requires]
+ - Module::Build 0.4202
 
  [Removed / test requires]
  - Moose
