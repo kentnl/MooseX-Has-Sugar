@@ -5,18 +5,19 @@ use warnings;
 use Test::More;
 
 BEGIN {
-  my $mod = 'MooseX::Types::Moose';
-  eval 'require $mod; 1';
-  if ( my $e = $@ ) {
-    my $msg = "$e";
-    if ( $e =~ /^Can't locate/ ) {
-      $msg = "Test requires module '$mod' but it's not found";
-    }
-    if ( $ENV{RELEASE_TESTING} ) {
-      BAIL_OUT($msg);
-    }
-    else {
-      plan skip_all => $msg;
+  for my $mod (qw( Moose MooseX::Types::Moose )) {
+    eval 'require $mod; 1';
+    if ( my $e = $@ ) {
+      my $msg = "$e";
+      if ( $e =~ /^Can't locate/ ) {
+        $msg = "Test requires module '$mod' but it's not found";
+      }
+      if ( $ENV{RELEASE_TESTING} ) {
+        BAIL_OUT($msg);
+      }
+      else {
+        plan skip_all => $msg;
+      }
     }
   }
 }
