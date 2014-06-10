@@ -251,7 +251,7 @@ Examples:
     default { [ ] }
     default { $_->otherfield }
 
-$_ is localised as the same value as $_[0] for convenience ( usually $self )
+$_ is localized as the same value as $_[0] for convenience ( usually $self )
 
 =cut
 
