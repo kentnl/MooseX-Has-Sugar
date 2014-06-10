@@ -4,7 +4,7 @@ MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
 
 # VERSION
 
-version 1.000000
+version 1.000001
 
 # SYNOPSIS
 
@@ -48,7 +48,7 @@ something daft. Using this alleviates that worry.
 
 ### Lazy Evil way to do it:
 
-__PLEASE DO NOT DO THIS__
+**PLEASE DO NOT DO THIS**
 
     has qw( foo isa Str is ro required 1 );
     has qw( bar isa Str is rw lazy_build 1 );
@@ -137,27 +137,27 @@ This exports `ro`, `rw` and `bare` as lists, so they behave as stand-alone attri
             ro,
     );
 
-__NOTE: This option is incompatible with [::Sugar::Minimal](https://metacpan.org/pod/MooseX::Has::Sugar::Minimal)__ : ["CONFLICTS"](#conflicts)
+**NOTE: This option is incompatible with [::Sugar::Minimal](https://metacpan.org/pod/MooseX::Has::Sugar::Minimal)** : ["CONFLICTS"](#conflicts)
 
 ## `:attrs`
 
-This exports ["lazy"](#lazy) , ["lazy_build"](#lazy_build) and ["required"](#required), ["coerce"](#coerce), ["weak_ref"](#weak_ref)
-and ["auto_deref"](#auto_deref) as subs that assume positive.
+This exports ["lazy"](#lazy) , ["lazy\_build"](#lazy_build) and ["required"](#required), ["coerce"](#coerce), ["weak\_ref"](#weak_ref)
+and ["auto\_deref"](#auto_deref) as subs that assume positive.
 
     has foo => (
             required,
             isa => 'Str',
     );
 
-__NOTE: This option is incompatible with [MooseX::Types](https://metacpan.org/pod/MooseX::Types) and [Moose's Type Constraints Module](https://metacpan.org/pod/Moose::Util::TypeConstraints)__ : ["CONFLICTS"](#conflicts)
+**NOTE: This option is incompatible with [MooseX::Types](https://metacpan.org/pod/MooseX::Types) and [Moose's Type Constraints Module](https://metacpan.org/pod/Moose::Util::TypeConstraints)** : ["CONFLICTS"](#conflicts)
 
 ## `:is`
 
-__DEPRECATED__. See [::Sugar::Minimal](https://metacpan.org/pod/MooseX::Has::Sugar::Minimal) for the same functionality
+**DEPRECATED**. See [::Sugar::Minimal](https://metacpan.org/pod/MooseX::Has::Sugar::Minimal) for the same functionality
 
 ## `:allattrs`
 
-__DEPRECATED__, just use [":default"](#default) or do
+**DEPRECATED**, just use [":default"](#default) or do
 
     use MooseX::Has::Sugar;
 
@@ -195,7 +195,7 @@ returns `('weak_ref',1)`
 
 returns `('coerce',1)`
 
-__WARNING:__ Conflict with [MooseX::Types](https://metacpan.org/pod/MooseX::Types) and [Moose::Util::TypeConstraints](https://metacpan.org/pod/Moose::Util::TypeConstraints), see ["CONFLICTS"](#conflicts).
+**WARNING:** Conflict with [MooseX::Types](https://metacpan.org/pod/MooseX::Types) and [Moose::Util::TypeConstraints](https://metacpan.org/pod/Moose::Util::TypeConstraints), see ["CONFLICTS"](#conflicts).
 
 ## `auto_deref`
 
