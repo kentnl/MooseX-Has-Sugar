@@ -3,7 +3,9 @@ use warnings;
 use strict;
 
 package MooseX::Has::Sugar::Saccharin;
-$MooseX::Has::Sugar::Saccharin::VERSION = '1.000000';
+
+our $VERSION = '1.000001';
+
 # ABSTRACT: Experimental sweetness
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -299,7 +301,7 @@ MooseX::Has::Sugar::Saccharin - Experimental sweetness
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 SYNOPSIS
 
@@ -450,7 +452,7 @@ Examples:
     default { [ ] }
     default { $_->otherfield }
 
-$_ is localised as the same value as $_[0] for convenience ( usually $self )
+$_ is localized as the same value as $_[0] for convenience ( usually $self )
 
 =head2 C<trigger>
 

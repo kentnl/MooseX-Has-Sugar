@@ -1,4 +1,29 @@
-1.000000
+1.000001
+ [Added / develop requires]
+ - Dist::Zilla::Plugin::BumpVersionAfterRelease
+ - Dist::Zilla::Plugin::CopyFilesFromBuild
+ - Dist::Zilla::Plugin::RewriteVersion::Sanitized
+
+ [Added / develop suggests]
+ - Dist::Zilla::App::Command::bakeini 0.001000
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.016000
+
+ [Changed / configure recommends]
+ - ExtUtils::MakeMaker 6.86 → 6.98
+
+ [Changed / test recommends]
+ - ExtUtils::MakeMaker 6.86 → 6.98
+ - Test::More 1.001002 → 1.001003
+
+ [Removed / develop requires]
+ - Dist::Zilla::Plugin::Git::NextVersion::Sanitized
+ - Dist::Zilla::Plugin::PkgVersion
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.012000
+
+ [Removed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
+
+1.000000 2014-01-30T19:43:03Z
  [Added / configure recommends]
  - ExtUtils::MakeMaker 6.86
 
@@ -216,8 +241,42 @@
  - MooseX::Types::Moose
 
 0.05044303 2010-07-24T10:03:50Z
+ [Added / test requires]
+ - File::Find
+ - File::Temp
+ - FindBin
+ - Moose
+ - Test::Exception
+ - Test::More 0.88
+ - namespace::autoclean
+
+ [Changed / build requires]
+ - Module::Build 0.35 → 0.3601
+
+ [Changed / configure requires]
+ - Module::Build 0.35 → 0.3601
+
+ [Removed / runtime requires]
+ - Moose 0.84
+ - MooseX::Types 0.10
+ - MooseX::Types::Moose
+ - Test::Exception
+ - Test::More
+ - namespace::autoclean
 
 0.0405 2009-12-04T09:20:43Z
+ [Added / build requires]
+ - Module::Build 0.35
+
+ [Added / configure requires]
+ - Module::Build 0.35
+
+ [Added / runtime requires]
+ - MooseX::Types 0.10
+
+ [Removed / runtime requires]
+ - Find::Lib
+ - Test::use::ok
 
 0.0404 2009-07-06T03:34:10Z
 

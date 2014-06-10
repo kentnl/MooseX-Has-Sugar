@@ -1,0 +1,37 @@
+name    = MooseX-Has-Sugar
+author  = Kent Fredric <kentnl at cpan.org>
+license = Perl_5
+copyright_holder = Kent Fredric
+
+[@Author::KENTNL]
+:version = 2.016
+git_versions = 1
+normal_form  = numify
+mantissa     = 6
+twitter_hash_tags = #perl #cpan
+auto_prereqs_skip = MooseX::Types::Moose
+auto_prereqs_skip = Moose
+toolkit = eumm
+toolkit_hardness = soft
+bumpversions = 1
+copyfiles = LICENSE
+srcreadme = mkdn
+
+;version_major = 0
+;version_minor = 5
+;version_rel_year = 2009
+;version_rel_month = 5
+;version_rel_day = 15
+;version_rel_hour = 19
+;version_rel_time_zone = Pacific/Auckland
+
+[Prereqs / TestRecommends]
+MooseX::Types::Moose  = 0
+Moose                 = 0
+
+[Prereqs / DevelopRequires]
+MooseX::Types::Moose  = 0
+Moose                 = 0
+
+
+[Prereqs]
