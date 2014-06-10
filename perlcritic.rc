@@ -264,7 +264,7 @@ allowed_pragmata = diagnostics feature perlversion strict warnings utf8
 
 [Moose::RequireMakeImmutable]
 
-[NamingConventions::Capitalization]
+[-NamingConventions::Capitalization]
 
 [NamingConventions::ProhibitAmbiguousNames]
 
@@ -322,14 +322,14 @@ allowed_pragmata = diagnostics feature perlversion strict warnings utf8
 
 [Subroutines::ProhibitReturnSort]
 
-[Subroutines::ProhibitSubroutinePrototypes]
+[-Subroutines::ProhibitSubroutinePrototypes]
 
 [Subroutines::ProhibitUnusedPrivateSubroutines]
 private_name_regex = _(?!build_)\w
 
 [Subroutines::ProtectPrivateSubs]
 
-[Subroutines::RequireArgUnpacking]
+[-Subroutines::RequireArgUnpacking]
 
 [Subroutines::RequireFinalReturn]
 
