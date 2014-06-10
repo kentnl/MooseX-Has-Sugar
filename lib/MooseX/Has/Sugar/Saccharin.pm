@@ -3,7 +3,7 @@ use warnings;
 use strict;
 
 package MooseX::Has::Sugar::Saccharin;
-$MooseX::Has::Sugar::Saccharin::VERSION = '1.000000';
+$MooseX::Has::Sugar::Saccharin::VERSION = '1.000001';
 # ABSTRACT: Experimental sweetness
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -299,7 +299,7 @@ MooseX::Has::Sugar::Saccharin - Experimental sweetness
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 SYNOPSIS
 
