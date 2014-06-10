@@ -1,6 +1,8 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.000001 2014-06-10T05:18:46Z
  [00 Trivial]
  - Packaging changes
  - dist.ini cannonicalisation.
