@@ -1,10 +1,8 @@
-1.000000
- [Added / configure recommends]
- - ExtUtils::MakeMaker 6.86
+1.000001
+ [Changed / develop requires]
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.012000 → 2.016000
 
- [Added / configure requires]
- - ExtUtils::MakeMaker 6.30
-
+1.000000 2014-01-30T19:43:03Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::Git::NextRelease
  - Dist::Zilla::Plugin::Git::NextVersion::Sanitized
@@ -16,35 +14,8 @@
  - Moose
  - MooseX::Types::Moose
 
- [Added / runtime requires]
- - Sub::Exporter::Progressive
-
- [Added / test recommends]
- - CPAN::Meta
- - CPAN::Meta::Requirements 2.120900
- - ExtUtils::MakeMaker 6.86
- - Moose
- - MooseX::Types::Moose
- - Test::More 1.001002
-
- [Added / test requires]
- - ExtUtils::MakeMaker
- - File::Spec::Functions
- - List::Util
- - namespace::clean
- - version
-
  [Changed / develop requires]
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.002001 → 2.012000
-
- [Changed / test requires]
- - Test::More 1.001002 → 0.89
-
- [Removed / build requires]
- - Module::Build 0.4202
-
- [Removed / configure requires]
- - Module::Build 0.4202
 
  [Removed / develop requires]
  - Dist::Zilla::Plugin::Author::KENTNL::MinimumPerl
@@ -56,14 +27,6 @@
  - Dist::Zilla::Plugin::PruneCruft
  - Dist::Zilla::Plugin::ReportVersions::Tiny
  - version 0.9901
-
- [Removed / runtime requires]
- - Sub::Exporter
-
- [Removed / test requires]
- - Moose
- - MooseX::Types::Moose
- - namespace::autoclean
 
 0.05070422 2013-11-20T08:32:12Z
  [Added / develop requires]
@@ -121,18 +84,6 @@
  [Added / develop suggests]
  - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
 
- [Added / test requires]
- - lib
-
- [Changed / build requires]
- - Module::Build 0.4002 → 0.4202
-
- [Changed / configure requires]
- - Module::Build 0.4002 → 0.4202
-
- [Changed / test requires]
- - Test::More 0.98 → 1.001002
-
  [Removed / develop recommends]
  - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
 
@@ -142,37 +93,16 @@
  [Removed / develop suggests]
  - Dist::Zilla::PluginBundle::Author::KENTNL v1.4.3
 
- [Removed / test requires]
- - File::Find
- - File::Temp
-
 0.05070421 2012-08-03T10:25:23Z
- [Changed / build requires]
- - Module::Build 0.3601 → 0.4002
-
- [Changed / configure requires]
- - Module::Build 0.3601 → 0.4002
-
  [Changed / develop recommends]
  - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 → v1.3.0
 
  [Changed / develop suggests]
  - Dist::Zilla::PluginBundle::Author::KENTNL v1.2.0 → v1.4.3
 
- [Changed / test requires]
- - Test::More 0.88 → 0.98
-
 0.05070420 2012-02-03T03:33:11Z
- [Added / runtime requires]
- - perl 5.006
- - strict
- - warnings
-
  [Changed / develop suggests]
  - Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 → v1.2.0
-
- [Removed / test requires]
- - English
 
 0.05070419 2011-04-07T02:03:19Z
  [Added / develop recommends]
@@ -203,17 +133,7 @@
  [Added / develop suggests]
  - Dist::Zilla::PluginBundle::KENTNL 0.01017119
 
- [Added / test requires]
- - Test::Fatal
-
- [Removed / test requires]
- - FindBin
- - Test::Exception
-
 0.05046611 2010-08-16T18:30:39Z
- [Added / test requires]
- - English
- - MooseX::Types::Moose
 
 0.05044303 2010-07-24T10:03:50Z
 
