@@ -14,6 +14,8 @@ dist.ini.meta
 lib/MooseX/Has/Sugar.pm
 lib/MooseX/Has/Sugar/Minimal.pm
 lib/MooseX/Has/Sugar/Saccharin.pm
+maint-travis-ci/.gitrepo
+maint-travis-ci/.perltidyrc
 maint-travis-ci/README.mkdn
 maint-travis-ci/before_script.pl
 maint-travis-ci/branch_reset.pl
