@@ -10,6 +10,7 @@ META.yml
 Makefile.PL
 README
 dist.ini
+dist.ini.meta
 lib/MooseX/Has/Sugar.pm
 lib/MooseX/Has/Sugar/Minimal.pm
 lib/MooseX/Has/Sugar/Saccharin.pm
