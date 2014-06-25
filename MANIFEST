@@ -9,6 +9,8 @@ META.json
 META.yml
 Makefile.PL
 README
+benchmark/bench_return.pl
+benchmark/cmp_ops.sh
 dist.ini
 dist.ini.meta
 lib/MooseX/Has/Sugar.pm
