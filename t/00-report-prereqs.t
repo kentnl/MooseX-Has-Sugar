@@ -106,7 +106,7 @@ my $static_prereqs = do { my $x = {
                                     },
                       'suggests' => {
                                       'Dist::Zilla::App::Command::bakeini' => '0.001000',
-                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.016000'
+                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.016001'
                                     }
                     },
        'runtime' => {

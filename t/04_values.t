@@ -28,7 +28,9 @@ can_unok( 'T4Values::CDeclareRo', qw( ro rw required lazy lazy_build coerce weak
 
 use T4Values::DEverything;
 
-is_deeply( T4Values::DEverything->generated, T4Values::DEverything->manual, 'All Attr Expansion' );
+is_deeply( T4Values::DEverything->generated,      T4Values::DEverything->manual,      'All Attr Expansion' );
+is_deeply( T4Values::DEverything->generated_bare, T4Values::DEverything->manual_bare, 'All Attr Expansion: bare' );
+is_deeply( T4Values::DEverything->generated_rw,   T4Values::DEverything->manual_rw,   'All Attr Expansion: rw' );
 
 can_unok( 'T4Values::DEverything', qw( ro rw required lazy lazy_build coerce weak_ref auto_deref ) );
 

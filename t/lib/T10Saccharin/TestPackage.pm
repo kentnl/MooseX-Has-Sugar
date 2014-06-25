@@ -10,7 +10,12 @@ use namespace::clean -except => 'meta';
 
 has roattr => required ro Str;
 
-has rwattr => required rw Str;
+has rwattr => required rw Str, init_arg "MONSTER";
+
+has bareattr => required bare Str;
+
+has lazyroattr => lazy ro Str, default { 1 }
+,;
 
 __PACKAGE__->meta->make_immutable;
 

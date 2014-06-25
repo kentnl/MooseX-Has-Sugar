@@ -77,7 +77,7 @@
          },
          "suggests" : {
             "Dist::Zilla::App::Command::bakeini" : "0.001000",
-            "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.016000"
+            "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.016001"
          }
       },
       "runtime" : {
@@ -185,7 +185,7 @@
          "Dist::Zilla::Plugin::TestRelease" : "5.019",
          "Dist::Zilla::Plugin::Twitter" : "0.025",
          "Dist::Zilla::Plugin::UploadToCPAN" : "5.019",
-         "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.016000",
+         "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.016001",
          "ExtUtils::MakeMaker" : "6.98",
          "File::Spec::Functions" : "3.48",
          "List::Util" : "1.39",
