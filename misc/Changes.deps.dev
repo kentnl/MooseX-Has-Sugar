@@ -1,4 +1,8 @@
-1.000001
+1.000002
+ [Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.016000 → 2.016001
+
+1.000001 2014-06-10T05:18:46Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::BumpVersionAfterRelease
  - Dist::Zilla::Plugin::CopyFilesFromBuild
