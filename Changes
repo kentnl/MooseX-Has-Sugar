@@ -1,6 +1,8 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.000002 2014-07-18T23:34:10Z
  [00 Minor]
  - Misc packaging cleanups
  - Test coverage improved.
