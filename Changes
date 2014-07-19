@@ -1,5 +1,15 @@
 ﻿Revision history for MooseX-Has-Sugar
 
+1.000002 2014-07-18T23:34:10Z
+ [00 Minor]
+ - Misc packaging cleanups
+ - Test coverage improved.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 1.000001, see misc/*.deps* for details
+ - develop: (suggests: ↑2)
+ - test: +2 ↑1 (recommends: +1)
+
 1.000001 2014-06-10T05:18:46Z
  [00 Trivial]
  - Packaging changes

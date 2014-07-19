@@ -28,7 +28,7 @@ use lib "t/lib";
 use T10Saccharin::TestPackage;
 
 sub cr {
-  return T10Saccharin::TestPackage->new( roattr => 'y', rwattr => 'y' );
+  return T10Saccharin::TestPackage->new( roattr => 'y', MONSTER => 'y', bareattr => 'z' );
 }
 
 pass("Syntax Compiles");
@@ -44,4 +44,9 @@ isnt( exception { $i->roattr('x') }, undef, "RO works still" );
 is( exception { $i->rwattr('x') }, undef, 'RW works still' );
 
 is( $i->rwattr(), 'x', "RW Works as expected" );
+
+isnt( exception { $i->bareattr() }, undef, "Bare has no accessors still" );
+
+is( $i->lazyroattr(), '1', "lazy ro default works as expected" );
+
 done_testing;
