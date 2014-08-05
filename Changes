@@ -1,6 +1,9 @@
 ﻿Revision history for MooseX-Has-Sugar
 
-1.000003 2014-08-05T07:36:37Z
+1.000003 2014-08-05T07:39:26Z
+ [00 Trivial]
+ - Test::ReportVersions updated to be less fragile.
+
  [Dependencies::Stats]
  - Dependencies changed since 1.000002, see misc/*.deps* for details
  - configure: ↓1
