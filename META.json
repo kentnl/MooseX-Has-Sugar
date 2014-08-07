@@ -110,15 +110,15 @@
    "provides" : {
       "MooseX::Has::Sugar" : {
          "file" : "lib/MooseX/Has/Sugar.pm",
-         "version" : "1.000003"
+         "version" : "1.000004"
       },
       "MooseX::Has::Sugar::Minimal" : {
          "file" : "lib/MooseX/Has/Sugar/Minimal.pm",
-         "version" : "1.000003"
+         "version" : "1.000004"
       },
       "MooseX::Has::Sugar::Saccharin" : {
          "file" : "lib/MooseX/Has/Sugar/Saccharin.pm",
-         "version" : "1.000003"
+         "version" : "1.000004"
       }
    },
    "release_status" : "stable",
@@ -133,7 +133,7 @@
          "web" : "https://github.com/kentnl/MooseX-Has-Sugar"
       }
    },
-   "version" : "1.000003",
+   "version" : "1.000004",
    "x_BuiltWith" : {
       "modules" : {
          "CPAN::Meta" : "2.142060",
@@ -594,7 +594,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "1.000003-source",
+                  "tag" : "1.000004-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -665,7 +665,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : "releases",
                   "signed" : 0,
-                  "tag" : "1.000003",
+                  "tag" : "1.000004",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"

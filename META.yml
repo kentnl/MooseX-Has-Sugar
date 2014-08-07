@@ -21,13 +21,13 @@ name: MooseX-Has-Sugar
 provides:
   MooseX::Has::Sugar:
     file: lib/MooseX/Has/Sugar.pm
-    version: '1.000003'
+    version: '1.000004'
   MooseX::Has::Sugar::Minimal:
     file: lib/MooseX/Has/Sugar/Minimal.pm
-    version: '1.000003'
+    version: '1.000004'
   MooseX::Has::Sugar::Saccharin:
     file: lib/MooseX/Has/Sugar/Saccharin.pm
-    version: '1.000003'
+    version: '1.000004'
 requires:
   Carp: '0'
   Sub::Exporter::Progressive: '0'
@@ -38,7 +38,7 @@ resources:
   bugtracker: https://github.com/kentnl/MooseX-Has-Sugar/issues
   homepage: https://github.com/kentnl/MooseX-Has-Sugar
   repository: https://github.com/kentnl/MooseX-Has-Sugar.git
-version: '1.000003'
+version: '1.000004'
 x_BuiltWith:
   modules:
     CPAN::Meta: '2.142060'
@@ -407,7 +407,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: '0'
-          tag: 1.000003-source
+          tag: 1.000004-source
           tag_format: '%v-source'
           tag_message: v%v
           time_zone: local
@@ -461,7 +461,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: releases
           signed: '0'
-          tag: '1.000003'
+          tag: '1.000004'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local
