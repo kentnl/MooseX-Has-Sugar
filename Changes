@@ -1,6 +1,8 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.000003 2014-08-07T11:02:32Z
  [00 Trivial]
  - Test::ReportVersions updated to be less fragile.
 
