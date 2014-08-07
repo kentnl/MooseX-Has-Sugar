@@ -1,6 +1,26 @@
 This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL dependencies for all phases (configure/build/runtime/test/develop)
 
-1.000002
+1.000003
+ [Changed / configure requires]
+ - ExtUtils::MakeMaker 6.30 → 0
+
+ [Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.016004 → 2.016007
+
+ [Changed / test recommends]
+ - CPAN::Meta 0 → 2.120900
+
+ [Removed / test recommends]
+ - CPAN::Meta::Prereqs
+ - CPAN::Meta::Requirements 2.120900
+
+ [Removed / test requires]
+ - File::Spec::Functions
+ - List::Util
+ - Scalar::Util
+ - version 0.77
+
+1.000002 2014-07-18T23:34:10Z
  [Added / test recommends]
  - CPAN::Meta::Prereqs
 
@@ -296,6 +316,16 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - Test::use::ok
 
 0.0404 2009-07-06T03:34:10Z
+ [Added / runtime requires]
+ - Carp
+ - Find::Lib
+ - Moose 0.84
+ - MooseX::Types::Moose
+ - Sub::Exporter
+ - Test::Exception
+ - Test::More
+ - Test::use::ok
+ - namespace::autoclean
 
 0.0403 2009-06-30T13:56:07Z
 

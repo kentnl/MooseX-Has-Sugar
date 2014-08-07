@@ -1,5 +1,15 @@
 ﻿Revision history for MooseX-Has-Sugar
 
+1.000003 2014-08-07T11:02:32Z
+ [00 Trivial]
+ - Test::ReportVersions updated to be less fragile.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 1.000002, see misc/*.deps* for details
+ - configure: ↓1
+ - develop: (suggests: ↑1)
+ - test: -4 (recommends: ↑1 -2)
+
 1.000002 2014-07-18T23:34:10Z
  [00 Minor]
  - Misc packaging cleanups
@@ -223,6 +233,10 @@
 
 0.0404 2009-07-06T03:34:10Z
  - Added Saccharin, experimental sugars.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.0403, see misc/*.deps* for details
+ - runtime: +9
 
 0.0403 2009-06-30T13:56:07Z
  - Using Dist::Zilla's handy author-tests feature
