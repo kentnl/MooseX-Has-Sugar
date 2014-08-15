@@ -5,6 +5,7 @@
  - CPANDAY!
  - no code changes.
  - metadata updates.
+ - whitespace adjustment
 
  [Dependencies::Stats]
  - Dependencies changed since 1.000003, see misc/*.deps* for details
@@ -12,6 +13,9 @@
 
  [Metadata]
  - Add 1x contributor to x_contributors.
+
+ [Misc]
+ - Source POD moved down to produce less whitespace at the top of generated source.
 
 1.000003 2014-08-07T11:02:32Z
  [00 Trivial]

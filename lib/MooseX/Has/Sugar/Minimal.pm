@@ -18,29 +18,6 @@ use Sub::Exporter::Progressive -setup => {
   },
 };
 
-=head1 SYNOPSIS
-
-This is a legacy variant of L<Sugar|MooseX::Has::Sugar> which only exports C<ro>
-and C<rw> functions, the way L<MooseX::Has::Sugar|MooseX::Has::Sugar> used to with C<:is>;
-
-    use MooseX::Types::Moose qw( Str );
-    use MooseX::Has::Sugar::Minimal;
-
-    has foo => (
-            isa => Str,
-            is  => ro,
-            required => 1,
-    );
-    has bar => (
-            isa => Str,
-            is => rw,
-            lazy_build => 1,
-    );
-
-All functions are exported by L<The Sub::Exporter Module|Sub::Exporter>.
-
-=cut
-
 =export_group C<:default>
 
 Exports L</:is>
@@ -82,6 +59,27 @@ sub rw() {
 }
 
 1;
+
+=head1 SYNOPSIS
+
+This is a legacy variant of L<Sugar|MooseX::Has::Sugar> which only exports C<ro>
+and C<rw> functions, the way L<MooseX::Has::Sugar|MooseX::Has::Sugar> used to with C<:is>;
+
+    use MooseX::Types::Moose qw( Str );
+    use MooseX::Has::Sugar::Minimal;
+
+    has foo => (
+            isa => Str,
+            is  => ro,
+            required => 1,
+    );
+    has bar => (
+            isa => Str,
+            is => rw,
+            lazy_build => 1,
+    );
+
+All functions are exported by L<The Sub::Exporter Module|Sub::Exporter>.
 
 =head1 CONFLICTS
 

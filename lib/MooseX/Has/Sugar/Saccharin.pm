@@ -10,19 +10,6 @@ our $VERSION = '1.000004';
 
 # AUTHORITY
 
-=head1 SYNOPSIS
-
-This is a highly experimental sugaring module. No Guarantees of stability.
-
-    use MooseX::Types::Moose qw( :all );
-    has name   => rw Str, default { 1 };
-    has suffix => required rw Str;
-    has 'suffix', required rw Str;
-
-Your choice.
-
-=cut
-
 use Carp ();
 use Sub::Exporter::Progressive (
   -setup => {
@@ -46,8 +33,6 @@ L</ro>, L</rw>, L</required>, L</lazy>, L</lazy_build>, L</coerce>, L</weak_ref>
 L</bare>, L</default>, L</init_arg>, L</predicate>, L</clearer>, L</builder>, L</trigger>
 
 =back
-
-=cut
 
 =export_function C<bare>
 
@@ -288,6 +273,17 @@ sub trigger(&) {
   );
 }
 1;
+
+=head1 SYNOPSIS
+
+This is a highly experimental sugaring module. No Guarantees of stability.
+
+    use MooseX::Types::Moose qw( :all );
+    has name   => rw Str, default { 1 };
+    has suffix => required rw Str;
+    has 'suffix', required rw Str;
+
+Your choice.
 
 =head1 CONFLICTS
 

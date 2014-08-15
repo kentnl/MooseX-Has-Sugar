@@ -10,6 +10,111 @@ our $VERSION = '1.000004';
 
 # AUTHORITY
 
+use Carp ();
+use Sub::Exporter::Progressive (
+  -setup => {
+    exports => [ 'ro', 'rw', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', 'bare', ],
+    groups  => {
+      isattrs => [ 'ro',       'rw',   'bare', ],
+      attrs   => [ 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
+      default => [ 'ro',       'rw',   'bare', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
+    },
+  },
+);
+
+=export_function C<bare>
+
+returns C<('is','bare')>
+
+=cut
+
+sub bare() {
+  return ( 'is', 'bare' );
+}
+
+=export_function C<ro>
+
+returns C<('is','ro')>
+
+=cut
+
+sub ro() {
+  return ( 'is', 'ro' );
+}
+
+=export_function C<rw>
+
+returns C<('is','rw')>
+
+=cut
+
+sub rw() {
+  return ( 'is', 'rw' );
+}
+
+=export_function C<required>
+
+returns C<('required',1)>
+
+=cut
+
+sub required() {
+  return ( 'required', 1 );
+}
+
+=export_function C<lazy>
+
+returns C<('lazy',1)>
+
+=cut
+
+sub lazy() {
+  return ( 'lazy', 1 );
+}
+
+=export_function C<lazy_build>
+
+returns C<('lazy_build',1)>
+
+=cut
+
+sub lazy_build() {
+  return ( 'lazy_build', 1 );
+}
+
+=export_function C<weak_ref>
+
+returns C<('weak_ref',1)>
+
+=cut
+
+sub weak_ref() {
+  return ( 'weak_ref', 1 );
+}
+
+=export_function C<coerce>
+
+returns C<('coerce',1)>
+
+B<WARNING:> Conflict with L<MooseX::Types|MooseX::Types> and L<Moose::Util::TypeConstraints|Moose::Util::TypeConstraints>, see L</CONFLICTS>.
+
+=cut
+
+sub coerce() {
+  return ( 'coerce', 1 );
+}
+
+=export_function C<auto_deref>
+
+returns C<('auto_deref',1)>
+
+=cut
+
+sub auto_deref() {
+  return ( 'auto_deref', 1 );
+}
+1;
+
 =head1 SYNOPSIS
 
 L<Moose|Moose> C<has> syntax is generally fine, but sometimes one gets bothered with
@@ -122,20 +227,6 @@ Or even
             lazy_build,
     );
 
-=cut
-
-use Carp ();
-use Sub::Exporter::Progressive (
-  -setup => {
-    exports => [ 'ro', 'rw', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', 'bare', ],
-    groups  => {
-      isattrs => [ 'ro',       'rw',   'bare', ],
-      attrs   => [ 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
-      default => [ 'ro',       'rw',   'bare', 'required', 'lazy', 'lazy_build', 'coerce', 'weak_ref', 'auto_deref', ],
-    },
-  },
-);
-
 =export_group C<:default>
 
 Since 0.0300, this exports all our syntax, the same as C<:attrs> C<:isattrs>.
@@ -176,101 +267,6 @@ B<DEPRECATED>. See L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal> for the same 
 B<DEPRECATED>, just use L</:default> or do
 
     use MooseX::Has::Sugar;
-
-=cut
-
-=export_function C<bare>
-
-returns C<('is','bare')>
-
-=cut
-
-sub bare() {
-  return ( 'is', 'bare' );
-}
-
-=export_function C<ro>
-
-returns C<('is','ro')>
-
-=cut
-
-sub ro() {
-  return ( 'is', 'ro' );
-}
-
-=export_function C<rw>
-
-returns C<('is','rw')>
-
-=cut
-
-sub rw() {
-  return ( 'is', 'rw' );
-}
-
-=export_function C<required>
-
-returns C<('required',1)>
-
-=cut
-
-sub required() {
-  return ( 'required', 1 );
-}
-
-=export_function C<lazy>
-
-returns C<('lazy',1)>
-
-=cut
-
-sub lazy() {
-  return ( 'lazy', 1 );
-}
-
-=export_function C<lazy_build>
-
-returns C<('lazy_build',1)>
-
-=cut
-
-sub lazy_build() {
-  return ( 'lazy_build', 1 );
-}
-
-=export_function C<weak_ref>
-
-returns C<('weak_ref',1)>
-
-=cut
-
-sub weak_ref() {
-  return ( 'weak_ref', 1 );
-}
-
-=export_function C<coerce>
-
-returns C<('coerce',1)>
-
-B<WARNING:> Conflict with L<MooseX::Types|MooseX::Types> and L<Moose::Util::TypeConstraints|Moose::Util::TypeConstraints>, see L</CONFLICTS>.
-
-=cut
-
-sub coerce() {
-  return ( 'coerce', 1 );
-}
-
-=export_function C<auto_deref>
-
-returns C<('auto_deref',1)>
-
-=cut
-
-sub auto_deref() {
-  return ( 'auto_deref', 1 );
-}
-1;
 
 =head1 CONFLICTS
 
