@@ -1,9 +1,16 @@
 ﻿Revision history for MooseX-Has-Sugar
 
-1.000004 2014-08-07T12:26:46Z
+1.000004 2014-08-15T03:16:39Z
+ [00 Trivial]
+ - no code changes.
+ - metadata updates.
+
  [Dependencies::Stats]
  - Dependencies changed since 1.000003, see misc/*.deps* for details
  - develop: +1 (suggests: ↑1)
+
+ [Metadata]
+ - Add 1x contributor to x_contributors.
 
 1.000003 2014-08-07T11:02:32Z
  [00 Trivial]

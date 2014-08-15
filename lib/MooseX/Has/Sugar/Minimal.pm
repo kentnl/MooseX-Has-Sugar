@@ -34,29 +34,6 @@ use Sub::Exporter::Progressive -setup => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 sub bare() {
   return ('bare');
 }

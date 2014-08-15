@@ -10,19 +10,6 @@ our $VERSION = '1.000004';
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 use Carp ();
 use Sub::Exporter::Progressive (
   -setup => {
@@ -35,8 +22,6 @@ use Sub::Exporter::Progressive (
     },
   },
 );
-
-
 
 
 

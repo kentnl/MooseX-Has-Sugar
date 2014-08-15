@@ -28,7 +28,7 @@ sub Gamma {
       'is'    => 'rw',
       default => sub {
         return 1;
-        }
+      }
     },
     mx => {
       rw 'Str', default { 1 }
