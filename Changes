@@ -1,7 +1,8 @@
 ﻿Revision history for MooseX-Has-Sugar
 
-1.000004 2014-08-15T03:22:42Z
+1.000004 2014-08-15T22:09:02Z
  [00 Trivial]
+ - CPANDAY!
  - no code changes.
  - metadata updates.
  - whitespace adjustment
@@ -18,7 +19,7 @@
 
 1.000003 2014-08-07T11:02:32Z
  [00 Trivial]
- - Test::ReportVersions updated to be less fragile.
+ - Test::ReportPrereqs updated to be less fragile.
 
  [Dependencies::Stats]
  - Dependencies changed since 1.000002, see misc/*.deps* for details
