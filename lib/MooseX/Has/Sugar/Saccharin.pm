@@ -4,24 +4,11 @@ use strict;
 
 package MooseX::Has::Sugar::Saccharin;
 
-our $VERSION = '1.000003';
+our $VERSION = '1.000004';
 
 # ABSTRACT: Experimental sweetness
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 use Carp ();
 use Sub::Exporter::Progressive (
@@ -35,8 +22,6 @@ use Sub::Exporter::Progressive (
     },
   },
 );
-
-
 
 
 
@@ -301,7 +286,7 @@ MooseX::Has::Sugar::Saccharin - Experimental sweetness
 
 =head1 VERSION
 
-version 1.000003
+version 1.000004
 
 =head1 SYNOPSIS
 

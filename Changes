@@ -1,8 +1,25 @@
 ﻿Revision history for MooseX-Has-Sugar
 
+1.000004 2014-08-15T22:10:31Z
+ [00 Trivial]
+ - CPANDAY!
+ - no code changes.
+ - metadata updates.
+ - whitespace adjustment
+
+ [Dependencies::Stats]
+ - Dependencies changed since 1.000003, see misc/*.deps* for details
+ - develop: +1 (suggests: ↑1)
+
+ [Metadata]
+ - Add 1x contributor to x_contributors.
+
+ [Misc]
+ - Source POD moved down to produce less whitespace at the top of generated source.
+
 1.000003 2014-08-07T11:02:32Z
  [00 Trivial]
- - Test::ReportVersions updated to be less fragile.
+ - Test::ReportPrereqs updated to be less fragile.
 
  [Dependencies::Stats]
  - Dependencies changed since 1.000002, see misc/*.deps* for details

@@ -4,125 +4,11 @@ use strict;
 
 package MooseX::Has::Sugar;
 
-our $VERSION = '1.000003';
+our $VERSION = '1.000004';
 
 # ABSTRACT: Sugar Syntax for moose 'has' fields
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 use Carp ();
 use Sub::Exporter::Progressive (
@@ -135,49 +21,6 @@ use Sub::Exporter::Progressive (
     },
   },
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -284,7 +127,7 @@ MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
 
 =head1 VERSION
 
-version 1.000003
+version 1.000004
 
 =head1 SYNOPSIS
 

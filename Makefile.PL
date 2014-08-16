@@ -33,7 +33,7 @@ my %WriteMakefileArgs = (
     "lib" => 0,
     "namespace::clean" => 0
   },
-  "VERSION" => "1.000003",
+  "VERSION" => "1.000004",
   "test" => {
     "TESTS" => "t/*.t t/00-compile/*.t"
   }
