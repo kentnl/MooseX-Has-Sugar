@@ -82,7 +82,7 @@ do { my $x = {
                                      'ExtUtils::MakeMaker' => '6.98',
                                      'Moose' => '0',
                                      'MooseX::Types::Moose' => '0',
-                                     'Test::More' => '1.001003'
+                                     'Test::More' => '1.001006'
                                    },
                    'requires' => {
                                    'ExtUtils::MakeMaker' => '0',
