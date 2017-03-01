@@ -8,7 +8,7 @@ use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Sugar Syntax for moose 'has' fields",
-  "AUTHOR" => "Kent Fredric <kentnl at cpan.org>",
+  "AUTHOR" => "Kent Fredric <kentnl\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0
   },
@@ -26,7 +26,7 @@ my %WriteMakefileArgs = (
     "ExtUtils::MakeMaker" => 0,
     "File::Spec" => 0,
     "Test::Fatal" => 0,
-    "Test::More" => "0.89",
+    "Test::More" => 0,
     "lib" => 0,
     "namespace::clean" => 0
   },
@@ -43,7 +43,7 @@ my %FallbackPrereqs = (
   "File::Spec" => 0,
   "Sub::Exporter::Progressive" => 0,
   "Test::Fatal" => 0,
-  "Test::More" => "0.89",
+  "Test::More" => 0,
   "lib" => 0,
   "namespace::clean" => 0,
   "strict" => 0,
