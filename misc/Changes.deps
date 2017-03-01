@@ -7,6 +7,9 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
  [Added / test requires]
  - perl 5.006
 
+ [Changed / test requires]
+ - Test::More 0.89 → 0
+
 1.000004 2014-08-15T22:10:31Z
 
 1.000003 2014-08-07T11:02:32Z
