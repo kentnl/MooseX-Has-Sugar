@@ -1,6 +1,8 @@
 Revision history for MooseX-Has-Sugar
 
-1.000005 2017-03-01T01:20:07Z 54b7508
+1.000005 2017-03-01T04:15:00Z 41847c1
+ - Minor doc restructuring
+
  [Bugfix]
  - Regenerate compile tests to avoid .-in-@INC issues
  - Closes https://github.com/kentnl/MooseX-Has-Sugar/issues/2
