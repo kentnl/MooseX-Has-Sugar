@@ -1,6 +1,8 @@
-﻿Revision history for {{$dist->name}}
+Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.000005 2017-03-01T04:15:00Z 41847c1
  - Minor doc restructuring
 
  [Bugfix]

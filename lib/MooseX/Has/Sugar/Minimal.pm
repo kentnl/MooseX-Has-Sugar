@@ -4,7 +4,7 @@ use strict;
 
 package MooseX::Has::Sugar::Minimal;
 
-our $VERSION = '1.000005';
+our $VERSION = '1.000006';
 
 # ABSTRACT: Less Sugary Syntax for moose 'has' fields
 
