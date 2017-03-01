@@ -1,6 +1,8 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ - Minor doc restructuring
+
  [Bugfix]
  - Regenerate compile tests to avoid .-in-@INC issues
  - Closes https://github.com/kentnl/MooseX-Has-Sugar/issues/2

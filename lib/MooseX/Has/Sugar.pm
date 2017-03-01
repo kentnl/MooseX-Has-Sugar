@@ -117,31 +117,54 @@ sub auto_deref() {
 
 =head1 SYNOPSIS
 
-L<Moose|Moose> C<has> syntax is generally fine, but sometimes one gets bothered with
-the constant typing of string quotes for things. L<The MooseX::Types module|MooseX::Types> exists and in
-many ways reduces the need for constant string creation.
+  use Moose;
+  use MooseX::Types::Moose;
+  use MooseX::Has::Sugar;
 
-=head2 Primary Benefits at a Glance
+  has attrname      => ( isa => Str, ro, required   );
+  has otherattrname => ( isa => Str, rw, lazy_build );
 
-=head3 Reduced Typing in C<has> declarations.
+=head1 DESCRIPTION
+
+C<MooseX::Has::Sugar> and its related modules provide simple, short-hand, bare-word functions that
+act as declarative macros for greatly compacting L<< C<Moose>|Moose >> C<has> declarations, in a similar
+way to those provided by the declarative subroutines provided by L<< C<MooseX::Types>|MooseX::Types >>
+
+This provides:
+
+=over 4
+
+=item * Less typing when defining C<has> constraints
+
+=item * Faster, more skim-readable blocks of C<has> constraints
+
+=item * Perl Language Level syntax validation at compile time
+
+=back
+
+=begin :prose
+
+=head1 BENEFITS
+
+=head2 Reduced Typing in C<has> declarations.
 
 The constant need to type C<=E<gt>> and C<''> is fine for one-off cases, but
 the instant you have more than about 4 attributes it starts to get annoying.
 
-=head3 More compact declarations.
+=head2 More compact declarations.
 
 Reduces much of the redundant typing in most cases, which makes your life easier,
 and makes it take up less visual space, which makes it faster to read.
 
-=head3 No String Worries
+=head2 No String Worries
 
 Strings are often problematic, due to white-space etc. Noted that if you do
 happen to mess them up, Moose should at I<least> warn you that you've done
 something daft. Using this alleviates that worry.
 
-=head2 Before this Module.
+=head1 COMPARISONS
 
-=head3 Classical Moose
+=head2 Classical Moose
 
     has foo => (
             isa => 'Str',
@@ -155,7 +178,7 @@ something daft. Using this alleviates that worry.
             lazy_build => 1,
     );
 
-=head3 Lazy Evil way to do it:
+=head2 Lazy Evil way to do it:
 
 B<PLEASE DO NOT DO THIS>
 
@@ -188,9 +211,9 @@ Or even
     has foo => ( isa => Str, ro,  required, );
     has bar => ( isa => Str, rw,  lazy_build, );
 
-=head2 Alternative Forms
+=head1 ALTERNATIVE FORMS
 
-=head3 Basic C<is> Expansion Only
+=head2 Basic C<is> Expansion Only
 
 ( using L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal> instead )
 
@@ -208,7 +231,7 @@ Or even
             lazy_build => 1,
     );
 
-=head3 Attribute Expansions with Basic Expansions
+=head2 Attribute Expansions with Basic Expansions
 
 ( Combining parts of this and L<::Sugar::Minimal|MooseX::Has::Sugar::Minimal> )
 
@@ -226,6 +249,8 @@ Or even
             is => rw,
             lazy_build,
     );
+
+=end :prose
 
 =export_group C<:default>
 

@@ -8,31 +8,46 @@ version 1.000005
 
 # SYNOPSIS
 
-[Moose](https://metacpan.org/pod/Moose) `has` syntax is generally fine, but sometimes one gets bothered with
-the constant typing of string quotes for things. [The MooseX::Types module](https://metacpan.org/pod/MooseX::Types) exists and in
-many ways reduces the need for constant string creation.
+    use Moose;
+    use MooseX::Types::Moose;
+    use MooseX::Has::Sugar;
 
-## Primary Benefits at a Glance
+    has attrname      => ( isa => Str, ro, required   );
+    has otherattrname => ( isa => Str, rw, lazy_build );
 
-### Reduced Typing in `has` declarations.
+# DESCRIPTION
+
+`MooseX::Has::Sugar` and its related modules provide simple, short-hand, bare-word functions that
+act as declarative macros for greatly compacting [`Moose`](https://metacpan.org/pod/Moose) `has` declarations, in a similar
+way to those provided by the declarative subroutines provided by [`MooseX::Types`](https://metacpan.org/pod/MooseX::Types)
+
+This provides:
+
+- Less typing when defining `has` constraints
+- Faster, more skim-readable blocks of `has` constraints
+- Perl Language Level syntax validation at compile time
+
+# BENEFITS
+
+## Reduced Typing in `has` declarations.
 
 The constant need to type `=>` and `''` is fine for one-off cases, but
 the instant you have more than about 4 attributes it starts to get annoying.
 
-### More compact declarations.
+## More compact declarations.
 
 Reduces much of the redundant typing in most cases, which makes your life easier,
 and makes it take up less visual space, which makes it faster to read.
 
-### No String Worries
+## No String Worries
 
 Strings are often problematic, due to white-space etc. Noted that if you do
 happen to mess them up, Moose should at _least_ warn you that you've done
 something daft. Using this alleviates that worry.
 
-## Before this Module.
+# COMPARISONS
 
-### Classical Moose
+## Classical Moose
 
     has foo => (
             isa => 'Str',
@@ -46,7 +61,7 @@ something daft. Using this alleviates that worry.
             lazy_build => 1,
     );
 
-### Lazy Evil way to do it:
+## Lazy Evil way to do it:
 
 **PLEASE DO NOT DO THIS**
 
@@ -79,9 +94,9 @@ Or even
     has foo => ( isa => Str, ro,  required, );
     has bar => ( isa => Str, rw,  lazy_build, );
 
-## Alternative Forms
+# ALTERNATIVE FORMS
 
-### Basic `is` Expansion Only
+## Basic `is` Expansion Only
 
 ( using [::Sugar::Minimal](https://metacpan.org/pod/MooseX::Has::Sugar::Minimal) instead )
 
@@ -99,7 +114,7 @@ Or even
             lazy_build => 1,
     );
 
-### Attribute Expansions with Basic Expansions
+## Attribute Expansions with Basic Expansions
 
 ( Combining parts of this and [::Sugar::Minimal](https://metacpan.org/pod/MooseX::Has::Sugar::Minimal) )
 
