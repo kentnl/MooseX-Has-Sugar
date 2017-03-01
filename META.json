@@ -128,15 +128,15 @@
    "provides" : {
       "MooseX::Has::Sugar" : {
          "file" : "lib/MooseX/Has/Sugar.pm",
-         "version" : "1.000005"
+         "version" : "1.000006"
       },
       "MooseX::Has::Sugar::Minimal" : {
          "file" : "lib/MooseX/Has/Sugar/Minimal.pm",
-         "version" : "1.000005"
+         "version" : "1.000006"
       },
       "MooseX::Has::Sugar::Saccharin" : {
          "file" : "lib/MooseX/Has/Sugar/Saccharin.pm",
-         "version" : "1.000005"
+         "version" : "1.000006"
       }
    },
    "release_status" : "stable",
@@ -151,7 +151,7 @@
          "web" : "https://github.com/kentnl/MooseX-Has-Sugar"
       }
    },
-   "version" : "1.000005",
+   "version" : "1.000006",
    "x_BuiltWith" : {
       "external_file" : "misc/built_with.json"
    },
@@ -673,7 +673,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "1.000005-source",
+                  "tag" : "1.000006-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v"
                },
@@ -767,7 +767,7 @@
                   "branch" : "releases",
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "1.000005",
+                  "tag" : "1.000006",
                   "tag_format" : "%v",
                   "tag_message" : "v%v"
                },
