@@ -1,5 +1,5 @@
 # This test was generated for <lib/MooseX/Has/Sugar/Minimal.pm>
-# using by Dist::Zilla::Plugin::Test::Compile::PerFile ( @Author::KENTNL/Test::Compile::PerFile ) version 0.003902
+# using by Dist::Zilla::Plugin::Test::Compile::PerFile ( @Author::KENTNL/Test::Compile::PerFile ) version 0.004000
 # with template 02-raw-require.t.tpl
 my $file = "MooseX/Has/Sugar/Minimal.pm";
 my $err;

@@ -4,7 +4,7 @@ use strict;
 
 package MooseX::Has::Sugar;
 
-our $VERSION = '1.000005'; # TRIAL
+our $VERSION = '1.000006';
 
 # ABSTRACT: Sugar Syntax for moose 'has' fields
 
@@ -127,7 +127,7 @@ MooseX::Has::Sugar - Sugar Syntax for moose 'has' fields
 
 =head1 VERSION
 
-version 1.000005
+version 1.000006
 
 =head1 SYNOPSIS
 
