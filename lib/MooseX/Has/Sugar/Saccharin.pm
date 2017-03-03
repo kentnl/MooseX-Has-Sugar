@@ -4,7 +4,7 @@ use strict;
 
 package MooseX::Has::Sugar::Saccharin;
 
-our $VERSION = '1.000006';
+our $VERSION = '1.000007';
 
 # ABSTRACT: Experimental sweetness
 
@@ -286,7 +286,7 @@ MooseX::Has::Sugar::Saccharin - Experimental sweetness
 
 =head1 VERSION
 
-version 1.000006
+version 1.000007
 
 =head1 SYNOPSIS
 
