@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ - No Changes since 1.000005, non-trial release
 
 1.000005 2017-03-01T04:15:00Z 41847c1
  - Minor doc restructuring
